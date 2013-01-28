@@ -1,0 +1,11 @@
+//
+// Prefix header for all source files of the 'baas.io-ios-sdk' target in the 'baas.io-ios-sdk' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <SystemConfiguration/SystemConfiguration.h>
+    #import <MobileCoreServices/MobileCoreServices.h> // or #import <CoreServices/CoreServices.h> for Mac OS X
+#endif
+
+#define NSLog( s, ... ) NSLog( @"<%@:(%d)> %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )

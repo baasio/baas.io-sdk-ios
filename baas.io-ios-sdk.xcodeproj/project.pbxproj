@@ -1,0 +1,809 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		AF9EF364167EC19100FDFDDF /* baas.io */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AF9EF367167EC19100FDFDDF /* Build configuration list for PBXAggregateTarget "baas.io" */;
+			buildPhases = (
+				AF9EF369167EC1B800FDFDDF /* ShellScript */,
+				AF9EF36A167EC20A00FDFDDF /* CopyFiles */,
+			);
+			dependencies = (
+				AF6036BB167F08CB0048B249 /* PBXTargetDependency */,
+			);
+			name = baas.io;
+			productName = "baas.io-ios-framework";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		27F2E0195C0A4CC3D57C60FD /* FileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F2E22B2FFF3122F1CDEA60 /* FileTest.m */; };
+		27F2E0637105682525BF88B4 /* BaasioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F2E73FD4A3C015370DF7A3 /* BaasioFile.m */; };
+		27F2E88853FB7BECDC14F23C /* Baas.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2E2A118B72209D0AB96AF /* Baas.h */; };
+		27F2E8F0565C911B20E307BE /* BaasioFile.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2EC430E1D01B6CAEE6DF4 /* BaasioFile.h */; };
+		27F2EBB68B17F0A0788E3393 /* BaasioPush.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2E4EEDBB127A400CFBA8C /* BaasioPush.h */; };
+		27F2EF1CA361D24482B8CDE9 /* BaasioPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F2EE6A9471C3869236C589 /* BaasioPush.m */; };
+		AF09CBCB16AF6C930064DB66 /* NSError+baasio.m in Sources */ = {isa = PBXBuildFile; fileRef = AF09CBC916AF6C930064DB66 /* NSError+baasio.m */; };
+		AF09CBCE16AF6CAE0064DB66 /* NSError+baasio.m in Sources */ = {isa = PBXBuildFile; fileRef = AF09CBC916AF6C930064DB66 /* NSError+baasio.m */; };
+		AF244A9016772041009524B8 /* BaasioGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AF244A8F16772041009524B8 /* BaasioGroup.m */; };
+		AF2575CC168A9E530037919C /* BaasioHelp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFFFBBF61682B0FD006CAEF1 /* BaasioHelp.h */; };
+		AF2575CE168A9F090037919C /* BaasioHelp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFFFBBF61682B0FD006CAEF1 /* BaasioHelp.h */; };
+		AF26A27F166667F5006A7225 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E418165A2D850021AA4C /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AF3A5BA9169BF201006501CB /* NetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3A5BA7169BF201006501CB /* NetworkActivityIndicatorManager.m */; };
+		AF48E9B716B2D235005F78A0 /* EntityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF48E9A916B2D235005F78A0 /* EntityTest.m */; };
+		AF48E9B816B2D235005F78A0 /* GroupTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF48E9AA16B2D235005F78A0 /* GroupTest.m */; };
+		AF48E9B916B2D235005F78A0 /* HelprTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF48E9AC16B2D235005F78A0 /* HelprTest.m */; };
+		AF48E9BA16B2D235005F78A0 /* PushTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF48E9AD16B2D235005F78A0 /* PushTest.m */; };
+		AF48E9BB16B2D235005F78A0 /* QueryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF48E9AE16B2D235005F78A0 /* QueryTest.m */; };
+		AF48E9BC16B2D235005F78A0 /* RelationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF48E9AF16B2D235005F78A0 /* RelationTest.m */; };
+		AF48E9BD16B2D235005F78A0 /* UserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF48E9B016B2D235005F78A0 /* UserTest.m */; };
+		AF515B5E16703F930005F743 /* BaasioMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AF515B5D16703F930005F743 /* BaasioMessage.m */; };
+		AF76584816788C1C0017C217 /* BaasioRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF76584716788C1C0017C217 /* BaasioRequest.m */; };
+		AF76585E16789EC80017C217 /* BaasioNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF76585D16789EC70017C217 /* BaasioNetworkManager.m */; };
+		AF76AE0616B146AF00F82916 /* NSError+baasio.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF09CBCA16AF6C930064DB66 /* NSError+baasio.h */; };
+		AF9EF304167EBDE700FDFDDF /* Baasio.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFB9E3E1165A2BDC0021AA4C /* Baasio.h */; };
+		AF9EF305167EBDE700FDFDDF /* BaasioRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF76584616788C1C0017C217 /* BaasioRequest.h */; };
+		AF9EF306167EBDE700FDFDDF /* BaasioEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFB9E3E3165A2BDC0021AA4C /* BaasioEntity.h */; };
+		AF9EF307167EBDE700FDFDDF /* BaasioQuery.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFB9E3E5165A2BDC0021AA4C /* BaasioQuery.h */; };
+		AF9EF308167EBDE700FDFDDF /* BaasioUser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFB9E3E7165A2BDC0021AA4C /* BaasioUser.h */; };
+		AF9EF309167EBDE700FDFDDF /* BaasioMessage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF515B5C16703F930005F743 /* BaasioMessage.h */; };
+		AF9EF30B167EBDE700FDFDDF /* BaasioGroup.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF244A8E16772041009524B8 /* BaasioGroup.h */; };
+		AF9EF36B167EC22E00FDFDDF /* Baas.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2E2A118B72209D0AB96AF /* Baas.h */; };
+		AF9EF36C167EC22E00FDFDDF /* Baasio.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFB9E3E1165A2BDC0021AA4C /* Baasio.h */; };
+		AF9EF36D167EC22E00FDFDDF /* BaasioRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF76584616788C1C0017C217 /* BaasioRequest.h */; };
+		AF9EF36E167EC22E00FDFDDF /* BaasioEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFB9E3E3165A2BDC0021AA4C /* BaasioEntity.h */; };
+		AF9EF36F167EC22E00FDFDDF /* BaasioQuery.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFB9E3E5165A2BDC0021AA4C /* BaasioQuery.h */; };
+		AF9EF370167EC22E00FDFDDF /* BaasioUser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFB9E3E7165A2BDC0021AA4C /* BaasioUser.h */; };
+		AF9EF371167EC22E00FDFDDF /* BaasioPush.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2E4EEDBB127A400CFBA8C /* BaasioPush.h */; };
+		AF9EF372167EC22E00FDFDDF /* BaasioMessage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF515B5C16703F930005F743 /* BaasioMessage.h */; };
+		AF9EF373167EC22E00FDFDDF /* BaasioFile.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2EC430E1D01B6CAEE6DF4 /* BaasioFile.h */; };
+		AF9EF375167EC22E00FDFDDF /* BaasioGroup.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF244A8E16772041009524B8 /* BaasioGroup.h */; };
+		AFB9E3E9165A2BDC0021AA4C /* Baasio.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E3E2165A2BDC0021AA4C /* Baasio.m */; };
+		AFB9E3EA165A2BDC0021AA4C /* BaasioEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E3E4165A2BDC0021AA4C /* BaasioEntity.m */; };
+		AFB9E3EB165A2BDC0021AA4C /* BaasioQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E3E6165A2BDC0021AA4C /* BaasioQuery.m */; };
+		AFB9E3EC165A2BDC0021AA4C /* BaasioUser.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E3E8165A2BDC0021AA4C /* BaasioUser.m */; };
+		AFB9E40E165A2D7B0021AA4C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E3FC165A2D7B0021AA4C /* AFHTTPClient.m */; };
+		AFB9E40F165A2D7B0021AA4C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E3FE165A2D7B0021AA4C /* AFHTTPRequestOperation.m */; };
+		AFB9E410165A2D7B0021AA4C /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E400165A2D7B0021AA4C /* AFImageRequestOperation.m */; };
+		AFB9E411165A2D7B0021AA4C /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E402165A2D7B0021AA4C /* AFJSONRequestOperation.m */; };
+		AFB9E412165A2D7B0021AA4C /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E404165A2D7B0021AA4C /* AFNetworkActivityIndicatorManager.m */; };
+		AFB9E413165A2D7B0021AA4C /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E407165A2D7B0021AA4C /* AFPropertyListRequestOperation.m */; };
+		AFB9E414165A2D7B0021AA4C /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E409165A2D7B0021AA4C /* AFURLConnectionOperation.m */; };
+		AFB9E415165A2D7B0021AA4C /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E40B165A2D7B0021AA4C /* AFXMLRequestOperation.m */; };
+		AFB9E416165A2D7B0021AA4C /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E40D165A2D7B0021AA4C /* UIImageView+AFNetworking.m */; };
+		AFB9E419165A2D850021AA4C /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E418165A2D850021AA4C /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AFD93F0B165A2B0E00FC9ED0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD93F0A165A2B0E00FC9ED0 /* Foundation.framework */; };
+		AFD93F1A165A2B0E00FC9ED0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD93F19165A2B0E00FC9ED0 /* SenTestingKit.framework */; };
+		AFD93F1D165A2B0E00FC9ED0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD93F0A165A2B0E00FC9ED0 /* Foundation.framework */; };
+		AFD93F20165A2B0E00FC9ED0 /* libbaas.io-ios-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD93F07165A2B0E00FC9ED0 /* libbaas.io-ios-sdk.a */; };
+		AFD93F26165A2B0E00FC9ED0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AFD93F24165A2B0E00FC9ED0 /* InfoPlist.strings */; };
+		AFF46360166E2C4800866306 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF429CCA165B4B0E001C78B5 /* UIKit.framework */; };
+		AFF46361166E2C5100866306 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF429CCA165B4B0E001C78B5 /* UIKit.framework */; };
+		AFF46362166E2C6C00866306 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4FDDA3166E28CF0048310C /* SystemConfiguration.framework */; };
+		AFF46363166E2C7100866306 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4FDDA5166E28E80048310C /* MobileCoreServices.framework */; };
+		AFF46364166E2C8700866306 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4FDDA3166E28CF0048310C /* SystemConfiguration.framework */; };
+		AFF46365166E2C8C00866306 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4FDDA5166E28E80048310C /* MobileCoreServices.framework */; };
+		AFFFBBF81682B0FD006CAEF1 /* BaasioHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFFBBF71682B0FD006CAEF1 /* BaasioHelp.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AF6036BA167F08CB0048B249 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AFD93EFE165A2B0E00FC9ED0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFD93F06165A2B0E00FC9ED0;
+			remoteInfo = "baas.io-ios-sdk";
+		};
+		AFD93F1E165A2B0E00FC9ED0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AFD93EFE165A2B0E00FC9ED0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFD93F06165A2B0E00FC9ED0;
+			remoteInfo = "baas.io-ios-sdk";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AF9EF36A167EC20A00FDFDDF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Headers";
+			dstSubfolderSpec = 0;
+			files = (
+				AF76AE0616B146AF00F82916 /* NSError+baasio.h in CopyFiles */,
+				AF2575CC168A9E530037919C /* BaasioHelp.h in CopyFiles */,
+				AF9EF36B167EC22E00FDFDDF /* Baas.h in CopyFiles */,
+				AF9EF36C167EC22E00FDFDDF /* Baasio.h in CopyFiles */,
+				AF9EF36D167EC22E00FDFDDF /* BaasioRequest.h in CopyFiles */,
+				AF9EF36E167EC22E00FDFDDF /* BaasioEntity.h in CopyFiles */,
+				AF9EF36F167EC22E00FDFDDF /* BaasioQuery.h in CopyFiles */,
+				AF9EF370167EC22E00FDFDDF /* BaasioUser.h in CopyFiles */,
+				AF9EF371167EC22E00FDFDDF /* BaasioPush.h in CopyFiles */,
+				AF9EF372167EC22E00FDFDDF /* BaasioMessage.h in CopyFiles */,
+				AF9EF373167EC22E00FDFDDF /* BaasioFile.h in CopyFiles */,
+				AF9EF375167EC22E00FDFDDF /* BaasioGroup.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFD93F05165A2B0E00FC9ED0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = header;
+			dstSubfolderSpec = 16;
+			files = (
+				AF2575CE168A9F090037919C /* BaasioHelp.h in CopyFiles */,
+				AF9EF304167EBDE700FDFDDF /* Baasio.h in CopyFiles */,
+				AF9EF305167EBDE700FDFDDF /* BaasioRequest.h in CopyFiles */,
+				AF9EF306167EBDE700FDFDDF /* BaasioEntity.h in CopyFiles */,
+				AF9EF307167EBDE700FDFDDF /* BaasioQuery.h in CopyFiles */,
+				AF9EF308167EBDE700FDFDDF /* BaasioUser.h in CopyFiles */,
+				AF9EF309167EBDE700FDFDDF /* BaasioMessage.h in CopyFiles */,
+				AF9EF30B167EBDE700FDFDDF /* BaasioGroup.h in CopyFiles */,
+				27F2EBB68B17F0A0788E3393 /* BaasioPush.h in CopyFiles */,
+				27F2E8F0565C911B20E307BE /* BaasioFile.h in CopyFiles */,
+				27F2E88853FB7BECDC14F23C /* Baas.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		27F2E22B2FFF3122F1CDEA60 /* FileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTest.m; sourceTree = "<group>"; };
+		27F2E2A118B72209D0AB96AF /* Baas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baas.h; sourceTree = "<group>"; };
+		27F2E4EEDBB127A400CFBA8C /* BaasioPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasioPush.h; sourceTree = "<group>"; };
+		27F2E73FD4A3C015370DF7A3 /* BaasioFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioFile.m; sourceTree = "<group>"; };
+		27F2EC430E1D01B6CAEE6DF4 /* BaasioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasioFile.h; sourceTree = "<group>"; };
+		27F2EDE6DD9FE4D30839706E /* FileTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTest.h; sourceTree = "<group>"; };
+		27F2EE6A9471C3869236C589 /* BaasioPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioPush.m; sourceTree = "<group>"; };
+		AF09CBC916AF6C930064DB66 /* NSError+baasio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+baasio.m"; path = "category/NSError+baasio.m"; sourceTree = "<group>"; };
+		AF09CBCA16AF6C930064DB66 /* NSError+baasio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+baasio.h"; path = "category/NSError+baasio.h"; sourceTree = "<group>"; };
+		AF244A8E16772041009524B8 /* BaasioGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasioGroup.h; sourceTree = "<group>"; };
+		AF244A8F16772041009524B8 /* BaasioGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioGroup.m; sourceTree = "<group>"; };
+		AF3A5BA7169BF201006501CB /* NetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkActivityIndicatorManager.m; path = network/NetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		AF3A5BA8169BF201006501CB /* NetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkActivityIndicatorManager.h; path = network/NetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		AF429CCA165B4B0E001C78B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AF48E9A916B2D235005F78A0 /* EntityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityTest.m; sourceTree = "<group>"; };
+		AF48E9AA16B2D235005F78A0 /* GroupTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTest.m; sourceTree = "<group>"; };
+		AF48E9AB16B2D235005F78A0 /* HelprTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelprTest.h; sourceTree = "<group>"; };
+		AF48E9AC16B2D235005F78A0 /* HelprTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelprTest.m; sourceTree = "<group>"; };
+		AF48E9AD16B2D235005F78A0 /* PushTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTest.m; sourceTree = "<group>"; };
+		AF48E9AE16B2D235005F78A0 /* QueryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryTest.m; sourceTree = "<group>"; };
+		AF48E9AF16B2D235005F78A0 /* RelationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelationTest.m; sourceTree = "<group>"; };
+		AF48E9B016B2D235005F78A0 /* UserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTest.m; sourceTree = "<group>"; };
+		AF48E9B116B2D235005F78A0 /* RelationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelationTest.h; sourceTree = "<group>"; };
+		AF48E9B216B2D235005F78A0 /* EntityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityTest.h; sourceTree = "<group>"; };
+		AF48E9B316B2D235005F78A0 /* GroupTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTest.h; sourceTree = "<group>"; };
+		AF48E9B416B2D235005F78A0 /* PushTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTest.h; sourceTree = "<group>"; };
+		AF48E9B516B2D235005F78A0 /* QueryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryTest.h; sourceTree = "<group>"; };
+		AF48E9B616B2D235005F78A0 /* UserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTest.h; sourceTree = "<group>"; };
+		AF4FDDA3166E28CF0048310C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AF4FDDA5166E28E80048310C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		AF515B5C16703F930005F743 /* BaasioMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasioMessage.h; sourceTree = "<group>"; };
+		AF515B5D16703F930005F743 /* BaasioMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioMessage.m; sourceTree = "<group>"; };
+		AF76584616788C1C0017C217 /* BaasioRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasioRequest.h; sourceTree = "<group>"; };
+		AF76584716788C1C0017C217 /* BaasioRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioRequest.m; sourceTree = "<group>"; };
+		AF76585C16789EC70017C217 /* BaasioNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasioNetworkManager.h; sourceTree = "<group>"; };
+		AF76585D16789EC70017C217 /* BaasioNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioNetworkManager.m; sourceTree = "<group>"; };
+		AF87FF5016B24ABE0095C815 /* UnitTestConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitTestConstant.h; sourceTree = "<group>"; };
+		AFB28B3B16AE889100A97240 /* Baasio+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Baasio+Private.h"; path = "category/Baasio+Private.h"; sourceTree = "<group>"; };
+		AFB9E3E1165A2BDC0021AA4C /* Baasio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baasio.h; sourceTree = "<group>"; };
+		AFB9E3E2165A2BDC0021AA4C /* Baasio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baasio.m; sourceTree = "<group>"; };
+		AFB9E3E3165A2BDC0021AA4C /* BaasioEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasioEntity.h; sourceTree = "<group>"; };
+		AFB9E3E4165A2BDC0021AA4C /* BaasioEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioEntity.m; sourceTree = "<group>"; };
+		AFB9E3E5165A2BDC0021AA4C /* BaasioQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasioQuery.h; sourceTree = "<group>"; };
+		AFB9E3E6165A2BDC0021AA4C /* BaasioQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioQuery.m; sourceTree = "<group>"; };
+		AFB9E3E7165A2BDC0021AA4C /* BaasioUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasioUser.h; sourceTree = "<group>"; };
+		AFB9E3E8165A2BDC0021AA4C /* BaasioUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioUser.m; sourceTree = "<group>"; };
+		AFB9E3FB165A2D7B0021AA4C /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPClient.h; path = submodules/AFNetworking.git/AFNetworking/AFHTTPClient.h; sourceTree = "<group>"; };
+		AFB9E3FC165A2D7B0021AA4C /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPClient.m; path = submodules/AFNetworking.git/AFNetworking/AFHTTPClient.m; sourceTree = "<group>"; };
+		AFB9E3FD165A2D7B0021AA4C /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = submodules/AFNetworking.git/AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		AFB9E3FE165A2D7B0021AA4C /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = submodules/AFNetworking.git/AFNetworking/AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		AFB9E3FF165A2D7B0021AA4C /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFImageRequestOperation.h; path = submodules/AFNetworking.git/AFNetworking/AFImageRequestOperation.h; sourceTree = "<group>"; };
+		AFB9E400165A2D7B0021AA4C /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFImageRequestOperation.m; path = submodules/AFNetworking.git/AFNetworking/AFImageRequestOperation.m; sourceTree = "<group>"; };
+		AFB9E401165A2D7B0021AA4C /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFJSONRequestOperation.h; path = submodules/AFNetworking.git/AFNetworking/AFJSONRequestOperation.h; sourceTree = "<group>"; };
+		AFB9E402165A2D7B0021AA4C /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFJSONRequestOperation.m; path = submodules/AFNetworking.git/AFNetworking/AFJSONRequestOperation.m; sourceTree = "<group>"; };
+		AFB9E403165A2D7B0021AA4C /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = submodules/AFNetworking.git/AFNetworking/AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		AFB9E404165A2D7B0021AA4C /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = submodules/AFNetworking.git/AFNetworking/AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		AFB9E405165A2D7B0021AA4C /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = submodules/AFNetworking.git/AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
+		AFB9E406165A2D7B0021AA4C /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFPropertyListRequestOperation.h; path = submodules/AFNetworking.git/AFNetworking/AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
+		AFB9E407165A2D7B0021AA4C /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFPropertyListRequestOperation.m; path = submodules/AFNetworking.git/AFNetworking/AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
+		AFB9E408165A2D7B0021AA4C /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = submodules/AFNetworking.git/AFNetworking/AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		AFB9E409165A2D7B0021AA4C /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = submodules/AFNetworking.git/AFNetworking/AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		AFB9E40A165A2D7B0021AA4C /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFXMLRequestOperation.h; path = submodules/AFNetworking.git/AFNetworking/AFXMLRequestOperation.h; sourceTree = "<group>"; };
+		AFB9E40B165A2D7B0021AA4C /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFXMLRequestOperation.m; path = submodules/AFNetworking.git/AFNetworking/AFXMLRequestOperation.m; sourceTree = "<group>"; };
+		AFB9E40C165A2D7B0021AA4C /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "submodules/AFNetworking.git/AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		AFB9E40D165A2D7B0021AA4C /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "submodules/AFNetworking.git/AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		AFB9E417165A2D850021AA4C /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = submodules/JSONKit.git/JSONKit.h; sourceTree = "<group>"; };
+		AFB9E418165A2D850021AA4C /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = submodules/JSONKit.git/JSONKit.m; sourceTree = "<group>"; };
+		AFD93F07165A2B0E00FC9ED0 /* libbaas.io-ios-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libbaas.io-ios-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFD93F0A165A2B0E00FC9ED0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AFD93F0E165A2B0E00FC9ED0 /* baas.io-ios-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "baas.io-ios-sdk-Prefix.pch"; sourceTree = "<group>"; };
+		AFD93F18165A2B0E00FC9ED0 /* baas.io-ios-sdkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "baas.io-ios-sdkTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFD93F19165A2B0E00FC9ED0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		AFD93F23165A2B0E00FC9ED0 /* baas.io-ios-sdkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "baas.io-ios-sdkTests-Info.plist"; sourceTree = "<group>"; };
+		AFD93F25165A2B0E00FC9ED0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AFFFBBF61682B0FD006CAEF1 /* BaasioHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasioHelp.h; sourceTree = "<group>"; };
+		AFFFBBF71682B0FD006CAEF1 /* BaasioHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioHelp.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AFD93F04165A2B0E00FC9ED0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFF46363166E2C7100866306 /* MobileCoreServices.framework in Frameworks */,
+				AFF46362166E2C6C00866306 /* SystemConfiguration.framework in Frameworks */,
+				AFF46360166E2C4800866306 /* UIKit.framework in Frameworks */,
+				AFD93F0B165A2B0E00FC9ED0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFD93F14165A2B0E00FC9ED0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFF46365166E2C8C00866306 /* MobileCoreServices.framework in Frameworks */,
+				AFF46364166E2C8700866306 /* SystemConfiguration.framework in Frameworks */,
+				AFF46361166E2C5100866306 /* UIKit.framework in Frameworks */,
+				AFD93F1A165A2B0E00FC9ED0 /* SenTestingKit.framework in Frameworks */,
+				AFD93F1D165A2B0E00FC9ED0 /* Foundation.framework in Frameworks */,
+				AFD93F20165A2B0E00FC9ED0 /* libbaas.io-ios-sdk.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF3A5B9B169BF15C006501CB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AF76584616788C1C0017C217 /* BaasioRequest.h */,
+				AF76584716788C1C0017C217 /* BaasioRequest.m */,
+				AF3A5BA8169BF201006501CB /* NetworkActivityIndicatorManager.h */,
+				AF3A5BA7169BF201006501CB /* NetworkActivityIndicatorManager.m */,
+				AF76585C16789EC70017C217 /* BaasioNetworkManager.h */,
+				AF76585D16789EC70017C217 /* BaasioNetworkManager.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		AFB28B3816AE888800A97240 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				AFB28B3B16AE889100A97240 /* Baasio+Private.h */,
+				AF09CBCA16AF6C930064DB66 /* NSError+baasio.h */,
+				AF09CBC916AF6C930064DB66 /* NSError+baasio.m */,
+			);
+			name = category;
+			sourceTree = "<group>";
+		};
+		AFB9E3F7165A2D550021AA4C /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				AFB9E417165A2D850021AA4C /* JSONKit.h */,
+				AFB9E418165A2D850021AA4C /* JSONKit.m */,
+			);
+			name = JSONKit;
+			sourceTree = "<group>";
+		};
+		AFB9E3F9165A2D610021AA4C /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				AFB9E3FB165A2D7B0021AA4C /* AFHTTPClient.h */,
+				AFB9E3FC165A2D7B0021AA4C /* AFHTTPClient.m */,
+				AFB9E3FD165A2D7B0021AA4C /* AFHTTPRequestOperation.h */,
+				AFB9E3FE165A2D7B0021AA4C /* AFHTTPRequestOperation.m */,
+				AFB9E3FF165A2D7B0021AA4C /* AFImageRequestOperation.h */,
+				AFB9E400165A2D7B0021AA4C /* AFImageRequestOperation.m */,
+				AFB9E401165A2D7B0021AA4C /* AFJSONRequestOperation.h */,
+				AFB9E402165A2D7B0021AA4C /* AFJSONRequestOperation.m */,
+				AFB9E403165A2D7B0021AA4C /* AFNetworkActivityIndicatorManager.h */,
+				AFB9E404165A2D7B0021AA4C /* AFNetworkActivityIndicatorManager.m */,
+				AFB9E405165A2D7B0021AA4C /* AFNetworking.h */,
+				AFB9E406165A2D7B0021AA4C /* AFPropertyListRequestOperation.h */,
+				AFB9E407165A2D7B0021AA4C /* AFPropertyListRequestOperation.m */,
+				AFB9E408165A2D7B0021AA4C /* AFURLConnectionOperation.h */,
+				AFB9E409165A2D7B0021AA4C /* AFURLConnectionOperation.m */,
+				AFB9E40A165A2D7B0021AA4C /* AFXMLRequestOperation.h */,
+				AFB9E40B165A2D7B0021AA4C /* AFXMLRequestOperation.m */,
+				AFB9E40C165A2D7B0021AA4C /* UIImageView+AFNetworking.h */,
+				AFB9E40D165A2D7B0021AA4C /* UIImageView+AFNetworking.m */,
+			);
+			name = AFNetworking;
+			sourceTree = "<group>";
+		};
+		AFD93EFC165A2B0E00FC9ED0 = {
+			isa = PBXGroup;
+			children = (
+				AFD93F0C165A2B0E00FC9ED0 /* baas.io-ios-sdk */,
+				AFD93F21165A2B0E00FC9ED0 /* baas.io-ios-sdkTests */,
+				AFD93F09165A2B0E00FC9ED0 /* Frameworks */,
+				AFD93F08165A2B0E00FC9ED0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AFD93F08165A2B0E00FC9ED0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AFD93F07165A2B0E00FC9ED0 /* libbaas.io-ios-sdk.a */,
+				AFD93F18165A2B0E00FC9ED0 /* baas.io-ios-sdkTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AFD93F09165A2B0E00FC9ED0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AFB9E3F9165A2D610021AA4C /* AFNetworking */,
+				AFB9E3F7165A2D550021AA4C /* JSONKit */,
+				AF4FDDA5166E28E80048310C /* MobileCoreServices.framework */,
+				AF4FDDA3166E28CF0048310C /* SystemConfiguration.framework */,
+				AF429CCA165B4B0E001C78B5 /* UIKit.framework */,
+				AFD93F0A165A2B0E00FC9ED0 /* Foundation.framework */,
+				AFD93F19165A2B0E00FC9ED0 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AFD93F0C165A2B0E00FC9ED0 /* baas.io-ios-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				AFB28B3816AE888800A97240 /* category */,
+				AF3A5B9B169BF15C006501CB /* Network */,
+				27F2E2A118B72209D0AB96AF /* Baas.h */,
+				AFB9E3E1165A2BDC0021AA4C /* Baasio.h */,
+				AFB9E3E2165A2BDC0021AA4C /* Baasio.m */,
+				AFB9E3E3165A2BDC0021AA4C /* BaasioEntity.h */,
+				AFB9E3E4165A2BDC0021AA4C /* BaasioEntity.m */,
+				AFB9E3E5165A2BDC0021AA4C /* BaasioQuery.h */,
+				AFB9E3E6165A2BDC0021AA4C /* BaasioQuery.m */,
+				AFB9E3E7165A2BDC0021AA4C /* BaasioUser.h */,
+				AFB9E3E8165A2BDC0021AA4C /* BaasioUser.m */,
+				27F2E4EEDBB127A400CFBA8C /* BaasioPush.h */,
+				27F2EE6A9471C3869236C589 /* BaasioPush.m */,
+				AF515B5C16703F930005F743 /* BaasioMessage.h */,
+				AF515B5D16703F930005F743 /* BaasioMessage.m */,
+				27F2EC430E1D01B6CAEE6DF4 /* BaasioFile.h */,
+				27F2E73FD4A3C015370DF7A3 /* BaasioFile.m */,
+				AF244A8E16772041009524B8 /* BaasioGroup.h */,
+				AF244A8F16772041009524B8 /* BaasioGroup.m */,
+				AFFFBBF61682B0FD006CAEF1 /* BaasioHelp.h */,
+				AFFFBBF71682B0FD006CAEF1 /* BaasioHelp.m */,
+				AFD93F0D165A2B0E00FC9ED0 /* Supporting Files */,
+			);
+			path = "baas.io-ios-sdk";
+			sourceTree = "<group>";
+		};
+		AFD93F0D165A2B0E00FC9ED0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AFD93F0E165A2B0E00FC9ED0 /* baas.io-ios-sdk-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AFD93F21165A2B0E00FC9ED0 /* baas.io-ios-sdkTests */ = {
+			isa = PBXGroup;
+			children = (
+				AF87FF5016B24ABE0095C815 /* UnitTestConstant.h */,
+				AF48E9AB16B2D235005F78A0 /* HelprTest.h */,
+				AF48E9AC16B2D235005F78A0 /* HelprTest.m */,
+				AF48E9AD16B2D235005F78A0 /* PushTest.m */,
+				AF48E9B116B2D235005F78A0 /* RelationTest.h */,
+				AF48E9AF16B2D235005F78A0 /* RelationTest.m */,
+				AF48E9B216B2D235005F78A0 /* EntityTest.h */,
+				AF48E9A916B2D235005F78A0 /* EntityTest.m */,
+				AF48E9B316B2D235005F78A0 /* GroupTest.h */,
+				AF48E9AA16B2D235005F78A0 /* GroupTest.m */,
+				AF48E9B416B2D235005F78A0 /* PushTest.h */,
+				AF48E9B516B2D235005F78A0 /* QueryTest.h */,
+				AF48E9AE16B2D235005F78A0 /* QueryTest.m */,
+				AF48E9B616B2D235005F78A0 /* UserTest.h */,
+				AF48E9B016B2D235005F78A0 /* UserTest.m */,
+				27F2EDE6DD9FE4D30839706E /* FileTest.h */,
+				27F2E22B2FFF3122F1CDEA60 /* FileTest.m */,
+				AFD93F22165A2B0E00FC9ED0 /* Supporting Files */,
+			);
+			path = "baas.io-ios-sdkTests";
+			sourceTree = "<group>";
+		};
+		AFD93F22165A2B0E00FC9ED0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AFD93F23165A2B0E00FC9ED0 /* baas.io-ios-sdkTests-Info.plist */,
+				AFD93F24165A2B0E00FC9ED0 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AFD93F06165A2B0E00FC9ED0 /* baas.io-ios-sdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFD93F2C165A2B0E00FC9ED0 /* Build configuration list for PBXNativeTarget "baas.io-ios-sdk" */;
+			buildPhases = (
+				AFD93F03165A2B0E00FC9ED0 /* Sources */,
+				AFD93F04165A2B0E00FC9ED0 /* Frameworks */,
+				AFD93F05165A2B0E00FC9ED0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "baas.io-ios-sdk";
+			productName = "baas.io-ios-sdk";
+			productReference = AFD93F07165A2B0E00FC9ED0 /* libbaas.io-ios-sdk.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		AFD93F17165A2B0E00FC9ED0 /* baas.io-ios-sdkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFD93F2F165A2B0E00FC9ED0 /* Build configuration list for PBXNativeTarget "baas.io-ios-sdkTests" */;
+			buildPhases = (
+				AFD93F13165A2B0E00FC9ED0 /* Sources */,
+				AFD93F14165A2B0E00FC9ED0 /* Frameworks */,
+				AFD93F15165A2B0E00FC9ED0 /* Resources */,
+				AFD93F16165A2B0E00FC9ED0 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AFD93F1F165A2B0E00FC9ED0 /* PBXTargetDependency */,
+			);
+			name = "baas.io-ios-sdkTests";
+			productName = "baas.io-ios-sdkTests";
+			productReference = AFD93F18165A2B0E00FC9ED0 /* baas.io-ios-sdkTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AFD93EFE165A2B0E00FC9ED0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = kth;
+			};
+			buildConfigurationList = AFD93F01165A2B0E00FC9ED0 /* Build configuration list for PBXProject "baas.io-ios-sdk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AFD93EFC165A2B0E00FC9ED0;
+			productRefGroup = AFD93F08165A2B0E00FC9ED0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AFD93F06165A2B0E00FC9ED0 /* baas.io-ios-sdk */,
+				AFD93F17165A2B0E00FC9ED0 /* baas.io-ios-sdkTests */,
+				AF9EF364167EC19100FDFDDF /* baas.io */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AFD93F15165A2B0E00FC9ED0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFD93F26165A2B0E00FC9ED0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AF9EF369167EC1B800FDFDDF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"BUILD DIRECTORY ${BUILD_DIR}\"\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphonesimulator -target ${PROJECT_NAME} -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphonesimulator\n\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphoneos -target ${PROJECT_NAME} -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphoneos\n\n\n\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/lib${PROJECT_NAME}.a\" &&\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${PROJECT_NAME}.a\" &&\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\" &&\nUNIVERSAL_LIBRARY_PATH=\"${UNIVERSAL_LIBRARY_DIR}/${PRODUCT_NAME}\" &&\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${PRODUCT_NAME}.framework\" &&\n\n\n# Create framework directory structure.\nrm -rf \"${FRAMEWORK}\" &&\nmkdir -p \"${UNIVERSAL_LIBRARY_DIR}\" &&\nmkdir -p \"${FRAMEWORK}/Versions/A/Headers\" &&\nmkdir -p \"${FRAMEWORK}/Versions/A/Resources\" &&\n\n# Generate universal binary for the device and simulator.\nlipo \"${SIMULATOR_LIBRARY_PATH}\" \"${DEVICE_LIBRARY_PATH}\" -create -output \"${UNIVERSAL_LIBRARY_PATH}\" &&\n\n# Move files to appropriate locations in framework paths.\ncp \"${UNIVERSAL_LIBRARY_PATH}\" \"${FRAMEWORK}/Versions/A\" &&\nln -s \"A\" \"${FRAMEWORK}/Versions/Current\" &&\nln -s \"Versions/Current/Headers\" \"${FRAMEWORK}/Headers\" &&\nln -s \"Versions/Current/Resources\" \"${FRAMEWORK}/Resources\" &&\nln -s \"Versions/Current/${PRODUCT_NAME}\" \"${FRAMEWORK}/${PRODUCT_NAME}\"\n\n";
+		};
+		AFD93F16165A2B0E00FC9ED0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AFD93F03165A2B0E00FC9ED0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFB9E3E9165A2BDC0021AA4C /* Baasio.m in Sources */,
+				AFB9E3EA165A2BDC0021AA4C /* BaasioEntity.m in Sources */,
+				AFB9E3EB165A2BDC0021AA4C /* BaasioQuery.m in Sources */,
+				AFB9E3EC165A2BDC0021AA4C /* BaasioUser.m in Sources */,
+				AFB9E40E165A2D7B0021AA4C /* AFHTTPClient.m in Sources */,
+				AFB9E40F165A2D7B0021AA4C /* AFHTTPRequestOperation.m in Sources */,
+				AFB9E410165A2D7B0021AA4C /* AFImageRequestOperation.m in Sources */,
+				AFB9E411165A2D7B0021AA4C /* AFJSONRequestOperation.m in Sources */,
+				AFB9E412165A2D7B0021AA4C /* AFNetworkActivityIndicatorManager.m in Sources */,
+				AFB9E413165A2D7B0021AA4C /* AFPropertyListRequestOperation.m in Sources */,
+				AFB9E414165A2D7B0021AA4C /* AFURLConnectionOperation.m in Sources */,
+				AFB9E415165A2D7B0021AA4C /* AFXMLRequestOperation.m in Sources */,
+				AFB9E416165A2D7B0021AA4C /* UIImageView+AFNetworking.m in Sources */,
+				AFB9E419165A2D850021AA4C /* JSONKit.m in Sources */,
+				27F2EF1CA361D24482B8CDE9 /* BaasioPush.m in Sources */,
+				27F2E0637105682525BF88B4 /* BaasioFile.m in Sources */,
+				AF515B5E16703F930005F743 /* BaasioMessage.m in Sources */,
+				AF244A9016772041009524B8 /* BaasioGroup.m in Sources */,
+				AF76584816788C1C0017C217 /* BaasioRequest.m in Sources */,
+				AF76585E16789EC80017C217 /* BaasioNetworkManager.m in Sources */,
+				AFFFBBF81682B0FD006CAEF1 /* BaasioHelp.m in Sources */,
+				AF3A5BA9169BF201006501CB /* NetworkActivityIndicatorManager.m in Sources */,
+				AF09CBCB16AF6C930064DB66 /* NSError+baasio.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFD93F13165A2B0E00FC9ED0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF09CBCE16AF6CAE0064DB66 /* NSError+baasio.m in Sources */,
+				AF26A27F166667F5006A7225 /* JSONKit.m in Sources */,
+				27F2E0195C0A4CC3D57C60FD /* FileTest.m in Sources */,
+				AF48E9B716B2D235005F78A0 /* EntityTest.m in Sources */,
+				AF48E9B816B2D235005F78A0 /* GroupTest.m in Sources */,
+				AF48E9B916B2D235005F78A0 /* HelprTest.m in Sources */,
+				AF48E9BA16B2D235005F78A0 /* PushTest.m in Sources */,
+				AF48E9BB16B2D235005F78A0 /* QueryTest.m in Sources */,
+				AF48E9BC16B2D235005F78A0 /* RelationTest.m in Sources */,
+				AF48E9BD16B2D235005F78A0 /* UserTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AF6036BB167F08CB0048B249 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AFD93F06165A2B0E00FC9ED0 /* baas.io-ios-sdk */;
+			targetProxy = AF6036BA167F08CB0048B249 /* PBXContainerItemProxy */;
+		};
+		AFD93F1F165A2B0E00FC9ED0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AFD93F06165A2B0E00FC9ED0 /* baas.io-ios-sdk */;
+			targetProxy = AFD93F1E165A2B0E00FC9ED0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AFD93F24165A2B0E00FC9ED0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AFD93F25165A2B0E00FC9ED0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AF9EF365167EC19100FDFDDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					i386,
+					armv6,
+				);
+				GCC_THUMB_SUPPORT = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AF9EF366167EC19100FDFDDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					i386,
+					armv6,
+				);
+				GCC_THUMB_SUPPORT = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AFD93F2A165A2B0E00FC9ED0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AFD93F2B165A2B0E00FC9ED0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AFD93F2D165A2B0E00FC9ED0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/baas_io_ios_sdk.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "baas.io-ios-sdk/baas.io-ios-sdk-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		AFD93F2E165A2B0E00FC9ED0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/baas_io_ios_sdk.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "baas.io-ios-sdk/baas.io-ios-sdk-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		AFD93F30165A2B0E00FC9ED0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "baas.io-ios-sdk/baas.io-ios-sdk-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					UNIT_TEST,
+				);
+				INFOPLIST_FILE = "baas.io-ios-sdkTests/baas.io-ios-sdkTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		AFD93F31165A2B0E00FC9ED0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "baas.io-ios-sdk/baas.io-ios-sdk-Prefix.pch";
+				INFOPLIST_FILE = "baas.io-ios-sdkTests/baas.io-ios-sdkTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF9EF367167EC19100FDFDDF /* Build configuration list for PBXAggregateTarget "baas.io" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF9EF365167EC19100FDFDDF /* Debug */,
+				AF9EF366167EC19100FDFDDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFD93F01165A2B0E00FC9ED0 /* Build configuration list for PBXProject "baas.io-ios-sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFD93F2A165A2B0E00FC9ED0 /* Debug */,
+				AFD93F2B165A2B0E00FC9ED0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFD93F2C165A2B0E00FC9ED0 /* Build configuration list for PBXNativeTarget "baas.io-ios-sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFD93F2D165A2B0E00FC9ED0 /* Debug */,
+				AFD93F2E165A2B0E00FC9ED0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFD93F2F165A2B0E00FC9ED0 /* Build configuration list for PBXNativeTarget "baas.io-ios-sdkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFD93F30165A2B0E00FC9ED0 /* Debug */,
+				AFD93F31165A2B0E00FC9ED0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AFD93EFE165A2B0E00FC9ED0 /* Project object */;
+}
