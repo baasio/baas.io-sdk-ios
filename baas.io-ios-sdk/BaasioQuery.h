@@ -13,7 +13,7 @@ typedef enum {
 
 /**
  A bass.io Framework Query Object.
-*/
+ */
 @interface BaasioQuery : NSObject
 /**
  queryWithCollection
@@ -34,10 +34,10 @@ typedef enum {
 + (BaasioQuery *)queryWithRelationship:(NSString *)name;
 
 /**
- projectionIn
+ setProjectionIn
  @param projectionIn projectionIn
  */
--(void)projectionIn:(NSString *)projectionIn;
+-(void)setProjectionIn:(NSString *)projectionIn;
 
 /**
  setWheres
@@ -97,7 +97,7 @@ typedef enum {
  @param failureBlock failureBlock
  */
 -(BaasioRequest *)nextInBackground:(void (^)(NSArray *objects))successBlock
-                       failureBlock:(void (^)(NSError *error))failureBlock;
+                      failureBlock:(void (^)(NSError *error))failureBlock;
 /**
  prev
  @param error error
@@ -110,7 +110,7 @@ typedef enum {
  @param failureBlock failureBlock
  */
 -(BaasioRequest *)prevInBackground:(void (^)(NSArray *objects))successBlock
-                       failureBlock:(void (^)(NSError *error))failureBlock;
+                      failureBlock:(void (^)(NSError *error))failureBlock;
 
 /**
  query
@@ -124,5 +124,5 @@ typedef enum {
  @param failureBlock failureBlock
  */
 -(BaasioRequest *)queryInBackground:(void (^)(NSArray *objects))successBlock
-                failureBlock:(void (^)(NSError *error))failureBlock;
+                       failureBlock:(void (^)(NSError *error))failureBlock;
 @end

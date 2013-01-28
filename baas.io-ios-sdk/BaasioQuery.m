@@ -8,7 +8,7 @@
 #import "BaasioNetworkManager.h"
 
 @implementation BaasioQuery {
-
+    
     NSString *_collectionName;
     NSString *_projectionIn;
     NSString *_wheres;
@@ -16,7 +16,7 @@
     NSString* _group;
     
     NSMutableArray *_cursors;
-
+    
     BaasioQuerySortOrder _order;
     
     int _limit;
@@ -64,8 +64,8 @@
 //-(void)setRelation:(BaasioRelation*)relation;
 
 
--(void)projectionIn:(NSString *)projectionIn{
-    projectionIn = projectionIn;
+-(void)setProjectionIn:(NSString *)projectionIn{
+    _projectionIn = projectionIn;
 }
 -(void)setWheres:(NSString *)wheres{
     _wheres = wheres;
@@ -108,33 +108,33 @@
 
 
 -(NSString *)description {
-
+    
     NSString *ql = @"select ";
-
+    
     if (_projectionIn != nil) {
         ql= [ql stringByAppendingString:_projectionIn];
     } else {
         ql= [ql stringByAppendingString:@"*"];
     }
-
+    
     if (_wheres != nil) {
         ql= [ql stringByAppendingFormat:@" where %@", _wheres];
     }
-
+    
     if (_orderKey != nil) {
         ql= [ql stringByAppendingFormat:@" order by %@ %@", _orderKey, (_order == BaasioQuerySortOrderDESC) ? @"desc" : @"asc"];
     }
-
+    
     NSString *_sql = [NSString stringWithFormat:@"?ql=%@", [ql stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     if (_limit != 0 ||_limit != 10){
         _sql = [_sql stringByAppendingFormat:@"&limit=%i", _limit];
     }
-
-//    if (_cursors[_pos] != nil){
+    
+    //    if (_cursors[_pos] != nil){
     if (_pos != -1){
         _sql = [_sql stringByAppendingFormat:@"&cursor=%@", _cursors[_pos] ];
     }
-
+    
     return _sql;
 }
 
@@ -145,16 +145,16 @@
     if (_group != nil) {
         prefixPath = [NSString stringWithFormat:@"groups/%@/users", _group];
     }
-
+    
     NSString *path = [prefixPath stringByAppendingString:self.description];
-
+    
     return [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
                                                            withMethod:@"GET"
                                                                params:nil
                                                                 error:error];
 }
 -(BaasioRequest *)queryInBackground:(void (^)(NSArray *objects))successBlock
-                failureBlock:(void (^)(NSError *error))failureBlock{
+                       failureBlock:(void (^)(NSError *error))failureBlock{
     
     NSString *prefixPath = _collectionName;
     if (_group != nil) {
@@ -162,26 +162,26 @@
     }
     
     NSString *path = [prefixPath stringByAppendingString:self.description];
-
+    
     return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
-                                withMethod:@"GET"
-                                    params:nil
-                                   success:^(id result){
-                                       NSDictionary *response = (NSDictionary *)result;
-
-                                       NSString *cursor = response[@"cursor"];
-                                       if (cursor != nil) {
-                                           _cursors[++_pos] = response[@"cursor"];
-                                           NSLog(@"%i == %@", _pos, _cursors[_pos]);
-                                       }else{
-                                           NSLog(@"---");
-                                       }
-                                       
-                                       NSArray *objects = [NSArray arrayWithArray:response[@"entities"]];
-                                       successBlock(objects);
-                                       
-                                   }
-                                   failure:failureBlock];
+                                                       withMethod:@"GET"
+                                                           params:nil
+                                                          success:^(id result){
+                                                              NSDictionary *response = (NSDictionary *)result;
+                                                              
+                                                              NSString *cursor = response[@"cursor"];
+                                                              if (cursor != nil) {
+                                                                  _cursors[++_pos] = response[@"cursor"];
+                                                                  NSLog(@"%i == %@", _pos, _cursors[_pos]);
+                                                              }else{
+                                                                  NSLog(@"---");
+                                                              }
+                                                              
+                                                              NSArray *objects = [NSArray arrayWithArray:response[@"entities"]];
+                                                              successBlock(objects);
+                                                              
+                                                          }
+                                                          failure:failureBlock];
 }
 
 -(NSArray *)next:(NSError**)error
@@ -190,15 +190,15 @@
     if(![self hasMoreEntities]){
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"Next entities isn't exist." forKey:NSLocalizedDescriptionKey];
-
+        
         NSString *domain = @"NSObjectNotAvailableException";
         NSError *e = [NSError errorWithDomain:domain code:-1 userInfo:details];
-
+        
         e = *error;
         return nil;
     }
     return [self query:error];
-
+    
 }
 
 -(BaasioRequest *)nextInBackground:(void (^)(NSArray *objects))successBlock
@@ -223,10 +223,10 @@
     if(_pos < 0 ){
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"Prev entities isn't exist." forKey:NSLocalizedDescriptionKey];
-
+        
         NSString *domain = @"NSObjectNotAvailableException";
         NSError *e = [NSError errorWithDomain:domain code:-1 userInfo:details];
-
+        
         e = *error;
         return nil;
     }
@@ -240,7 +240,7 @@
     if(_pos < 0 ){
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"Prev entities isn't exist." forKey:NSLocalizedDescriptionKey];
-
+        
         NSString *domain = @"NSObjectNotAvailableException";
         NSError *e = [NSError errorWithDomain:domain code:-1 userInfo:details];
         
