@@ -31,7 +31,7 @@
     BaasioQuery *query = [BaasioQuery queryWithCollection:@"tests"];
     [query setCursor:@"cursor"];
     [query setLimit:10];
-    [query setProjections:@"name, title"];
+    [query setProjectionIn:@"name, title"];
     [query setOrderBy:@"name" order:BaasioQuerySortOrderASC];
     [query setWheres:@"name = 1"];
 
