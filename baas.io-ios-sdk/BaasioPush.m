@@ -22,11 +22,11 @@
     return;
 }
 
-- (BaasioRequest*)sendPushInBackground:(BaasioMessage *)config
+- (BaasioRequest*)sendPushInBackground:(BaasioMessage *)message
                 successBlock:(void (^)(void))successBlock
                 failureBlock:(void (^)(NSError *error))failureBlock
 {
-    NSDictionary *params = [config dictionary];
+    NSDictionary *params = [message dictionary];
     
     return [[BaasioNetworkManager sharedInstance] connectWithHTTP:@"pushes"
                                 withMethod:@"POST"
