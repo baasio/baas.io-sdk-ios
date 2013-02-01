@@ -8,7 +8,7 @@ baas.io SDK for iOS
 
 ```
 # git clone git://github.com/baasio/baas.io-sdk-ios.git
-# cd baas.io-sdk-ios.git
+# cd baas.io-sdk-ios
 # ./submodule_setup.sh
 ```
 
