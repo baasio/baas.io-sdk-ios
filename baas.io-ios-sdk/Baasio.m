@@ -58,9 +58,9 @@
 
 #pragma mark - API Authorization method
 - (NSMutableURLRequest *)setAuthorization:(NSMutableURLRequest *)request{
-//    if (_token != nil) {
-        [request addValue:[@"Bearer " stringByAppendingString:@"YWMtQ3yARGXNEeK3GwIAJt4AUwAAATxvhcuzZZlbPqHEpos2v_dqEriDnmSJP-4"] forHTTPHeaderField:@"Authorization"];
-//    }
+    if (_token != nil) {
+        [request addValue:[@"Bearer " stringByAppendingString:_token] forHTTPHeaderField:@"Authorization"];
+    }
 
     return request;
 }
