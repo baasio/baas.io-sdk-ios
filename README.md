@@ -23,6 +23,12 @@ See [this](https://github.com/baasio/baas.io-sdk-ios/wiki/Getting-Started#Instal
  * [SDK Reference](https://baas.io/docs/ko/ios/reference/)
 
 
+## Release history
+### v0.8.1.1
+* User Token 관련 에러 처리
+
+### v0.8.1
+* 라이브러리 Header 파일 업데이트
 
 ## License
 This is available under the MIT license. See the LICENSE file for more info.
