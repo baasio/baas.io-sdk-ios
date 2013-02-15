@@ -9,7 +9,14 @@
 #import "Baasio+Private.h"
 #import "BaasioNetworkManager.h"
 @implementation BaasioUser 
-
+-(id) init
+{
+    self = [super init];
+    if (self){
+        self.entityName = @"users";
+    }
+    return self;
+}
 + (BaasioUser *)user
 {
     return [[BaasioUser alloc] init];
