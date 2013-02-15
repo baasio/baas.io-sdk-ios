@@ -130,12 +130,13 @@
                             failureBlock:(void (^)(NSError *error))failureBlock;
 
 /**
- objectForKey
+ Returns the value associated with a given key.
  @param key key
  */
 - (NSString *)objectForKey:(NSString *)key;
 /**
- setObject
+ Adds a given key-value pair to the dictionary.
+
  @param value value
  @param key key
  */

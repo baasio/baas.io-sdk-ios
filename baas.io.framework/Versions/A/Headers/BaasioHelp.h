@@ -35,7 +35,7 @@
 
 /**
  asynchronously 도움말 검색
- @param keyword keyword
+ @param keyword 검색어
  @param successBlock successBlock
  @param failureBlock failureBlock
 */
@@ -46,7 +46,7 @@
 /**
  asynchronously 문의 하기
  @param email email
- @param content content
+ @param content 문의내용
  @param successBlock successBlock
  @param failureBlock failureBlock
 */

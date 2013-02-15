@@ -13,18 +13,42 @@
 */
 @interface BaasioMessage : NSObject
 
+/**
+ */
 @property(nonatomic, assign) NSString *target;
+/**
+ */
 @property(nonatomic, assign) int badge;
+/**
+ */
 @property(nonatomic, assign) NSString *sound;
+/**
+ */
 @property(nonatomic, assign) NSString *alert;
 
-
+/**
+ */
 @property(nonatomic, assign) NSString *platform;
+/**
+ */
 @property(nonatomic, assign) NSString *memo;
+/**
+ */
 @property(strong) NSDateComponents *reserve;
+/**
+ */
 @property(nonatomic, assign) NSMutableArray *to;
 
+/**
+ Adds a given key-value pair to the dictionary.
+ @param value value
+ @param key key
+ */
 - (void)addPayload:(NSString*)value forKey:(NSString*)key;
+
+/**
+ Entity dictionary
+ */
 - (NSDictionary *)dictionary;
 @end
 

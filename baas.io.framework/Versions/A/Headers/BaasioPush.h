@@ -16,7 +16,7 @@
 
 /**
  sendPush
- @param message message
+ @param message Push 환경 설정 객체
  @param error error
  */
 - (void)sendPush:(BaasioMessage *)message
@@ -24,11 +24,11 @@
 
 /**
  sendPush asynchronously
- @param config config
+ @param message Push 환경 설정 객체
  @param successBlock successBlock
  @param failureBlock failureBlock
  */
-- (BaasioRequest*)sendPushInBackground:(BaasioMessage *)config
+- (BaasioRequest*)sendPushInBackground:(BaasioMessage *)message
                           successBlock:(void (^)(void))successBlock
                           failureBlock:(void (^)(NSError *error))failureBlock;
 /**
@@ -47,7 +47,7 @@
 
 /**
  register
- @param deviceID deviceID
+ @param deviceID device ID
  @param tags tags
  @param error error
  */
@@ -56,7 +56,7 @@
            error:(NSError**)error;
 /**
  register asynchronously
- @param deviceID deviceID
+ @param deviceID device ID
  @param tags tags
  @param successBlock successBlock
  @param failureBlock failureBlock
