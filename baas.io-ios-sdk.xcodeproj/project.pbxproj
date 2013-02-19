@@ -31,6 +31,9 @@
 		27F2EF1CA361D24482B8CDE9 /* BaasioPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F2EE6A9471C3869236C589 /* BaasioPush.m */; };
 		AF09CBCB16AF6C930064DB66 /* NSError+baasio.m in Sources */ = {isa = PBXBuildFile; fileRef = AF09CBC916AF6C930064DB66 /* NSError+baasio.m */; };
 		AF09CBCE16AF6CAE0064DB66 /* NSError+baasio.m in Sources */ = {isa = PBXBuildFile; fileRef = AF09CBC916AF6C930064DB66 /* NSError+baasio.m */; };
+		AF1236B816D318C80070C666 /* UIImageView+Baasio.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1236B716D318C80070C666 /* UIImageView+Baasio.m */; };
+		AF1236C216D352B70070C666 /* UIImageView+Baasio.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF1236B616D318C80070C666 /* UIImageView+Baasio.h */; };
+		AF1236C316D352BC0070C666 /* UIImageView+Baasio.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF1236B616D318C80070C666 /* UIImageView+Baasio.h */; };
 		AF244A9016772041009524B8 /* BaasioGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AF244A8F16772041009524B8 /* BaasioGroup.m */; };
 		AF2575CC168A9E530037919C /* BaasioHelp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFFFBBF61682B0FD006CAEF1 /* BaasioHelp.h */; };
 		AF2575CE168A9F090037919C /* BaasioHelp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFFFBBF61682B0FD006CAEF1 /* BaasioHelp.h */; };
@@ -116,6 +119,7 @@
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Headers";
 			dstSubfolderSpec = 0;
 			files = (
+				AF1236C216D352B70070C666 /* UIImageView+Baasio.h in CopyFiles */,
 				AF76AE0616B146AF00F82916 /* NSError+baasio.h in CopyFiles */,
 				AF2575CC168A9E530037919C /* BaasioHelp.h in CopyFiles */,
 				AF9EF36B167EC22E00FDFDDF /* Baas.h in CopyFiles */,
@@ -137,6 +141,7 @@
 			dstPath = header;
 			dstSubfolderSpec = 16;
 			files = (
+				AF1236C316D352BC0070C666 /* UIImageView+Baasio.h in CopyFiles */,
 				AF2575CE168A9F090037919C /* BaasioHelp.h in CopyFiles */,
 				AF9EF304167EBDE700FDFDDF /* Baasio.h in CopyFiles */,
 				AF9EF305167EBDE700FDFDDF /* BaasioRequest.h in CopyFiles */,
@@ -163,6 +168,8 @@
 		27F2EE6A9471C3869236C589 /* BaasioPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioPush.m; sourceTree = "<group>"; };
 		AF09CBC916AF6C930064DB66 /* NSError+baasio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+baasio.m"; path = "category/NSError+baasio.m"; sourceTree = "<group>"; };
 		AF09CBCA16AF6C930064DB66 /* NSError+baasio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+baasio.h"; path = "category/NSError+baasio.h"; sourceTree = "<group>"; };
+		AF1236B616D318C80070C666 /* UIImageView+Baasio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+Baasio.h"; path = "image/UIImageView+Baasio.h"; sourceTree = "<group>"; };
+		AF1236B716D318C80070C666 /* UIImageView+Baasio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+Baasio.m"; path = "image/UIImageView+Baasio.m"; sourceTree = "<group>"; };
 		AF244A8E16772041009524B8 /* BaasioGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasioGroup.h; sourceTree = "<group>"; };
 		AF244A8F16772041009524B8 /* BaasioGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioGroup.m; sourceTree = "<group>"; };
 		AF3A5BA7169BF201006501CB /* NetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkActivityIndicatorManager.m; path = network/NetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
@@ -260,6 +267,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF1236B216D316C30070C666 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				AF1236B616D318C80070C666 /* UIImageView+Baasio.h */,
+				AF1236B716D318C80070C666 /* UIImageView+Baasio.m */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
 		AF3A5B9B169BF15C006501CB /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +370,7 @@
 		AFD93F0C165A2B0E00FC9ED0 /* baas.io-ios-sdk */ = {
 			isa = PBXGroup;
 			children = (
+				AF1236B216D316C30070C666 /* image */,
 				AFB28B3816AE888800A97240 /* category */,
 				AF3A5B9B169BF15C006501CB /* Network */,
 				27F2E2A118B72209D0AB96AF /* Baas.h */,
@@ -557,6 +574,7 @@
 				AFFFBBF81682B0FD006CAEF1 /* BaasioHelp.m in Sources */,
 				AF3A5BA9169BF201006501CB /* NetworkActivityIndicatorManager.m in Sources */,
 				AF09CBCB16AF6C930064DB66 /* NSError+baasio.m in Sources */,
+				AF1236B816D318C80070C666 /* UIImageView+Baasio.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

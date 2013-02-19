@@ -16,3 +16,5 @@
 #import "BaasioHelp.h"
 #import "NSError+baasio.h"
 
+
+#import "UIImageView+Baasio.h"

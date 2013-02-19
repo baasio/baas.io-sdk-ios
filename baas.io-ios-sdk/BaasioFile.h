@@ -152,4 +152,9 @@
  dictionary
  */
 - (NSDictionary *)dictionary;
+
+/**
+ 파일의 경로
+ */
+- (NSURL *)url;
 @end

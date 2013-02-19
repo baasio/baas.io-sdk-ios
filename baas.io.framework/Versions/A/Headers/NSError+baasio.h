@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 /**
-    The category of NSError for baas.io.
+ The category of NSError for baas.io.
+ baas.io의 에러 코드를 확장하여 uuid를 받을 수 있다.
 */
 NSString *_uuid;
 @interface NSError (Baasio)
@@ -20,6 +21,7 @@ NSString *_uuid;
 
 /**
  uuid
+ @return uuid
  */
 - (NSString *)uuid;
 
