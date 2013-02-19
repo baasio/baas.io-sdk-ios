@@ -150,5 +150,15 @@
     return [super objectForKey:@"filename"];
 }
 
+- (NSURL *)url{
+    if (self.uuid == nil){
+        return nil;
+    }
+    
+    NSString *path = [NSString stringWithFormat:@"%@/files/%@", [[Baasio sharedInstance] getAPIURL], self.uuid];
+    path = [path stringByReplacingOccurrencesOfString:@"https://api." withString:@"https://blob."];
+    
+    return [NSURL URLWithString:path];
+}
 
 @end

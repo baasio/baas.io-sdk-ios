@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "BaasioFile.h"
+
+/**
+ Async image loading in UIImageView. (Implements in AFNetworking)
+ */
 @interface UIImageView (Baasio)
 /**
  Creates and enqueues an image request operation, which asynchronously downloads the image from the specified URL, and sets it the request is finished. Any previous image request for the receiver will be cancelled. If the image is cached locally, the image is set immediately, otherwise the specified placeholder image will be set immediately, and then the remote image will be set once the request is finished.
@@ -43,6 +48,17 @@
               placeholderImage:(UIImage *)placeholderImage
                        success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image))success
                        failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure;
+
+/**
+ Image loading with baas.io File.
+ */
+- (void)imageWithBaasioFile:(BaasioFile *)file;
+
+/**
+ Image loading with baas.io File.
+ */
+- (void)imageWithBaasioFile:(BaasioFile *)file
+           placeholderImage:(UIImage *)placeholderImage;
 
 /**
  Cancels any executing image request operation for the receiver, if one exists.

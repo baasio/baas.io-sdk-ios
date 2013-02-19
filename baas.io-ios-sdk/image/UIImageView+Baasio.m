@@ -29,6 +29,16 @@
                          failure:failure];
 }
 
+- (void)imageWithBaasioFile:(BaasioFile *)file{
+    [self imageWithURL:file.url];
+}
+
+- (void)imageWithBaasioFile:(BaasioFile *)file
+           placeholderImage:(UIImage *)placeholderImage{
+    [self imageWithURL:file.url
+      placeholderImage:placeholderImage];
+}
+
 - (void)cancelImageRequest{
     [self cancelImageRequestOperation];
 }
