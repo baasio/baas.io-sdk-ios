@@ -37,7 +37,7 @@
 @property(strong) NSDateComponents *reserve;
 /**
  */
-@property(nonatomic, assign) NSMutableArray *to;
+@property(nonatomic, assign) NSArray *to;
 
 /**
  Adds a given key-value pair to the dictionary.

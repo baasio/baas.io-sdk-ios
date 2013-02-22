@@ -48,7 +48,16 @@
         @"platform": _platform,
         @"memo": _memo
     };
-    return dictionary;
+    
+    NSMutableDictionary *_mictionary = [NSMutableDictionary dictionaryWithDictionary:dictionary];
+    if (_to != nil && _to.count != 0) {
+        NSString *toList = _to.description;
+        toList = [toList stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        toList = [toList substringWithRange:NSMakeRange(1, [toList length]-2)];
+        [_mictionary setObject:toList forKey:@"to"];
+    }
+    
+    return _mictionary;
 }
 
 
