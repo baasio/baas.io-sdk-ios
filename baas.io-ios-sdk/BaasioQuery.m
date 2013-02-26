@@ -91,7 +91,7 @@
     _cursors[_pos] = cursor;
 }
 
--(void)setResetCursor{
+-(void)clearCursor{
     _pos = -1;
     _cursors = [NSMutableArray array];
 }

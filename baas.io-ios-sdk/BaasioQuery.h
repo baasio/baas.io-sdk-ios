@@ -63,21 +63,9 @@ typedef enum {
 -(void)setLimit: (int)limit;
 
 /**
- cursor
+ 페이징 초기화 
  */
--(NSString *)cursor;
-
-/**
- cursor
- @param cursor cursor
- */
--(void)setCursor:(NSString *)cursor;
-
-
-/**
- reset cursor
- */
--(void)setResetCursor;
+-(void)clearCursor;
 
 /**
  hasMoreEntities
