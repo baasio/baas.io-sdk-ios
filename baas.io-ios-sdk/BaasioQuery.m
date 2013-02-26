@@ -12,6 +12,7 @@
     NSString *_collectionName;
     NSString *_projectionIn;
     NSString *_wheres;
+    NSString *_filter;
     NSString *_orderKey;
     NSString* _group;
     
@@ -69,6 +70,11 @@
 }
 -(void)setWheres:(NSString *)wheres{
     _wheres = wheres;
+}
+
+
+-(void)setFilter:(NSString*)filter{
+    _filter = filter;
 }
 
 -(void)setOrderBy:(NSString *)key order:(BaasioQuerySortOrder)order{
@@ -133,6 +139,10 @@
     //    if (_cursors[_pos] != nil){
     if (_pos != -1){
         _sql = [_sql stringByAppendingFormat:@"&cursor=%@", _cursors[_pos] ];
+    }
+    
+    if (_filter != nil) {
+        _sql = [_sql stringByAppendingFormat:@"&filter=%@", _filter ];
     }
     
     return _sql;
