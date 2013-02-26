@@ -48,10 +48,16 @@ typedef enum {
 -(void)setProjectionIn:(NSString *)projectionIn;
 
 /**
- where 조건 추가
+ where 조건
  @param wheres wheres 조건
  */
 -(void)setWheres:(NSString *)wheres;
+
+/**
+ filter 조건
+ @param filter filter 조건
+ */
+-(void)setFilter:(NSString*)filter;
 
 /**
  정렬
