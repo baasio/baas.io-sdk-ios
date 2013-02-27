@@ -15,7 +15,7 @@
 @interface BaasioPush : NSObject
 
 /**
- sendPush
+ Push 발송
  @param message Push 환경 설정 객체
  @param error error
  */
@@ -23,7 +23,7 @@
            error:(NSError**)error;
 
 /**
- sendPush asynchronously
+ Push 발송 asynchronously
  @param message Push 환경 설정 객체
  @param successBlock successBlock
  @param failureBlock failureBlock
@@ -32,13 +32,13 @@
                           successBlock:(void (^)(void))successBlock
                           failureBlock:(void (^)(NSError *error))failureBlock;
 /**
- unregister
+ 디바이스 삭제
  @param error error
  */
 - (void)unregister:(NSError**)error;
 
 /**
- unregister asynchronously
+ 디바이스 삭제 asynchronously
  @param successBlock successBlock
  @param failureBlock failureBlock
  */
@@ -46,7 +46,7 @@
                             failureBlock:(void (^)(NSError *error))failureBlock;
 
 /**
- register
+ 디바이스 등록
  @param deviceID device ID
  @param tags tags
  @param error error
@@ -55,7 +55,7 @@
             tags:(NSArray *)tags
            error:(NSError**)error;
 /**
- register asynchronously
+ 디바이스 등록 asynchronously
  @param deviceID device ID
  @param tags tags
  @param successBlock successBlock
@@ -65,4 +65,35 @@
                                   tags:(NSArray *)tags
                           successBlock:(void (^)(void))successBlock
                           failureBlock:(void (^)(NSError *error))failureBlock;
+
+
+
+/**
+ Push 켜기
+ @param error error
+ */
+- (void)pushOn:(NSError**)error;
+
+/**
+ pushOnInBackground
+ @param successBlock successBlock
+ @param failureBlock failureBlock
+ */
+- (BaasioRequest*)pushOnInBackground:(void (^)(void))successBlock
+                        failureBlock:(void (^)(NSError *error))failureBlock;
+
+/**
+ Push 끄기
+ @param error error
+ */
+- (void)pushOff:(NSError**)error;
+/**
+ pushOffInBackground
+ @param successBlock successBlock
+ @param failureBlock failureBlock
+ */
+- (BaasioRequest*)pushOffInBackground:(void (^)(void))successBlock
+                         failureBlock:(void (^)(NSError *error))failureBlock;
+
+
 @end
