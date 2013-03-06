@@ -121,6 +121,22 @@
     [self runTestLoop];
 
 }
+- (void)test_3_relationQuery{
+    BaasioQuery *query = [BaasioQuery queryWithRelationship:@"master"
+                                                   withUUID:@"fd0c96dc-8573-11e2-9f13-06fd000000c2"
+                                               withRelation:@"following"];
+    [query queryInBackground:^(NSArray *array) {
+        NSLog(@"array : %@", array.description);
+        exitRunLoop = YES;
+    } failureBlock:^(NSError *error) {
+        NSLog(@"fail : %@", error.localizedDescription);
+        exitRunLoop = YES;
+    }];
+    [self runTestLoop];
+    NSLog(@"description : %@", query.description);
+    
+}
+
 
 - (void)runTestLoop{
     while (!exitRunLoop){
