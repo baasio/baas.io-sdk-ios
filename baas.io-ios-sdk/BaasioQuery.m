@@ -13,7 +13,8 @@
     NSString *_projectionIn;
     NSString *_wheres;
     NSString *_orderKey;
-    NSString* _group;
+    NSString *_group;
+    NSString *_relation;
     
     NSMutableArray *_cursors;
     
@@ -30,13 +31,19 @@
 
 + (BaasioQuery *)queryWithGroup:(NSString *)name
 {
-    return [[BaasioQuery alloc] initWitGroupName:name];
+    return [[BaasioQuery alloc] initWithGroupName:name];
 }
 
-+ (BaasioQuery *)queryWithRelationship:(NSString *)name
+
++ (BaasioQuery *)queryWithRelationship:(NSString *)entityName
+                              withUUID:(NSString *)uuid
+                          withRelation:(NSString*)relationName
 {
-    return [[BaasioQuery alloc] initWitGroupName:name];
+    NSString *path = [NSString stringWithFormat:@"%@/%@/%@", entityName, uuid, relationName];
+    BaasioQuery *query = [BaasioQuery queryWithCollection:path];
+    return query;
 }
+
 
 -(id) initWithCollectionName:(NSString *)collectionName
 {
@@ -50,7 +57,7 @@
     return self;
 }
 
--(id) initWitGroupName:(NSString *)group
+-(id) initWithGroupName:(NSString *)group
 {
     self = [super init];
     if (self){
@@ -60,9 +67,6 @@
     }
     return self;
 }
-
-//-(void)setRelation:(BaasioRelation*)relation;
-
 
 -(void)setProjectionIn:(NSString *)projectionIn{
     _projectionIn = projectionIn;
@@ -162,7 +166,7 @@
     }
     
     NSString *path = [prefixPath stringByAppendingString:self.description];
-    
+
     return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
                                                        withMethod:@"GET"
                                                            params:nil
