@@ -76,16 +76,19 @@
                                                            success:^(id result){
                                                                successBlock();
                                                            }
-                                                           failure:failureBlock];
+                                                          failure:^(NSError *error){
+                                                              if (error.code == 101) {
+                                                                  successBlock();
+                                                              }else{
+                                                                  failureBlock(error);
+                                                              }
+                                                          }];
 }
 
 - (void)register:(NSString *)deviceID
             tags:(NSArray *)tags
            error:(NSError**)error
 {
-    [[NSUserDefaults standardUserDefaults] setObject:deviceID forKey:PUSH_DEVICE_ID];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
     [self unregister:error];
 
     NSDictionary *params = @{
@@ -95,12 +98,15 @@
                             };
     NSString *path = @"pushes/devices";
 
-    BaasioEntity *entity = [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
+    id result = [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
                                                     withMethod:@"POST"
                                                         params:params
                                                          error:error];
+    NSDictionary *response = (NSDictionary *)result;
     
-    [[NSUserDefaults standardUserDefaults] setObject:entity.uuid forKey:PUSH_DEVICE_ID];
+    NSDictionary *entity = response[@"entities"][0];
+    NSString *uuid = [entity objectForKey:@"uuid"];
+    [[NSUserDefaults standardUserDefaults] setObject:uuid forKey:PUSH_DEVICE_ID];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     return;
@@ -110,9 +116,6 @@
                 successBlock:(void (^)(void))successBlock
                 failureBlock:(void (^)(NSError *error))failureBlock
 {
-    [[NSUserDefaults standardUserDefaults] setObject:deviceID forKey:PUSH_DEVICE_ID];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
     return [self unregisterInBackground:^(void){
                         NSDictionary *params = @{
                                                      @"platform" : @"I",
