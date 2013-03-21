@@ -29,44 +29,53 @@
     [super tearDown];
 }
 
-- (void)test_sync_1_SignUp
-{
-    NSError *error = nil;
-    [BaasioUser signUp:@"cetauri"
-              password:@"cetauri"
-                  name:@"권오상"
-                 email:@"cetauri@gmail.com"
-                 error:&error];
-    NSLog(@"response : ---------------------- %@", error.localizedDescription );
-}
+//- (void)test_sync_1_SignUp
+//{
+//    NSError *error = nil;
+//    [BaasioUser signUp:@"cetauri"
+//              password:@"cetauri"
+//                  name:@"권오상"
+//                 email:@"cetauri@gmail.com"
+//                 error:&error];
+//    NSLog(@"response : ---------------------- %@", error.localizedDescription );
+//}
+//
+//- (void)test_sync_2_SignIn
+//{
+//    NSError *error = nil;
+//    [BaasioUser signIn:@"user10" password:@"user10" error:&error];
+//    if (!error) {
+//        //성공
+//        NSLog(@"Success");
+//    } else {
+//        //실패
+//        NSLog(@"Error: %@", error.localizedDescription);
+//    }
+//}
+//
+//- (void)test_sync_3_unsubscribe
+//{
+//
+//
+//    BaasioUser *user = [BaasioUser currentUser];
+//    user.username = @"cetauri";
+//    [user updateInBackground:^(BaasioUser *user) {
+//                   	    NSLog(@"success.");
+//                    }
+//                    failureBlock:^(NSError *error) {
+//                    	NSLog(@"error : %@", error.localizedDescription);
+//                    }];
+//
+//}
 
-- (void)test_sync_2_SignIn
-{
-    NSError *error = nil;
-    [BaasioUser signIn:@"cetauri" password:@"cetauri" error:&error];
-    if (!error) {
-        //성공
-        NSLog(@"Success");
-    } else {
-        //실패
-        NSLog(@"Error: %@", error.localizedDescription);
-    }
-}
-
-- (void)test_sync_3_unsubscribe
-{
-
-
-    BaasioUser *user = [BaasioUser currentUser];
-    user.username = @"cetauri";
-    [user updateInBackground:^(BaasioUser *user) {
-                   	    NSLog(@"success.");
-                    }
-                    failureBlock:^(NSError *error) {
-                    	NSLog(@"error : %@", error.localizedDescription);
-                    }];
-
-}
+//- (void)test_sync_4_changePassword
+//{
+//    NSError *error = nil;
+//    [BaasioUser changePassword:@"user11"
+//                   newPassword:@"user10"
+//                         error:&error];
+//    NSLog(@"response : ---------------------- %@", error.localizedDescription );
+//}
 
 //- (void)test_1_SignUp
 //{
@@ -84,22 +93,36 @@
 //                      }];
 //}
 //
-//- (void)test_2_SignIn
-//{
-//    [BaasioUser signInBackground:@"cetauri"
-//                  password:@"password"
-//              successBlock:^(void) {
-//                    NSLog(@"success");
-//                    exitRunLoop = YES;
-//              }
-//              failureBlock:^(NSError *error) {
-//                    NSLog(@"fail : %@", error.localizedDescription);
-//                    STFail(@"Test Faiil in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
-//
-//                    exitRunLoop = YES;
-//              }];
-//    [self runTestLoop];
-//}
+- (void)test_2_SignIn
+{
+    [BaasioUser signInBackground:@"user10"
+                  password:@"user10"
+              successBlock:^(void) {
+                    NSLog(@"success");
+                    exitRunLoop = YES;
+              }
+              failureBlock:^(NSError *error) {
+                    NSLog(@"fail : %@", error.localizedDescription);
+                    STFail(@"Test Faiil in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                    exitRunLoop = YES;
+              }];
+    [self runTestLoop];
+}
+
+- (void)test_3_ChangePassword
+{
+    [BaasioUser changePasswordInBackground:@"user10"
+                               newPassword:@"user11"
+                              successBlock:^{
+                                  NSLog(@"success");
+                                  exitRunLoop = YES;
+                              }
+                              failureBlock:^(NSError *error) {
+                                  NSLog(@"fail : %@", error.localizedDescription);
+                                  exitRunLoop = YES;
+                              }];
+    [self runTestLoop];
+}
 //
 //- (void)test_9_unsubscribe
 //{

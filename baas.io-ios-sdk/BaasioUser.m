@@ -178,6 +178,42 @@
                                                        failure:failureBlock];
 }
 
++ (void)changePassword:(NSString *)oldPassword
+           newPassword:(NSString *)newPassword
+                 error:(NSError**)error
+{
+    NSDictionary *params = @{
+                             @"oldpassword" : oldPassword,
+                             @"newpassword" : newPassword
+                             };
+    BaasioUser *baasioUser = [self currentUser];
+    NSString *path = [NSString stringWithFormat:@"users/%@/password",baasioUser.uuid];
+    [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
+                                                    withMethod:@"POST"
+                                                        params:params
+                                                         error:error];
+    return;
+}
+
++ (BaasioRequest*)changePasswordInBackground:(NSString *)oldPassword
+                                 newPassword:(NSString *)newPassword
+                                successBlock:(void (^)(void))successBlock
+                                failureBlock:(void (^)(NSError *error))failureBlock
+{
+    NSDictionary *params = @{
+                             @"oldpassword":oldPassword,
+                             @"newpassword":newPassword,
+                             };
+    BaasioUser *baasioUser = [self currentUser];
+    NSString *path = [NSString stringWithFormat:@"users/%@/password",baasioUser.uuid];
+    return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
+                                                       withMethod:@"POST"
+                                                           params:params
+                                                          success:^(id result){
+                                                              successBlock();
+                                                          }
+                                                          failure:failureBlock];
+}
 
 + (void)signUpViaFacebook:(NSString *)accessToken
                     error:(NSError**)error

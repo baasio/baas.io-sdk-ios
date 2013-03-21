@@ -103,6 +103,29 @@
                         failureBlock:(void (^)(NSError *error))failureBlock;
 
 /**
+ 비밀번호 변경
+ 
+ @param oldPassword oldPassword
+ @param newPassword newPassword
+ */
++ (void)changePassword:(NSString *)oldPassword
+           newPassword:(NSString *)newPassword
+                 error:(NSError**)error;
+ 
+/**
+ 비밀번호 변경 asynchronously
+ 
+ @param oldPassword oldPassword
+ @param newPassword newPassword
+ @param successBlock successBlock
+ @param failureBlock failureBlock
+ */
++ (BaasioRequest*)changePasswordInBackground:(NSString *)oldPassword
+                            newPassword:(NSString *)newPassword
+                        successBlock:(void (^)(void))successBlock
+                        failureBlock:(void (^)(NSError *error))failureBlock;
+
+/**
  탈퇴
 
  @param error error
