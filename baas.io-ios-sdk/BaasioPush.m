@@ -46,11 +46,8 @@
     BaasioQuery *query = [BaasioQuery queryWithCollection:@"devices"];
     [query setWheres:[NSString stringWithFormat:@"token = '%@'", deviceID]];
     NSArray *response = [query query:error];
-    
 
-    
     NSString *path = [@"pushes/devices/" stringByAppendingString:response[0][@"uuid"]];
-    
     NSDictionary *params = @{
         @"state" : [NSNumber numberWithBool:false]
     };

@@ -156,16 +156,7 @@
                                                            withMethod:@"GET"
                                                                params:nil
                                                                 error:error];
-    
-    NSString *cursor = response[@"cursor"];
-    if (cursor != nil) {
-        _cursors[++_pos] = response[@"cursor"];
-//        NSLog(@"%i == %@", _pos, _cursors[_pos]);
-    }else{
-//        NSLog(@"---");
-    }
-    
-    NSArray *objects = [NSArray arrayWithArray:response[@"entities"]];
+    NSArray *objects = [self parseQueryResponse:response];
     return objects;
 }
 -(BaasioRequest *)queryInBackground:(void (^)(NSArray *objects))successBlock
@@ -183,20 +174,25 @@
                                                            params:nil
                                                           success:^(id result){
                                                               NSDictionary *response = (NSDictionary *)result;
-                                                              
-                                                              NSString *cursor = response[@"cursor"];
-                                                              if (cursor != nil) {
-                                                                  _cursors[++_pos] = response[@"cursor"];
-//                                                                  NSLog(@"%i == %@", _pos, _cursors[_pos]);
-                                                              }else{
-//                                                                  NSLog(@"---");
-                                                              }
-                                                              
-                                                              NSArray *objects = [NSArray arrayWithArray:response[@"entities"]];
+
+                                                              NSArray *objects= [self parseQueryResponse:response];
                                                               successBlock(objects);
                                                               
                                                           }
                                                           failure:failureBlock];
+}
+
+- (NSArray *)parseQueryResponse:(NSDictionary *)response {
+    NSString *cursor = response[@"cursor"];
+    if (cursor != nil) {
+        _cursors[++_pos] = response[@"cursor"];
+//        NSLog(@"%i == %@", _pos, _cursors[_pos]);
+    }else{
+//        NSLog(@"---");
+    }
+
+    NSArray *objects = [NSArray arrayWithArray:response[@"entities"]];
+    return objects;
 }
 
 -(NSArray *)next:(NSError**)error
