@@ -178,7 +178,7 @@
                                                        failure:failureBlock];
 }
 
-+ (void)changePassword:(NSString *)oldPassword
+- (void)changePassword:(NSString *)oldPassword
            newPassword:(NSString *)newPassword
                  error:(NSError**)error
 {
@@ -186,7 +186,12 @@
                              @"oldpassword" : oldPassword,
                              @"newpassword" : newPassword
                              };
-    BaasioUser *baasioUser = [self currentUser];
+    BaasioUser *baasioUser = [BaasioUser currentUser];
+    if(baasioUser==nil){
+        NSLog(@"회원정보가 없습니다");
+        error = nil;
+        return;
+    }
     NSString *path = [NSString stringWithFormat:@"users/%@/password",baasioUser.uuid];
     [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
                                                     withMethod:@"POST"
@@ -195,7 +200,7 @@
     return;
 }
 
-+ (BaasioRequest*)changePasswordInBackground:(NSString *)oldPassword
+- (BaasioRequest*)changePasswordInBackground:(NSString *)oldPassword
                                  newPassword:(NSString *)newPassword
                                 successBlock:(void (^)(void))successBlock
                                 failureBlock:(void (^)(NSError *error))failureBlock
@@ -204,7 +209,11 @@
                              @"oldpassword":oldPassword,
                              @"newpassword":newPassword,
                              };
-    BaasioUser *baasioUser = [self currentUser];
+    BaasioUser *baasioUser = [BaasioUser currentUser];
+    if(baasioUser==nil){
+        failureBlock(nil);
+        return nil;
+    }
     NSString *path = [NSString stringWithFormat:@"users/%@/password",baasioUser.uuid];
     return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
                                                        withMethod:@"POST"
@@ -214,6 +223,31 @@
                                                           }
                                                           failure:failureBlock];
 }
+
++ (void)resetPassword:(NSString*)username
+                error:(NSError**)error
+{
+    NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",username];
+    [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
+                                                    withMethod:@"POST"
+                                                        params:nil
+                                                         error:error];
+}
+
++ (BaasioRequest*)resetPasswordInBackground:(NSString*)username
+                               successBlock:(void (^)(void))successBlock
+                               failureBlock:(void (^)(NSError *error))failureBlock
+{
+    NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",username];
+    return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
+                                                       withMethod:@"POST"
+                                                           params:nil
+                                                          success:^(id result){
+                                                              successBlock();
+                                                          }
+                                                          failure:failureBlock];
+}
+
 
 + (void)signUpViaFacebook:(NSString *)accessToken
                     error:(NSError**)error

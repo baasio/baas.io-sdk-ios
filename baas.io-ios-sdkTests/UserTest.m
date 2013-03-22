@@ -77,6 +77,14 @@
 //    NSLog(@"response : ---------------------- %@", error.localizedDescription );
 //}
 
+- (void)test_sync_5_ResetPassword
+{
+    NSError *error = nil;
+    [BaasioUser resetPassword:@"user1"
+                        error:&error];
+    NSLog(@"response : ----------------------\n%@\n\n", error.localizedDescription );
+}
+
 //- (void)test_1_SignUp
 //{
 //
@@ -93,36 +101,50 @@
 //                      }];
 //}
 //
-- (void)test_2_SignIn
-{
-    [BaasioUser signInBackground:@"user10"
-                  password:@"user10"
-              successBlock:^(void) {
-                    NSLog(@"success");
-                    exitRunLoop = YES;
-              }
-              failureBlock:^(NSError *error) {
-                    NSLog(@"fail : %@", error.localizedDescription);
-                    STFail(@"Test Faiil in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
-                    exitRunLoop = YES;
-              }];
-    [self runTestLoop];
-}
+//- (void)test_2_SignIn
+//{
+//    [BaasioUser signInBackground:@"user10"
+//                  password:@"user10"
+//              successBlock:^(void) {
+//                    NSLog(@"success");
+//                    exitRunLoop = YES;
+//              }
+//              failureBlock:^(NSError *error) {
+//                    NSLog(@"fail : %@", error.localizedDescription);
+//                    STFail(@"Test Faiil in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+//                    exitRunLoop = YES;
+//              }];
+//    [self runTestLoop];
+//}
 
-- (void)test_3_ChangePassword
-{
-    [BaasioUser changePasswordInBackground:@"user10"
-                               newPassword:@"user11"
-                              successBlock:^{
-                                  NSLog(@"success");
-                                  exitRunLoop = YES;
-                              }
-                              failureBlock:^(NSError *error) {
-                                  NSLog(@"fail : %@", error.localizedDescription);
-                                  exitRunLoop = YES;
-                              }];
-    [self runTestLoop];
-}
+//- (void)test_3_ChangePassword
+//{
+//    BaasioUser *user = [[BaasioUser alloc]init];
+//    [user changePasswordInBackground:@"user10"
+//                         newPassword:@"user11"
+//                        successBlock:^{
+//                                  NSLog(@"success");
+//                                  exitRunLoop = YES;
+//                        }
+//                        failureBlock:^(NSError *error) {
+//                                  NSLog(@"fail : %@", error.localizedDescription);
+//                                  exitRunLoop = YES;
+//                        }];
+//    [self runTestLoop];
+//}
+
+//- (void)test_4_ResetPassword
+//{
+//    [BaasioUser resetPasswordInBackground:@"user1"
+//                             successBlock:^{
+//                                 NSLog(@"success");
+//                                 exitRunLoop = YES;
+//                             }failureBlock:^(NSError *error) {
+//                                 NSLog(@"fail : %@", error.localizedDescription);
+//                                 exitRunLoop = YES;
+//                             }];
+//    [self runTestLoop];
+//}
 //
 //- (void)test_9_unsubscribe
 //{

@@ -86,13 +86,13 @@
 		AFF46364166E2C8700866306 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4FDDA3166E28CF0048310C /* SystemConfiguration.framework */; };
 		AFF46365166E2C8C00866306 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4FDDA5166E28E80048310C /* MobileCoreServices.framework */; };
 		AFFFBBF81682B0FD006CAEF1 /* BaasioHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFFBBF71682B0FD006CAEF1 /* BaasioHelp.m */; };
-		DEC31A5816FB09D40028B63A /* EntityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC31A4A16FB09D40028B63A /* EntityTest.m */; };
-		DEC31A5916FB09D40028B63A /* FileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC31A4C16FB09D40028B63A /* FileTest.m */; };
-		DEC31A5A16FB09D40028B63A /* GroupTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC31A4E16FB09D40028B63A /* GroupTest.m */; };
-		DEC31A5B16FB09D40028B63A /* HelprTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC31A5016FB09D40028B63A /* HelprTest.m */; };
-		DEC31A5C16FB09D40028B63A /* PushTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC31A5216FB09D40028B63A /* PushTest.m */; };
-		DEC31A5D16FB09D40028B63A /* QueryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC31A5416FB09D40028B63A /* QueryTest.m */; };
-		DEC31A5E16FB09D40028B63A /* RelationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC31A5616FB09D40028B63A /* RelationTest.m */; };
+		DEC31A6D16FC30410028B63A /* EntityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC31A6016FC30410028B63A /* EntityTest.m */; };
+		DEC31A6E16FC30410028B63A /* FileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC31A6216FC30410028B63A /* FileTest.m */; };
+		DEC31A6F16FC30410028B63A /* GroupTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC31A6416FC30410028B63A /* GroupTest.m */; };
+		DEC31A7016FC30410028B63A /* HelprTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC31A6616FC30410028B63A /* HelprTest.m */; };
+		DEC31A7116FC30410028B63A /* PushTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC31A6816FC30410028B63A /* PushTest.m */; };
+		DEC31A7216FC30410028B63A /* QueryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC31A6A16FC30410028B63A /* QueryTest.m */; };
+		DEC31A7316FC30410028B63A /* RelationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC31A6C16FC30410028B63A /* RelationTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,21 +223,20 @@
 		AFD93F25165A2B0E00FC9ED0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AFFFBBF61682B0FD006CAEF1 /* BaasioHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasioHelp.h; sourceTree = "<group>"; };
 		AFFFBBF71682B0FD006CAEF1 /* BaasioHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioHelp.m; sourceTree = "<group>"; };
-		DEC31A4916FB09D40028B63A /* EntityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityTest.h; sourceTree = "<group>"; };
-		DEC31A4A16FB09D40028B63A /* EntityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityTest.m; sourceTree = "<group>"; };
-		DEC31A4B16FB09D40028B63A /* FileTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTest.h; sourceTree = "<group>"; };
-		DEC31A4C16FB09D40028B63A /* FileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTest.m; sourceTree = "<group>"; };
-		DEC31A4D16FB09D40028B63A /* GroupTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTest.h; sourceTree = "<group>"; };
-		DEC31A4E16FB09D40028B63A /* GroupTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTest.m; sourceTree = "<group>"; };
-		DEC31A4F16FB09D40028B63A /* HelprTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelprTest.h; sourceTree = "<group>"; };
-		DEC31A5016FB09D40028B63A /* HelprTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelprTest.m; sourceTree = "<group>"; };
-		DEC31A5116FB09D40028B63A /* PushTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTest.h; sourceTree = "<group>"; };
-		DEC31A5216FB09D40028B63A /* PushTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTest.m; sourceTree = "<group>"; };
-		DEC31A5316FB09D40028B63A /* QueryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryTest.h; sourceTree = "<group>"; };
-		DEC31A5416FB09D40028B63A /* QueryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryTest.m; sourceTree = "<group>"; };
-		DEC31A5516FB09D40028B63A /* RelationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelationTest.h; sourceTree = "<group>"; };
-		DEC31A5616FB09D40028B63A /* RelationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelationTest.m; sourceTree = "<group>"; };
-		DEC31A5716FB09D40028B63A /* UnitTestConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitTestConstant.h; sourceTree = "<group>"; };
+		DEC31A5F16FC30410028B63A /* EntityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityTest.h; sourceTree = "<group>"; };
+		DEC31A6016FC30410028B63A /* EntityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityTest.m; sourceTree = "<group>"; };
+		DEC31A6116FC30410028B63A /* FileTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTest.h; sourceTree = "<group>"; };
+		DEC31A6216FC30410028B63A /* FileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTest.m; sourceTree = "<group>"; };
+		DEC31A6316FC30410028B63A /* GroupTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTest.h; sourceTree = "<group>"; };
+		DEC31A6416FC30410028B63A /* GroupTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTest.m; sourceTree = "<group>"; };
+		DEC31A6516FC30410028B63A /* HelprTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelprTest.h; sourceTree = "<group>"; };
+		DEC31A6616FC30410028B63A /* HelprTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelprTest.m; sourceTree = "<group>"; };
+		DEC31A6716FC30410028B63A /* PushTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTest.h; sourceTree = "<group>"; };
+		DEC31A6816FC30410028B63A /* PushTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTest.m; sourceTree = "<group>"; };
+		DEC31A6916FC30410028B63A /* QueryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryTest.h; sourceTree = "<group>"; };
+		DEC31A6A16FC30410028B63A /* QueryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryTest.m; sourceTree = "<group>"; };
+		DEC31A6B16FC30410028B63A /* RelationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelationTest.h; sourceTree = "<group>"; };
+		DEC31A6C16FC30410028B63A /* RelationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelationTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -410,21 +409,20 @@
 			isa = PBXGroup;
 			children = (
 				AF87FF5016B24ABE0095C815 /* UnitTestConstant.h */,
-				DEC31A4916FB09D40028B63A /* EntityTest.h */,
-				DEC31A4A16FB09D40028B63A /* EntityTest.m */,
-				DEC31A4B16FB09D40028B63A /* FileTest.h */,
-				DEC31A4C16FB09D40028B63A /* FileTest.m */,
-				DEC31A4D16FB09D40028B63A /* GroupTest.h */,
-				DEC31A4E16FB09D40028B63A /* GroupTest.m */,
-				DEC31A4F16FB09D40028B63A /* HelprTest.h */,
-				DEC31A5016FB09D40028B63A /* HelprTest.m */,
-				DEC31A5116FB09D40028B63A /* PushTest.h */,
-				DEC31A5216FB09D40028B63A /* PushTest.m */,
-				DEC31A5316FB09D40028B63A /* QueryTest.h */,
-				DEC31A5416FB09D40028B63A /* QueryTest.m */,
-				DEC31A5516FB09D40028B63A /* RelationTest.h */,
-				DEC31A5616FB09D40028B63A /* RelationTest.m */,
-				DEC31A5716FB09D40028B63A /* UnitTestConstant.h */,
+				DEC31A5F16FC30410028B63A /* EntityTest.h */,
+				DEC31A6016FC30410028B63A /* EntityTest.m */,
+				DEC31A6116FC30410028B63A /* FileTest.h */,
+				DEC31A6216FC30410028B63A /* FileTest.m */,
+				DEC31A6316FC30410028B63A /* GroupTest.h */,
+				DEC31A6416FC30410028B63A /* GroupTest.m */,
+				DEC31A6516FC30410028B63A /* HelprTest.h */,
+				DEC31A6616FC30410028B63A /* HelprTest.m */,
+				DEC31A6716FC30410028B63A /* PushTest.h */,
+				DEC31A6816FC30410028B63A /* PushTest.m */,
+				DEC31A6916FC30410028B63A /* QueryTest.h */,
+				DEC31A6A16FC30410028B63A /* QueryTest.m */,
+				DEC31A6B16FC30410028B63A /* RelationTest.h */,
+				DEC31A6C16FC30410028B63A /* RelationTest.m */,
 				AF48E9B616B2D235005F78A0 /* UserTest.h */,
 				AF48E9B016B2D235005F78A0 /* UserTest.m */,
 				AFD93F22165A2B0E00FC9ED0 /* Supporting Files */,
@@ -587,13 +585,13 @@
 				AF09CBCE16AF6CAE0064DB66 /* NSError+baasio.m in Sources */,
 				AF26A27F166667F5006A7225 /* JSONKit.m in Sources */,
 				AF48E9BD16B2D235005F78A0 /* UserTest.m in Sources */,
-				DEC31A5816FB09D40028B63A /* EntityTest.m in Sources */,
-				DEC31A5916FB09D40028B63A /* FileTest.m in Sources */,
-				DEC31A5A16FB09D40028B63A /* GroupTest.m in Sources */,
-				DEC31A5B16FB09D40028B63A /* HelprTest.m in Sources */,
-				DEC31A5C16FB09D40028B63A /* PushTest.m in Sources */,
-				DEC31A5D16FB09D40028B63A /* QueryTest.m in Sources */,
-				DEC31A5E16FB09D40028B63A /* RelationTest.m in Sources */,
+				DEC31A6D16FC30410028B63A /* EntityTest.m in Sources */,
+				DEC31A6E16FC30410028B63A /* FileTest.m in Sources */,
+				DEC31A6F16FC30410028B63A /* GroupTest.m in Sources */,
+				DEC31A7016FC30410028B63A /* HelprTest.m in Sources */,
+				DEC31A7116FC30410028B63A /* PushTest.m in Sources */,
+				DEC31A7216FC30410028B63A /* QueryTest.m in Sources */,
+				DEC31A7316FC30410028B63A /* RelationTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
