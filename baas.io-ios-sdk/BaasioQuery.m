@@ -152,10 +152,21 @@
     
     NSString *path = [prefixPath stringByAppendingString:self.description];
     
-    return [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
+    NSDictionary *response = [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
                                                            withMethod:@"GET"
                                                                params:nil
                                                                 error:error];
+    
+    NSString *cursor = response[@"cursor"];
+    if (cursor != nil) {
+        _cursors[++_pos] = response[@"cursor"];
+//        NSLog(@"%i == %@", _pos, _cursors[_pos]);
+    }else{
+//        NSLog(@"---");
+    }
+    
+    NSArray *objects = [NSArray arrayWithArray:response[@"entities"]];
+    return objects;
 }
 -(BaasioRequest *)queryInBackground:(void (^)(NSArray *objects))successBlock
                        failureBlock:(void (^)(NSError *error))failureBlock{
@@ -176,9 +187,9 @@
                                                               NSString *cursor = response[@"cursor"];
                                                               if (cursor != nil) {
                                                                   _cursors[++_pos] = response[@"cursor"];
-                                                                  NSLog(@"%i == %@", _pos, _cursors[_pos]);
+//                                                                  NSLog(@"%i == %@", _pos, _cursors[_pos]);
                                                               }else{
-                                                                  NSLog(@"---");
+//                                                                  NSLog(@"---");
                                                               }
                                                               
                                                               NSArray *objects = [NSArray arrayWithArray:response[@"entities"]];

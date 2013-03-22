@@ -6,7 +6,7 @@
 
 #import "BaasioPush.h"
 #import "BaasioNetworkManager.h"
-
+#import "BaasioQuery.h"
 @implementation BaasioPush {
 
 }
@@ -40,10 +40,16 @@
 
 - (void)unregister:(NSError**)error
 {
-    NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
-    if (uuid == nil)    return;
+    NSString *deviceID = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
+    if (deviceID == nil)    return;
 
-    NSString *path = [@"pushes/devices/" stringByAppendingString:uuid];
+    BaasioQuery *query = [BaasioQuery queryWithCollection:@"devices"];
+    [query setWheres:[NSString stringWithFormat:@"token = '%@'", deviceID]];
+    NSArray *response = [query query:error];
+    
+
+    
+    NSString *path = [@"pushes/devices/" stringByAppendingString:response[0][@"uuid"]];
     
     NSDictionary *params = @{
         @"state" : [NSNumber numberWithBool:false]
@@ -55,34 +61,40 @@
                                                          error:error];
     return;
 }
+
 - (BaasioRequest*)unregisterInBackground:(void (^)(void))successBlock
                   failureBlock:(void (^)(NSError *error))failureBlock
 {
-    NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
-    if (uuid == nil)    {
+    NSString *deviceID = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
+    if (deviceID == nil)    {
         successBlock();
         return nil;
     }
-
-    NSString *path = [@"pushes/devices/" stringByAppendingString:uuid];
-
-    NSDictionary *params = @{
-        @"state" : [NSNumber numberWithBool:false]
-    };
     
-    return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
-                                                        withMethod:@"DELETE"
-                                                            params:params
-                                                           success:^(id result){
-                                                               successBlock();
-                                                           }
-                                                          failure:^(NSError *error){
-                                                              if (error.code == 101) {
-                                                                  successBlock();
-                                                              }else{
-                                                                  failureBlock(error);
-                                                              }
-                                                          }];
+    BaasioQuery *query = [BaasioQuery queryWithCollection:@"devices"];
+    [query setWheres:[NSString stringWithFormat:@"token = '%@'", deviceID]];
+    return [query queryInBackground:^(NSArray *response){
+
+                    NSString *path = [@"pushes/devices/" stringByAppendingString:response[0][@"uuid"]];   
+                    NSDictionary *params = @{
+                                             @"state" : [NSNumber numberWithBool:false]
+                                             };
+        
+                    [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
+                                                                withMethod:@"DELETE"
+                                                                    params:params
+                                                                   success:^(id result){
+                                                                       successBlock();
+                                                                   }
+                                                                   failure:^(NSError *error){
+                                                                       if (error.code == 101) {
+                                                                           successBlock();
+                                                                       }else{
+                                                                           failureBlock(error);
+                                                                       }
+                                                                   }];
+                }
+                failureBlock:failureBlock];
 }
 
 - (void)register:(NSString *)deviceID
@@ -98,15 +110,12 @@
                             };
     NSString *path = @"pushes/devices";
 
-    id result = [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
+    [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
                                                     withMethod:@"POST"
                                                         params:params
                                                          error:error];
-    NSDictionary *response = (NSDictionary *)result;
-    
-    NSDictionary *entity = response[@"entities"][0];
-    NSString *uuid = [entity objectForKey:@"uuid"];
-    [[NSUserDefaults standardUserDefaults] setObject:uuid forKey:PUSH_DEVICE_ID];
+
+    [[NSUserDefaults standardUserDefaults] setObject:deviceID forKey:PUSH_DEVICE_ID];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     return;
@@ -128,12 +137,7 @@
                                                                    withMethod:@"POST"
                                                                        params:params
                                                                       success:^(id result){
-                                                                          NSDictionary *response = (NSDictionary *)result;
-                                                                          
-                                                                          NSDictionary *entity = response[@"entities"][0];
-                                                                          NSString *uuid = [entity objectForKey:@"uuid"];
-                                                                          //NSLog(@"uuid : %@", uuid);
-                                                                          [[NSUserDefaults standardUserDefaults] setObject:uuid forKey:PUSH_DEVICE_ID];
+                                                                          [[NSUserDefaults standardUserDefaults] setObject:deviceID forKey:PUSH_DEVICE_ID];
                                                                           [[NSUserDefaults standardUserDefaults] synchronize];
                                                                           successBlock();
                                                                       }
