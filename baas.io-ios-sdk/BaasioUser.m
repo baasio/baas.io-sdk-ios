@@ -188,8 +188,7 @@
                              };
     BaasioUser *baasioUser = [BaasioUser currentUser];
     if(baasioUser==nil){
-        NSLog(@"회원정보가 없습니다");
-        error = nil;
+        *error = [NSError errorWithDomain:@"BaasioNotUserInformationException" code:800 userInfo:nil];
         return;
     }
     NSString *path = [NSString stringWithFormat:@"users/%@/password",baasioUser.uuid];
@@ -211,7 +210,7 @@
                              };
     BaasioUser *baasioUser = [BaasioUser currentUser];
     if(baasioUser==nil){
-        failureBlock(nil);
+        failureBlock([NSError errorWithDomain:@"BaasioNotUserInformationException" code:800 userInfo:nil]);
         return nil;
     }
     NSString *path = [NSString stringWithFormat:@"users/%@/password",baasioUser.uuid];
@@ -227,6 +226,7 @@
 + (void)resetPassword:(NSString*)username
                 error:(NSError**)error
 {
+    [NSException raise:@"BaasioNotImplementedException" format:@"Not implemented."];
     NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",username];
     [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
                                                     withMethod:@"POST"
@@ -238,6 +238,7 @@
                                successBlock:(void (^)(void))successBlock
                                failureBlock:(void (^)(NSError *error))failureBlock
 {
+    [NSException raise:@"BaasioNotImplementedException" format:@"Not implemented."];
     NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",username];
     return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
                                                        withMethod:@"POST"

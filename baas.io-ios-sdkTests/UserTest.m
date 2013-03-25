@@ -71,19 +71,32 @@
 //- (void)test_sync_4_changePassword
 //{
 //    NSError *error = nil;
-//    [BaasioUser changePassword:@"user11"
-//                   newPassword:@"user10"
-//                         error:&error];
-//    NSLog(@"response : ---------------------- %@", error.localizedDescription );
+//    BaasioUser *user = [[BaasioUser alloc]init];
+//    [user changePassword:@"user10"
+//             newPassword:@"user11"
+//                   error:&error];
+//    if (!error) {
+//        //성공
+//        NSLog(@"Success");
+//    } else {
+//        //실패
+//        NSLog(@"Error : ---------------------- %@", error.localizedDescription);
+//    }
 //}
 
-- (void)test_sync_5_ResetPassword
-{
-    NSError *error = nil;
-    [BaasioUser resetPassword:@"user1"
-                        error:&error];
-    NSLog(@"response : ----------------------\n%@\n\n", error.localizedDescription );
-}
+//- (void)test_sync_5_ResetPassword
+//{
+//    NSError *error = nil;
+//    [BaasioUser resetPassword:@"user1"
+//                        error:&error];
+//    if (!error) {
+//        //성공
+//        NSLog(@"Success");
+//    } else {
+//        //실패
+//        NSLog(@"Error : ---------------------- %@", error.localizedDescription);
+//    }
+//}
 
 //- (void)test_1_SignUp
 //{
@@ -116,12 +129,12 @@
 //              }];
 //    [self runTestLoop];
 //}
-
+//
 //- (void)test_3_ChangePassword
 //{
 //    BaasioUser *user = [[BaasioUser alloc]init];
 //    [user changePasswordInBackground:@"user10"
-//                         newPassword:@"user11"
+//                         newPassword:@"user10"
 //                        successBlock:^{
 //                                  NSLog(@"success");
 //                                  exitRunLoop = YES;
