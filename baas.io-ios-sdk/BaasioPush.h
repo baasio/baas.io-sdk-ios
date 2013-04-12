@@ -10,7 +10,7 @@
 #import "BaasioRequest.h"
 
 /**
- A bass.io Framework Push Object.
+ A baas.io Framework Push Object.
 */
 @interface BaasioPush : NSObject
 

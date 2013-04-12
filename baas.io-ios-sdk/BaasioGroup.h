@@ -10,7 +10,7 @@
 #import "BaasioUser.h"
 
 /**
- A bass.io Framework Group Object.
+ A baas.io Framework Group Object.
 */
 @interface BaasioGroup : BaasioEntity
 /**

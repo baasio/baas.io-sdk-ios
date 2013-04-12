@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- A bass.io Framework Message Object for Push.
+ A baas.io Framework Message Object for Push.
 */
 @interface BaasioMessage : NSObject
 

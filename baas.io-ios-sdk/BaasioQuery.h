@@ -12,7 +12,7 @@ typedef enum {
 #import "BaasioGroup.h"
 
 /**
- A bass.io Framework Query Object.
+ A baas.io Framework Query Object.
  */
 @interface BaasioQuery : NSObject
 /**
