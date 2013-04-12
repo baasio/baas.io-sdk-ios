@@ -9,7 +9,7 @@
 #import "BaasioRequest.h"
 
 /**
- A bass.io Framework User Object.
+ A baas.io Framework User Object.
 */
 @interface BaasioUser : BaasioEntity
 @property(strong) NSString *username;
