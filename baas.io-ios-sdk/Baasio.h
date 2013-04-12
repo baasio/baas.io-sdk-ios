@@ -9,7 +9,7 @@
 
 
 /**
- A bass.io Framework File Object.
+ A baas.io Framework File Object.
  */
 @interface Baasio : NSObject
 @property(nonatomic, strong) NSString *apiURL;

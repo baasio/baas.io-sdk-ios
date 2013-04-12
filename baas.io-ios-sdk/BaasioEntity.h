@@ -9,7 +9,7 @@
 #import "BaasioRequest.h"
 
 /**
- A bass.io Framework File Object.
+ A baas.io Framework File Object.
 */
 @interface BaasioEntity : NSObject
 

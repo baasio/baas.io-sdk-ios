@@ -11,7 +11,7 @@
 #import "BaasioRequest.h"
 
 /**
- A bass.io Framework Help Object.
+ A baas.io Framework Help Object.
 */
 @interface BaasioHelp : NSObject
 /**
