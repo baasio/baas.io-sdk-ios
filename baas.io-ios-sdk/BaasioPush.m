@@ -144,7 +144,8 @@
 }
 
 
-- (void)pushOn:(NSError**)error
+- (void)pushOn:(NSArray *)tags
+         error:(NSError**)error
 {
     NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
     if (uuid == nil)    return;
@@ -162,7 +163,8 @@
     return;
 }
 
-- (BaasioRequest*)pushOnInBackground:(void (^)(void))successBlock
+- (BaasioRequest*)pushOnInBackground:(NSArray *)tags
+                        successBlock:(void (^)(void))successBlock
                         failureBlock:(void (^)(NSError *error))failureBlock
 {
     NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
