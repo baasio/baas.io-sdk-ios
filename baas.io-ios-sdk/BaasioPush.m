@@ -71,8 +71,11 @@
     BaasioQuery *query = [BaasioQuery queryWithCollection:@"devices"];
     [query setWheres:[NSString stringWithFormat:@"token = '%@'", deviceID]];
     return [query queryInBackground:^(NSArray *response){
-
-                    NSString *path = [@"pushes/devices/" stringByAppendingString:response[0][@"uuid"]];   
+                    if (response.count == 0) {
+                        successBlock();
+                        return;
+                    }
+                    NSString *path = [@"pushes/devices/" stringByAppendingString:response[0][@"uuid"]];
                     NSDictionary *params = @{
                                              @"state" : [NSNumber numberWithBool:false]
                                              };
@@ -152,9 +155,8 @@
     
     NSString *path = [@"pushes/devices/" stringByAppendingString:uuid];
     
-    NSDictionary *params = @{
-                             @"state" : [NSNumber numberWithBool:true]
-                             };
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:[NSNumber numberWithBool:true] forKey:@"state"];
+    [params setObject:tags forKey:@"tags"];
     
     [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
                                                     withMethod:@"PUT"
@@ -175,9 +177,8 @@
     
     NSString *path = [@"pushes/devices/" stringByAppendingString:uuid];
     
-    NSDictionary *params = @{
-                             @"state" : [NSNumber numberWithBool:true]
-                             };
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:[NSNumber numberWithBool:true] forKey:@"state"];
+    [params setObject:tags forKey:@"tags"];
     
     return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
                                                        withMethod:@"PUT"
