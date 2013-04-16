@@ -72,7 +72,12 @@
     [self runTestLoop];
 }
 
-//- (void)test_3_UnregisterDevice{
+- (void)test_3_updatePush{
+    BaasioPush *push = [[BaasioPush alloc] init];
+    [push pushOn:@[@"a", @"b"] error:nil];
+}
+
+//- (void)test_4_UnregisterDevice{
 //
 //    BaasioPush *push = [[BaasioPush alloc] init];
 //    [push unregisterInBackground:^(void) {
