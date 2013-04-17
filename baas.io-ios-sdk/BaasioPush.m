@@ -146,17 +146,16 @@
                     failureBlock:failureBlock];
 }
 
-
-- (void)pushOn:(NSArray *)tags
-         error:(NSError**)error
+- (void)tagUpdate:(NSArray *)tags
+            error:(NSError**)error
 {
     NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
     if (uuid == nil)    return;
     
     NSString *path = [@"pushes/devices/" stringByAppendingString:uuid];
-    
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:[NSNumber numberWithBool:true] forKey:@"state"];
-    [params setObject:tags forKey:@"tags"];
+    NSDictionary *params = @{
+                             @"tags" : tags
+                             };
     
     [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
                                                     withMethod:@"PUT"
@@ -165,8 +164,49 @@
     return;
 }
 
-- (BaasioRequest*)pushOnInBackground:(NSArray *)tags
-                        successBlock:(void (^)(void))successBlock
+- (BaasioRequest*)tagUpdateInBackground:(NSArray *)tags
+                           successBlock:(void (^)(void))successBlock
+                           failureBlock:(void (^)(NSError *error))failureBlock
+{
+    NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
+    if (uuid == nil)    {
+        successBlock();
+        return nil;
+    }
+    
+    NSString *path = [@"pushes/devices/" stringByAppendingString:uuid];
+    NSDictionary *params = @{
+                             @"tags" : tags
+                             };
+    
+    return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
+                                                       withMethod:@"PUT"
+                                                           params:params
+                                                          success:^(id result){
+                                                              successBlock();
+                                                          }
+                                                          failure:failureBlock];
+}
+
+- (void)pushOn:(NSError**)error
+{
+    NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
+    if (uuid == nil)    return;
+    
+    NSString *path = [@"pushes/devices/" stringByAppendingString:uuid];
+    
+    NSDictionary *params = @{
+                             @"state" : [NSNumber numberWithBool:true]
+                             };
+    
+    [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
+                                                    withMethod:@"PUT"
+                                                        params:params
+                                                         error:error];
+    return;
+}
+
+- (BaasioRequest*)pushOnInBackground:(void (^)(void))successBlock
                         failureBlock:(void (^)(NSError *error))failureBlock
 {
     NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
@@ -177,8 +217,9 @@
     
     NSString *path = [@"pushes/devices/" stringByAppendingString:uuid];
     
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:[NSNumber numberWithBool:true] forKey:@"state"];
-    [params setObject:tags forKey:@"tags"];
+    NSDictionary *params = @{
+                             @"state" : [NSNumber numberWithBool:true]
+                             };
     
     return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
                                                        withMethod:@"PUT"
