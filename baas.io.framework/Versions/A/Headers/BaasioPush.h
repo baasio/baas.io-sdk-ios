@@ -10,7 +10,7 @@
 #import "BaasioRequest.h"
 
 /**
- A bass.io Framework Push Object.
+ A baas.io Framework Push Object.
 */
 @interface BaasioPush : NSObject
 
@@ -70,16 +70,20 @@
 
 /**
  Push 켜기
+ @param tags tags
  @param error error
  */
-- (void)pushOn:(NSError**)error;
+- (void)pushOn:(NSArray *)tags
+         error:(NSError**)error;
 
 /**
  pushOnInBackground
+ @param tags tags
  @param successBlock successBlock
  @param failureBlock failureBlock
  */
-- (BaasioRequest*)pushOnInBackground:(void (^)(void))successBlock
+- (BaasioRequest*)pushOnInBackground:(NSArray *)tags
+                        successBlock:(void (^)(void))successBlock
                         failureBlock:(void (^)(NSError *error))failureBlock;
 
 /**
