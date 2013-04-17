@@ -66,24 +66,36 @@
                           successBlock:(void (^)(void))successBlock
                           failureBlock:(void (^)(NSError *error))failureBlock;
 
-
-
 /**
- Push 켜기
+ Push tag 수정하기
  @param tags tags
  @param error error
  */
-- (void)pushOn:(NSArray *)tags
-         error:(NSError**)error;
+- (void)tagUpdate:(NSArray *)tags
+            error:(NSError**)error;
 
 /**
- pushOnInBackground
+ Push tag 수정하기 asynchronously
  @param tags tags
  @param successBlock successBlock
  @param failureBlock failureBlock
  */
-- (BaasioRequest*)pushOnInBackground:(NSArray *)tags
-                        successBlock:(void (^)(void))successBlock
+- (BaasioRequest*)tagUpdateInBackground:(NSArray *)tags
+                           successBlock:(void (^)(void))successBlock
+                           failureBlock:(void (^)(NSError *error))failureBlock;
+
+/**
+ Push 켜기
+ @param error error
+ */
+- (void)pushOn:(NSError**)error;
+
+/**
+ Push 켜기 asynchronously
+ @param successBlock successBlock
+ @param failureBlock failureBlock
+ */
+- (BaasioRequest*)pushOnInBackground:(void (^)(void))successBlock
                         failureBlock:(void (^)(NSError *error))failureBlock;
 
 /**
@@ -92,7 +104,7 @@
  */
 - (void)pushOff:(NSError**)error;
 /**
- pushOffInBackground
+ Push 끄기 asynchronously
  @param successBlock successBlock
  @param failureBlock failureBlock
  */
