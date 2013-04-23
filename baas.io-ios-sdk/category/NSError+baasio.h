@@ -11,7 +11,7 @@
  The category of NSError for baas.io.
  baas.io의 에러 코드를 확장하여 uuid를 받을 수 있다.
 */
-NSString *_uuid;
+static NSString *_uuid;
 @interface NSError (Baasio)
 /**
  setUuid
