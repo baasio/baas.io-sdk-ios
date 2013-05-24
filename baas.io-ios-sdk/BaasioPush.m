@@ -37,6 +37,31 @@
                                    failure:failureBlock];
 }
 
+- (void)pushRegister:(UIRemoteNotificationType)types{
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:types];
+}
+
+- (void)pushUnregister:(NSError**)error{
+    NSError *realError;
+    [self unregister:&realError];
+    if(!realError){
+        [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+        *error = realError;
+    }else{
+        *error = realError;
+    }
+}
+
+- (void)pushUnregisterInBackground:(void (^)(void))successBlock
+                      failureBlock:(void (^)(NSError *error))failureBlock{
+    [self unregisterInBackground:^{
+        [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+        successBlock();
+    }
+                    failureBlock:^(NSError *error) {
+                        failureBlock(error);
+                    }];
+}
 
 - (void)unregister:(NSError**)error
 {
@@ -47,7 +72,7 @@
     [query setWheres:[NSString stringWithFormat:@"token = '%@'", deviceID]];
     NSArray *response = [query query:error];
 
-    NSString *path = [@"pushes/devices/" stringByAppendingString:response[0][@"uuid"]];
+    NSString *path = [@"devices/" stringByAppendingString:response[0][@"uuid"]];
     NSDictionary *params = @{
         @"state" : [NSNumber numberWithBool:false]
     };
@@ -75,7 +100,7 @@
                         successBlock();
                         return;
                     }
-                    NSString *path = [@"pushes/devices/" stringByAppendingString:response[0][@"uuid"]];
+                    NSString *path = [@"devices/" stringByAppendingString:response[0][@"uuid"]];
                     NSDictionary *params = @{
                                              @"state" : [NSNumber numberWithBool:false]
                                              };
@@ -97,18 +122,25 @@
                 failureBlock:failureBlock];
 }
 
-- (void)register:(NSString *)deviceID
+- (void)register:(NSData *)deviceToken
             tags:(NSArray *)tags
            error:(NSError**)error
 {
     [self unregister:error];
-
+    
+    NSMutableString *deviceID = [NSMutableString string];
+	const unsigned char* ptr = (const unsigned char*) [deviceToken bytes];
+	for(int i = 0 ; i < 32 ; i++)
+	{
+		[deviceID appendFormat:@"%02x", ptr[i]];
+	}
+    
     NSDictionary *params = @{
                                 @"platform" : @"I",
                                 @"token" : deviceID,
                                 @"tags" : tags
                             };
-    NSString *path = @"pushes/devices";
+    NSString *path = @"devices";
 
     [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
                                                     withMethod:@"POST"
@@ -120,30 +152,36 @@
     
     return;
 }
-- (BaasioRequest*)registerInBackground:(NSString *)deviceID
+- (BaasioRequest*)registerInBackground:(NSData *)deviceToken
                         tags:(NSArray *)tags
                 successBlock:(void (^)(void))successBlock
                 failureBlock:(void (^)(NSError *error))failureBlock
 {
     return [self unregisterInBackground:^(void){
-                        NSDictionary *params = @{
-                                                     @"platform" : @"I",
-                                                     @"token" : deviceID,
-                                                     @"tags" : tags
-                                                 };
+        NSMutableString *deviceID = [NSMutableString string];
+        const unsigned char* ptr = (const unsigned char*) [deviceToken bytes];
+        for(int i = 0 ; i < 32 ; i++)
+        {
+            [deviceID appendFormat:@"%02x", ptr[i]];
+        }
+        NSDictionary *params = @{
+                                 @"platform" : @"I",
+                                 @"token" : deviceID,
+                                 @"tags" : tags
+                                 };
         
-                        NSString *path = @"pushes/devices";
-                        [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
-                                                                   withMethod:@"POST"
-                                                                       params:params
-                                                                      success:^(id result){
-                                                                          [[NSUserDefaults standardUserDefaults] setObject:deviceID forKey:PUSH_DEVICE_ID];
-                                                                          [[NSUserDefaults standardUserDefaults] synchronize];
-                                                                          successBlock();
-                                                                      }
-                                                                      failure:failureBlock];
-                    }
-                    failureBlock:failureBlock];
+        NSString *path = @"devices";
+        [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
+                                                    withMethod:@"POST"
+                                                        params:params
+                                                       success:^(id result){
+                                                           [[NSUserDefaults standardUserDefaults] setObject:deviceID forKey:PUSH_DEVICE_ID];
+                                                           [[NSUserDefaults standardUserDefaults] synchronize];
+                                                           successBlock();
+                                                       }
+                                                       failure:failureBlock];
+    }
+                           failureBlock:failureBlock];
 }
 
 - (void)tagUpdate:(NSArray *)tags
@@ -152,7 +190,7 @@
     NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
     if (uuid == nil)    return;
     
-    NSString *path = [@"pushes/devices/" stringByAppendingString:uuid];
+    NSString *path = [@"devices/" stringByAppendingString:uuid];
     NSDictionary *params = @{
                              @"tags" : tags
                              };
@@ -174,7 +212,7 @@
         return nil;
     }
     
-    NSString *path = [@"pushes/devices/" stringByAppendingString:uuid];
+    NSString *path = [@"devices/" stringByAppendingString:uuid];
     NSDictionary *params = @{
                              @"tags" : tags
                              };
@@ -193,7 +231,7 @@
     NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
     if (uuid == nil)    return;
     
-    NSString *path = [@"pushes/devices/" stringByAppendingString:uuid];
+    NSString *path = [@"devices/" stringByAppendingString:uuid];
     
     NSDictionary *params = @{
                              @"state" : [NSNumber numberWithBool:true]
@@ -215,7 +253,7 @@
         return nil;
     }
     
-    NSString *path = [@"pushes/devices/" stringByAppendingString:uuid];
+    NSString *path = [@"devices/" stringByAppendingString:uuid];
     
     NSDictionary *params = @{
                              @"state" : [NSNumber numberWithBool:true]
@@ -235,7 +273,7 @@
     NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
     if (uuid == nil)    return;
     
-    NSString *path = [@"pushes/devices/" stringByAppendingString:uuid];
+    NSString *path = [@"devices/" stringByAppendingString:uuid];
     
     NSDictionary *params = @{
                              @"state" : [NSNumber numberWithBool:false]
@@ -257,7 +295,7 @@
         return nil;
     }
     
-    NSString *path = [@"pushes/devices/" stringByAppendingString:uuid];
+    NSString *path = [@"devices/" stringByAppendingString:uuid];
     
     NSDictionary *params = @{
                              @"state" : [NSNumber numberWithBool:false]

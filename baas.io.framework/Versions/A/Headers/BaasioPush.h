@@ -6,6 +6,7 @@
 
 #define PUSH_DEVICE_ID @"PUSH_DEVICE_ID_BAASIO_SDK"
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "BaasioMessage.h"
 #import "BaasioRequest.h"
 
@@ -46,22 +47,39 @@
                             failureBlock:(void (^)(NSError *error))failureBlock;
 
 /**
+ Push 등록
+ @param types types
+ */
+- (void)pushRegister:(UIRemoteNotificationType)types;
+
+/**
+ Push 해제
+ */
+- (void)pushUnregister:(NSError**)error;
+
+/**
+ Push 해제 asynchronously
+ */
+- (void)pushUnregisterInBackground:(void (^)(void))successBlock
+                      failureBlock:(void (^)(NSError *error))failureBlock;
+
+/**
  디바이스 등록
- @param deviceID device ID
+ @param deviceToken deviceToken
  @param tags tags
  @param error error
  */
-- (void)register:(NSString *)deviceID
+- (void)register:(NSData *)deviceToken
             tags:(NSArray *)tags
            error:(NSError**)error;
 /**
  디바이스 등록 asynchronously
- @param deviceID device ID
+ @param deviceToken deviceToken
  @param tags tags
  @param successBlock successBlock
  @param failureBlock failureBlock
  */
-- (BaasioRequest*)registerInBackground:(NSString *)deviceID
+- (BaasioRequest*)registerInBackground:(NSData *)deviceToken
                                   tags:(NSArray *)tags
                           successBlock:(void (^)(void))successBlock
                           failureBlock:(void (^)(NSError *error))failureBlock;

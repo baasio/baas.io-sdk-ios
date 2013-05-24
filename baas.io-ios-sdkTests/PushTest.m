@@ -45,6 +45,7 @@
 //}
 //
 //
+//
 //- (void)test_2_sendPush{
 //    BaasioPush *push = [[BaasioPush alloc] init];
 //    BaasioMessage *config = [[BaasioMessage alloc]init];
