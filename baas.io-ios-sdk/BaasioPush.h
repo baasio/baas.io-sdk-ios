@@ -34,20 +34,25 @@
                           failureBlock:(void (^)(NSError *error))failureBlock;
 
 /**
- Push 등록
+ APNS에 디바이스 등록
+
+ 앱 시작나 로그인 후에 디바이스 등록이 필요한 시점에 호출하 된다.
  @param types types
  */
 - (void)registerForRemoteNotificationTypes:(UIRemoteNotificationType)types;
 
 /**
- Push 해제 asynchronously
+ APNS에 디바이스 해제
+
+ 앱 로그아웃 시에 호출해주면 된다.
  */
 - (void)unregisterForRemoteNotifications:(void (^)(void))successBlock
                             failureBlock:(void (^)(NSError *error))failureBlock;
 
-
 /**
- 디바이스 등록 asynchronously
+ 디바이스 등록
+
+ baas.io에 디바이스 Token 전달 asynchronously
  @param deviceToken deviceToken
  @param tags tags
  @param successBlock successBlock
@@ -78,12 +83,15 @@
 
 /**
  Push 켜기
+ 서버에서 push 발송을 하지 않도록 설정되어 있다면 push를 발송하도록 상태를 변경합니다.
  @param error error
  */
 - (void)pushOn:(NSError**)error;
 
 /**
  Push 켜기 asynchronously
+
+ 서버에서 push 발송을 하지 않도록 설정되어 있다면 push를 발송하도록 상태를 변경합니다.
  @param successBlock successBlock
  @param failureBlock failureBlock
  */
@@ -92,11 +100,16 @@
 
 /**
  Push 끄기
+
+ 서버에서 push 발송을 하지 않도록 합니다. 설정에서 push on/off 기능이 있다면 이것을 사용하세요.
  @param error error
  */
 - (void)pushOff:(NSError**)error;
+
 /**
  Push 끄기 asynchronously
+
+ 서버에서 push 발송을 하지 않도록 합니다. 설정에서 push on/off 기능이 있다면 이것을 사용하세요.
  @param successBlock successBlock
  @param failureBlock failureBlock
  */
