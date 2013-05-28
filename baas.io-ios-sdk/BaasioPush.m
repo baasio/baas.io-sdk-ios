@@ -7,6 +7,23 @@
 #import "BaasioPush.h"
 #import "BaasioNetworkManager.h"
 #import "BaasioQuery.h"
+@interface BaasioPush()
+/**
+ 디바이스 삭제
+ @param error error
+ */
+- (void)unregister:(NSError**)error;
+
+/**
+ 디바이스 삭제 asynchronously
+ @param successBlock successBlock
+ @param failureBlock failureBlock
+ */
+- (BaasioRequest*)unregisterInBackground:(void (^)(void))successBlock
+                            failureBlock:(void (^)(NSError *error))failureBlock;
+
+@end
+
 @implementation BaasioPush {
 
 }
@@ -37,27 +54,16 @@
                                    failure:failureBlock];
 }
 
-- (void)pushRegister:(UIRemoteNotificationType)types{
+- (void)registerForRemoteNotificationTypes:(UIRemoteNotificationType)types{
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:types];
 }
 
-- (void)pushUnregister:(NSError**)error{
-    NSError *realError;
-    [self unregister:&realError];
-    if(!realError){
-        [[UIApplication sharedApplication] unregisterForRemoteNotifications];
-        *error = realError;
-    }else{
-        *error = realError;
-    }
-}
-
-- (void)pushUnregisterInBackground:(void (^)(void))successBlock
-                      failureBlock:(void (^)(NSError *error))failureBlock{
+- (void)unregisterForRemoteNotifications:(void (^)(void))successBlock
+                            failureBlock:(void (^)(NSError *error))failureBlock{
     [self unregisterInBackground:^{
-        [[UIApplication sharedApplication] unregisterForRemoteNotifications];
-        successBlock();
-    }
+                        [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+                        successBlock();
+                    }
                     failureBlock:^(NSError *error) {
                         failureBlock(error);
                     }];
@@ -122,40 +128,10 @@
                 failureBlock:failureBlock];
 }
 
-- (void)register:(NSData *)deviceToken
-            tags:(NSArray *)tags
-           error:(NSError**)error
-{
-    [self unregister:error];
-    
-    NSMutableString *deviceID = [NSMutableString string];
-	const unsigned char* ptr = (const unsigned char*) [deviceToken bytes];
-	for(int i = 0 ; i < 32 ; i++)
-	{
-		[deviceID appendFormat:@"%02x", ptr[i]];
-	}
-    
-    NSDictionary *params = @{
-                                @"platform" : @"I",
-                                @"token" : deviceID,
-                                @"tags" : tags
-                            };
-    NSString *path = @"devices";
-
-    [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
-                                                    withMethod:@"POST"
-                                                        params:params
-                                                         error:error];
-
-    [[NSUserDefaults standardUserDefaults] setObject:deviceID forKey:PUSH_DEVICE_ID];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    return;
-}
-- (BaasioRequest*)registerInBackground:(NSData *)deviceToken
-                        tags:(NSArray *)tags
-                successBlock:(void (^)(void))successBlock
-                failureBlock:(void (^)(NSError *error))failureBlock
+- (BaasioRequest*)didRegisterForRemoteNotifications:(NSData *)deviceToken
+                                               tags:(NSArray *)tags
+                                       successBlock:(void (^)(void))successBlock
+                                       failureBlock:(void (^)(NSError *error))failureBlock
 {
     return [self unregisterInBackground:^(void){
         NSMutableString *deviceID = [NSMutableString string];
