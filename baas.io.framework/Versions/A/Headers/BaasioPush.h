@@ -32,46 +32,20 @@
 - (BaasioRequest*)sendPushInBackground:(BaasioMessage *)message
                           successBlock:(void (^)(void))successBlock
                           failureBlock:(void (^)(NSError *error))failureBlock;
-/**
- 디바이스 삭제
- @param error error
- */
-- (void)unregister:(NSError**)error;
-
-/**
- 디바이스 삭제 asynchronously
- @param successBlock successBlock
- @param failureBlock failureBlock
- */
-- (BaasioRequest*)unregisterInBackground:(void (^)(void))successBlock
-                            failureBlock:(void (^)(NSError *error))failureBlock;
 
 /**
  Push 등록
  @param types types
  */
-- (void)pushRegister:(UIRemoteNotificationType)types;
-
-/**
- Push 해제
- */
-- (void)pushUnregister:(NSError**)error;
+- (void)registerForRemoteNotificationTypes:(UIRemoteNotificationType)types;
 
 /**
  Push 해제 asynchronously
  */
-- (void)pushUnregisterInBackground:(void (^)(void))successBlock
-                      failureBlock:(void (^)(NSError *error))failureBlock;
+- (void)unregisterForRemoteNotifications:(void (^)(void))successBlock
+                            failureBlock:(void (^)(NSError *error))failureBlock;
 
-/**
- 디바이스 등록
- @param deviceToken deviceToken
- @param tags tags
- @param error error
- */
-- (void)register:(NSData *)deviceToken
-            tags:(NSArray *)tags
-           error:(NSError**)error;
+
 /**
  디바이스 등록 asynchronously
  @param deviceToken deviceToken
@@ -79,10 +53,10 @@
  @param successBlock successBlock
  @param failureBlock failureBlock
  */
-- (BaasioRequest*)registerInBackground:(NSData *)deviceToken
-                                  tags:(NSArray *)tags
-                          successBlock:(void (^)(void))successBlock
-                          failureBlock:(void (^)(NSError *error))failureBlock;
+- (BaasioRequest*)didRegisterForRemoteNotifications:(NSData *)deviceToken
+                                               tags:(NSArray *)tags
+                                       successBlock:(void (^)(void))successBlock
+                                       failureBlock:(void (^)(NSError *error))failureBlock;
 
 /**
  Push tag 수정하기
