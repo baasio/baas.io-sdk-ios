@@ -133,8 +133,9 @@
                                        successBlock:(void (^)(void))successBlock
                                        failureBlock:(void (^)(NSError *error))failureBlock
 {
-    
-    
+    if (tags == nil) tags = [NSArray array];
+
+
     NSMutableString *deviceID = [NSMutableString string];
     const unsigned char* ptr = (const unsigned char*) [deviceToken bytes];
     for(int i = 0 ; i < 32 ; i++)
@@ -160,37 +161,10 @@
             NSLog(@"토큰이 바뀌었음");
             
             NSDictionary *params = [[NSDictionary alloc]init];
-            if([BaasioUser currentUser]){
-                if(tags){
-                    params = @{
-                               @"platform" : @"I",
-                               @"token" : deviceID,
-                               @"tags" : tags,
-                               @"username" : [[BaasioUser currentUser]objectForKey:@"username"]
-                               };
-                }else{
-                    params = @{
-                               @"platform" : @"I",
-                               @"token" : deviceID,
-                               @"username" : [[BaasioUser currentUser]objectForKey:@"username"]
-                               };
-                }
-            }else{
-                if(tags){
-                    params = @{
-                               @"platform" : @"I",
-                               @"token" : deviceID,
-                               @"tags" : tags
-                               };
-                }else{
-                    params = @{
-                               @"platform" : @"I",
-                               @"token" : deviceID
-                               };
-                }
-            }
-            
-            
+            params = @{
+                           @"token" : deviceID,
+                           @"tags" : tags
+                       };
             
             NSString *path = [@"devices/" stringByAppendingFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID]];
             return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
