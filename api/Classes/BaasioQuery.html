@@ -1,0 +1,1382 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>BaasioQuery Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Baas.io iOS SDK </a></h1>
+				<a id="developerHome" href="../index.html">KTH</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">BaasioQuery Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/queryWithCollection:">&nbsp;&nbsp;&nbsp;&nbsp;+ queryWithCollection:</option>
+	
+	<option value="//api/name/queryWithGroup:">&nbsp;&nbsp;&nbsp;&nbsp;+ queryWithGroup:</option>
+	
+	<option value="//api/name/queryWithRelationship:withUUID:withRelation:">&nbsp;&nbsp;&nbsp;&nbsp;+ queryWithRelationship:withUUID:withRelation:</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/cursor">&nbsp;&nbsp;&nbsp;&nbsp;- cursor</option>
+	
+	<option value="//api/name/description">&nbsp;&nbsp;&nbsp;&nbsp;- description</option>
+	
+	<option value="//api/name/hasMoreEntities">&nbsp;&nbsp;&nbsp;&nbsp;- hasMoreEntities</option>
+	
+	<option value="//api/name/next:">&nbsp;&nbsp;&nbsp;&nbsp;- next:</option>
+	
+	<option value="//api/name/nextInBackground:failureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- nextInBackground:failureBlock:</option>
+	
+	<option value="//api/name/prev:">&nbsp;&nbsp;&nbsp;&nbsp;- prev:</option>
+	
+	<option value="//api/name/prevInBackground:failureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- prevInBackground:failureBlock:</option>
+	
+	<option value="//api/name/query:">&nbsp;&nbsp;&nbsp;&nbsp;- query:</option>
+	
+	<option value="//api/name/queryInBackground:failureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- queryInBackground:failureBlock:</option>
+	
+	<option value="//api/name/setCursor:">&nbsp;&nbsp;&nbsp;&nbsp;- setCursor:</option>
+	
+	<option value="//api/name/setLimit:">&nbsp;&nbsp;&nbsp;&nbsp;- setLimit:</option>
+	
+	<option value="//api/name/setOrderBy:order:">&nbsp;&nbsp;&nbsp;&nbsp;- setOrderBy:order:</option>
+	
+	<option value="//api/name/setProjectionIn:">&nbsp;&nbsp;&nbsp;&nbsp;- setProjectionIn:</option>
+	
+	<option value="//api/name/setResetCursor">&nbsp;&nbsp;&nbsp;&nbsp;- setResetCursor</option>
+	
+	<option value="//api/name/setWheres:">&nbsp;&nbsp;&nbsp;&nbsp;- setWheres:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/queryWithCollection:">queryWithCollection:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/queryWithGroup:">queryWithGroup:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/queryWithRelationship:withUUID:withRelation:">queryWithRelationship:withUUID:withRelation:</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cursor">cursor</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/description">description</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasMoreEntities">hasMoreEntities</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/next:">next:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/nextInBackground:failureBlock:">nextInBackground:failureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prev:">prev:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prevInBackground:failureBlock:">prevInBackground:failureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/query:">query:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/queryInBackground:failureBlock:">queryInBackground:failureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCursor:">setCursor:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setLimit:">setLimit:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setOrderBy:order:">setOrderBy:order:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setProjectionIn:">setProjectionIn:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setResetCursor">setResetCursor</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setWheres:">setWheres:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="BaasioQuery Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">BaasioQuery Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">BaasioQuery.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>A baas.io Framework Query Object.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/queryWithCollection:">+&nbsp;queryWithCollection:</a></code>
+		<span class="tooltip"><p>Collection용 Query 생성</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/queryWithGroup:">+&nbsp;queryWithGroup:</a></code>
+		<span class="tooltip"><p>Group용 Query 생성</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/queryWithRelationship:withUUID:withRelation:">+&nbsp;queryWithRelationship:withUUID:withRelation:</a></code>
+		<span class="tooltip"><p>Relationship용 Query 생성</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setProjectionIn:">&ndash;&nbsp;setProjectionIn:</a></code>
+		<span class="tooltip"><p>가져올 property</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setWheres:">&ndash;&nbsp;setWheres:</a></code>
+		<span class="tooltip"><p>where 조건 추가</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setOrderBy:order:">&ndash;&nbsp;setOrderBy:order:</a></code>
+		<span class="tooltip"><p>정렬</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setLimit:">&ndash;&nbsp;setLimit:</a></code>
+		<span class="tooltip"><p>limit</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cursor">&ndash;&nbsp;cursor</a></code>
+		<span class="tooltip"><p>cursor</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setCursor:">&ndash;&nbsp;setCursor:</a></code>
+		<span class="tooltip"><p><a href="#//api/name/cursor">cursor</a></p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setResetCursor">&ndash;&nbsp;setResetCursor</a></code>
+		<span class="tooltip"><p>reset <a href="#//api/name/cursor">cursor</a></p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hasMoreEntities">&ndash;&nbsp;hasMoreEntities</a></code>
+		<span class="tooltip"><p>hasMoreEntities
+다음 결과 존재 여부</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/description">&ndash;&nbsp;description</a></code>
+		<span class="tooltip"><p>description</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/next:">&ndash;&nbsp;next:</a></code>
+		<span class="tooltip"><p>다음 결과</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/nextInBackground:failureBlock:">&ndash;&nbsp;nextInBackground:failureBlock:</a></code>
+		<span class="tooltip"><p>다음 결과 asynchronously</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/prev:">&ndash;&nbsp;prev:</a></code>
+		<span class="tooltip"><p>이전 결과</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/prevInBackground:failureBlock:">&ndash;&nbsp;prevInBackground:failureBlock:</a></code>
+		<span class="tooltip"><p>이전 결과 asynchronously</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/query:">&ndash;&nbsp;query:</a></code>
+		<span class="tooltip"><p>query</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/queryInBackground:failureBlock:">&ndash;&nbsp;queryInBackground:failureBlock:</a></code>
+		<span class="tooltip"><p>query asynchronously</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/queryWithCollection:" title="queryWithCollection:"></a>
+	<h3 class="subsubtitle method-title">queryWithCollection:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Collection용 Query 생성</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (BaasioQuery *)queryWithCollection:(NSString *)<em>name</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>name</em></dt>
+			<dd><p>name</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Collection용 Query 생성</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/queryWithGroup:" title="queryWithGroup:"></a>
+	<h3 class="subsubtitle method-title">queryWithGroup:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Group용 Query 생성</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (BaasioQuery *)queryWithGroup:(NSString *)<em>name</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>name</em></dt>
+			<dd><p>name</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Group용 Query 생성</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/queryWithRelationship:withUUID:withRelation:" title="queryWithRelationship:withUUID:withRelation:"></a>
+	<h3 class="subsubtitle method-title">queryWithRelationship:withUUID:withRelation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Relationship용 Query 생성</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (BaasioQuery *)queryWithRelationship:(NSString *)<em>entityName</em> withUUID:(NSString *)<em>uuid</em> withRelation:(NSString *)<em>relationName</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>entityName</em></dt>
+			<dd><p>entityName</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>uuid</em></dt>
+			<dd><p>uuid</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>relationName</em></dt>
+			<dd><p>relationName</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Relationship용 Query 생성</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/cursor" title="cursor"></a>
+	<h3 class="subsubtitle method-title">cursor</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>cursor</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)cursor</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>cursor</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/description" title="description"></a>
+	<h3 class="subsubtitle method-title">description</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>description</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)description</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>description</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/hasMoreEntities" title="hasMoreEntities"></a>
+	<h3 class="subsubtitle method-title">hasMoreEntities</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>hasMoreEntities
+다음 결과 존재 여부</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)hasMoreEntities</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>hasMoreEntities
+다음 결과 존재 여부</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/next:" title="next:"></a>
+	<h3 class="subsubtitle method-title">next:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>다음 결과</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSArray *)next:(NSError **)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>error</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>다음 결과</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/nextInBackground:failureBlock:" title="nextInBackground:failureBlock:"></a>
+	<h3 class="subsubtitle method-title">nextInBackground:failureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>다음 결과 asynchronously</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BaasioRequest *)nextInBackground:(void ( ^ ) ( NSArray *objects ))<em>successBlock</em> failureBlock:(void ( ^ ) ( NSError *error ))<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>successBlock</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>failureBlock</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>다음 결과 asynchronously</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/prev:" title="prev:"></a>
+	<h3 class="subsubtitle method-title">prev:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>이전 결과</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSArray *)prev:(NSError **)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>error</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>이전 결과</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/prevInBackground:failureBlock:" title="prevInBackground:failureBlock:"></a>
+	<h3 class="subsubtitle method-title">prevInBackground:failureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>이전 결과 asynchronously</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BaasioRequest *)prevInBackground:(void ( ^ ) ( NSArray *objects ))<em>successBlock</em> failureBlock:(void ( ^ ) ( NSError *error ))<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>successBlock</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>failureBlock</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>이전 결과 asynchronously</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/query:" title="query:"></a>
+	<h3 class="subsubtitle method-title">query:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>query</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSArray *)query:(NSError **)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>error</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>query</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/queryInBackground:failureBlock:" title="queryInBackground:failureBlock:"></a>
+	<h3 class="subsubtitle method-title">queryInBackground:failureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>query asynchronously</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BaasioRequest *)queryInBackground:(void ( ^ ) ( NSArray *objects ))<em>successBlock</em> failureBlock:(void ( ^ ) ( NSError *error ))<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>successBlock</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>failureBlock</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>query asynchronously</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setCursor:" title="setCursor:"></a>
+	<h3 class="subsubtitle method-title">setCursor:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p><a href="#//api/name/cursor">cursor</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setCursor:(NSString *)<em>cursor</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>cursor</em></dt>
+			<dd><p><a href="#//api/name/cursor">cursor</a></p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p><a href="#//api/name/cursor">cursor</a></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setLimit:" title="setLimit:"></a>
+	<h3 class="subsubtitle method-title">setLimit:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>limit</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setLimit:(int)<em>limit</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>limit</em></dt>
+			<dd><p>결과를 가져올 갯수(default : 10개)</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>limit</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setOrderBy:order:" title="setOrderBy:order:"></a>
+	<h3 class="subsubtitle method-title">setOrderBy:order:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>정렬</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setOrderBy:(NSString *)<em>key</em> order:(BaasioQuerySortOrder)<em>order</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>key</em></dt>
+			<dd><p>key</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>order</em></dt>
+			<dd><p>BaasioQuerySortOrderASC or BaasioQuerySortOrderDESC</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>정렬</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setProjectionIn:" title="setProjectionIn:"></a>
+	<h3 class="subsubtitle method-title">setProjectionIn:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>가져올 property</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setProjectionIn:(NSString *)<em>projectionIn</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>projectionIn</em></dt>
+			<dd><p>projectionIn</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>가져올 property</p>
+
+<p>예) 이름, uuid => [query setProjectionIn:@&ldquo;name, uuid&rdquo;];</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setResetCursor" title="setResetCursor"></a>
+	<h3 class="subsubtitle method-title">setResetCursor</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>reset <a href="#//api/name/cursor">cursor</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setResetCursor</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>reset <a href="#//api/name/cursor">cursor</a></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setWheres:" title="setWheres:"></a>
+	<h3 class="subsubtitle method-title">setWheres:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>where 조건 추가</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setWheres:(NSString *)<em>wheres</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>wheres</em></dt>
+			<dd><p>wheres 조건</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>where 조건 추가</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioQuery.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 KTH. All rights reserved. (Last updated: 2013-05-28)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>
