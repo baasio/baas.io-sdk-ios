@@ -146,7 +146,7 @@
     }
     
     if (_filter != nil) {
-        _sql = [_sql stringByAppendingFormat:@"&filter=%@", _filter ];
+        _sql = [_sql stringByAppendingFormat:@"&filter=%@", [_filter stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ];
     }
     
     return _sql;
