@@ -123,10 +123,9 @@
 
 - (void)test_3_QueryFilterTest{
     BaasioQuery *query = [BaasioQuery queryWithCollection:@"tests"];
-    //    [query setCursor:@"cursor"];
-//    [query setLimit:3];
-    
-    [query setFilter:@"cetauri='권오상'"];
+
+    NSArray *array = @[ @"cetauri='권오상'", @"badge=3" ];
+    [query setFilter:array];
     [query queryInBackground:^(NSArray *array) {
                     NSLog(@"count : %i", array.count);
                     exitRunLoop = YES;

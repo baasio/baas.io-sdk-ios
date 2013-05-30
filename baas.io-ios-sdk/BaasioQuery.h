@@ -53,7 +53,7 @@ typedef enum {
  filter 조건
  @param filter filter 조건
  */
--(void)setFilter:(NSString*)filter;
+-(void)setFilter:(NSArray*)filter;
 
 /**
  정렬
