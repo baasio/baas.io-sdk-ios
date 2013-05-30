@@ -121,6 +121,25 @@
 
 }
 
+- (void)test_3_QueryFilterTest{
+    BaasioQuery *query = [BaasioQuery queryWithCollection:@"tests"];
+    //    [query setCursor:@"cursor"];
+//    [query setLimit:3];
+    
+    [query setFilter:@"cetauri='권오상'"];
+    [query queryInBackground:^(NSArray *array) {
+                    NSLog(@"count : %i", array.count);
+                    exitRunLoop = YES;
+                }
+                failureBlock:^(NSError *error) {
+                    NSLog(@"fail : %@", error.localizedDescription);
+                    STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                    exitRunLoop = YES;
+                }];
+    
+    [self runTestLoop];
+}
+
 - (void)runTestLoop{
     while (!exitRunLoop){
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
