@@ -34,7 +34,6 @@
 		27F2EBC77C60DA2BC0ADA3ED /* BaasioVersion.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2ED06362945A37BF2B748 /* BaasioVersion.h */; };
 		27F2ED5A97C14E7515953AC3 /* ShadowUpdateChecker.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2E9D9B0BF60D854AFF058 /* ShadowUpdateChecker.h */; };
 		27F2EF1CA361D24482B8CDE9 /* BaasioPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F2EE6A9471C3869236C589 /* BaasioPush.m */; };
-		AF001E5D170AEB2200F38F90 /* SimpleNetworkManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2E7BE848C65E993BF5FE8 /* SimpleNetworkManager.h */; };
 		AF09CBCB16AF6C930064DB66 /* NSError+baasio.m in Sources */ = {isa = PBXBuildFile; fileRef = AF09CBC916AF6C930064DB66 /* NSError+baasio.m */; };
 		AF09CBCE16AF6CAE0064DB66 /* NSError+baasio.m in Sources */ = {isa = PBXBuildFile; fileRef = AF09CBC916AF6C930064DB66 /* NSError+baasio.m */; };
 		AF1236B816D318C80070C666 /* UIImageView+Baasio.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1236B716D318C80070C666 /* UIImageView+Baasio.m */; };
@@ -45,7 +44,6 @@
 		AF2575CE168A9F090037919C /* BaasioHelp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFFFBBF61682B0FD006CAEF1 /* BaasioHelp.h */; };
 		AF26A27F166667F5006A7225 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E418165A2D850021AA4C /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AF3A5BA9169BF201006501CB /* NetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3A5BA7169BF201006501CB /* NetworkActivityIndicatorManager.m */; };
-		AF48E9BD16B2D235005F78A0 /* UserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF48E9B016B2D235005F78A0 /* UserTest.m */; };
 		AF508AF61765AD590010741D /* BaasioValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF508AF51765AD590010741D /* BaasioValidator.m */; };
 		AF515B5E16703F930005F743 /* BaasioMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AF515B5D16703F930005F743 /* BaasioMessage.m */; };
 		AF76584816788C1C0017C217 /* BaasioRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF76584716788C1C0017C217 /* BaasioRequest.m */; };
@@ -186,6 +184,20 @@
 		27F2ED06362945A37BF2B748 /* BaasioVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaasioVersion.h; path = ../BaasioVersion.h; sourceTree = "<group>"; };
 		27F2EE6A9471C3869236C589 /* BaasioPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioPush.m; sourceTree = "<group>"; };
 		27F2EEB6EE3DE5F0D5754D11 /* ShadowUpdateChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowUpdateChecker.m; sourceTree = "<group>"; };
+		4192F2061757125400958D03 /* EntityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityTest.h; sourceTree = "<group>"; };
+		4192F2071757125400958D03 /* EntityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityTest.m; sourceTree = "<group>"; };
+		4192F2081757125400958D03 /* FileTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTest.h; sourceTree = "<group>"; };
+		4192F2091757125400958D03 /* FileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTest.m; sourceTree = "<group>"; };
+		4192F20A1757125400958D03 /* GroupTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTest.h; sourceTree = "<group>"; };
+		4192F20B1757125400958D03 /* GroupTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTest.m; sourceTree = "<group>"; };
+		4192F20C1757125400958D03 /* HelprTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelprTest.h; sourceTree = "<group>"; };
+		4192F20D1757125400958D03 /* HelprTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelprTest.m; sourceTree = "<group>"; };
+		4192F20E1757125400958D03 /* QueryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryTest.h; sourceTree = "<group>"; };
+		4192F20F1757125400958D03 /* QueryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryTest.m; sourceTree = "<group>"; };
+		4192F2101757125400958D03 /* RelationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelationTest.h; sourceTree = "<group>"; };
+		4192F2111757125400958D03 /* RelationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelationTest.m; sourceTree = "<group>"; };
+		4192F2121757125400958D03 /* UserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTest.h; sourceTree = "<group>"; };
+		4192F2131757125400958D03 /* UserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTest.m; sourceTree = "<group>"; };
 		AF09CBC916AF6C930064DB66 /* NSError+baasio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+baasio.m"; path = "category/NSError+baasio.m"; sourceTree = "<group>"; };
 		AF09CBCA16AF6C930064DB66 /* NSError+baasio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+baasio.h"; path = "category/NSError+baasio.h"; sourceTree = "<group>"; };
 		AF1236B616D318C80070C666 /* UIImageView+Baasio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+Baasio.h"; path = "image/UIImageView+Baasio.h"; sourceTree = "<group>"; };
@@ -460,28 +472,25 @@
 		AFD93F21165A2B0E00FC9ED0 /* baas.io-ios-sdkTests */ = {
 			isa = PBXGroup;
 			children = (
-				AF48E9B616B2D235005F78A0 /* UserTest.h */,
-				AF48E9B016B2D235005F78A0 /* UserTest.m */,
-				AFD130FF170AFECF005CE9A8 /* FileTest.m */,
-				AFD13100170AFECF005CE9A8 /* UnitTestConstant.h */,
-				AFD13101170AFECF005CE9A8 /* PushTest.m */,
-				AFD13102170AFECF005CE9A8 /* QueryTest.m */,
-				AFD13103170AFECF005CE9A8 /* EntityTest.m */,
-				AFD13104170AFECF005CE9A8 /* RelationTest.m */,
-				AFD13105170AFECF005CE9A8 /* UserTest.m */,
-				AFD13106170AFECF005CE9A8 /* HelprTest.m */,
-				AFD13107170AFECF005CE9A8 /* en.lproj */,
-				AFD1310A170AFECF005CE9A8 /* EntityTest.h */,
-				AFD1310B170AFECF005CE9A8 /* FileTest.h */,
-				AFD1310C170AFECF005CE9A8 /* GroupTest.h */,
-				AFD1310D170AFECF005CE9A8 /* GroupTest.m */,
-				AFD1310E170AFECF005CE9A8 /* HelprTest.h */,
-				AFD1310F170AFECF005CE9A8 /* PushTest.h */,
-				AFD13110170AFECF005CE9A8 /* QueryTest.h */,
-				AFD13111170AFECF005CE9A8 /* RelationTest.h */,
-				AFD13112170AFECF005CE9A8 /* UserTest.h */,
 				27F2E3CD3D5C93BC6B2B8CF5 /* SimpleNetworkManagerTest.h */,
 				27F2EC1A1A0B479154788DE9 /* SimpleNetworkManagerTest.m */,
+				AF87FF5016B24ABE0095C815 /* UnitTestConstant.h */,
+				AF48E9B416B2D235005F78A0 /* PushTest.h */,
+				AF48E9AD16B2D235005F78A0 /* PushTest.m */,
+				4192F2061757125400958D03 /* EntityTest.h */,
+				4192F2071757125400958D03 /* EntityTest.m */,
+				4192F2081757125400958D03 /* FileTest.h */,
+				4192F2091757125400958D03 /* FileTest.m */,
+				4192F20A1757125400958D03 /* GroupTest.h */,
+				4192F20B1757125400958D03 /* GroupTest.m */,
+				4192F20C1757125400958D03 /* HelprTest.h */,
+				4192F20D1757125400958D03 /* HelprTest.m */,
+				4192F20E1757125400958D03 /* QueryTest.h */,
+				4192F20F1757125400958D03 /* QueryTest.m */,
+				4192F2101757125400958D03 /* RelationTest.h */,
+				4192F2111757125400958D03 /* RelationTest.m */,
+				4192F2121757125400958D03 /* UserTest.h */,
+				4192F2131757125400958D03 /* UserTest.m */,
 				AFD93F22165A2B0E00FC9ED0 /* Supporting Files */,
 				AFC815FC175C5DF500BA8699 /* ShadowUpdateCheckerTest.h */,
 				AFC815FD175C5DF500BA8699 /* ShadowUpdateCheckerTest.m */,

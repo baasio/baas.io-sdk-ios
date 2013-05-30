@@ -135,7 +135,6 @@
 {
     if (tags == nil) tags = [NSArray array];
 
-
     NSMutableString *deviceID = [NSMutableString string];
     const unsigned char* ptr = (const unsigned char*) [deviceToken bytes];
     for(int i = 0 ; i < 32 ; i++)
@@ -144,6 +143,8 @@
     }
     
     //기존에 등록한 적이 있는가?
+    NSLog(@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID]);
+    
     NSLog(@"기기를 등록한 적이 있는가 검사");
     
     if ([[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID]){
@@ -154,7 +155,7 @@
         
         NSLog(@"토큰이 바뀌었나 검사");
         
-        if(![deviceID isEqualToString:[[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID]]){
+        if(![deviceID isEqualToString:[[[[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID] componentsSeparatedByString:@"\b"]objectAtIndex:1]]){
             
             // 바뀌었다면 PUT을 해줌
             
@@ -166,13 +167,18 @@
                            @"tags" : tags
                        };
             
-            NSString *path = [@"devices/" stringByAppendingFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID]];
+            NSString *path = [@"devices/" stringByAppendingFormat:@"%@",[[[[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID] componentsSeparatedByString:@"\b"]objectAtIndex:1]];
             return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
                                                         withMethod:@"PUT"
                                                             params:params
                                                            success:^(id result) {
                                                                NSLog(@"과거 토큰에서 바뀐 토큰으로 변경완료.");
-                                                               [[NSUserDefaults standardUserDefaults] setObject:deviceID forKey:PUSH_DEVICE_ID];
+                                                               
+                                                               NSMutableArray *push_Device_Info = [NSMutableArray array];
+                                                               if([BaasioUser currentUser]) [push_Device_Info addObject:[[BaasioUser currentUser]objectForKey:@"uuid"]];
+                                                               else [push_Device_Info addObject:@" "];
+                                                               [push_Device_Info addObject:deviceID];
+                                                               [[NSUserDefaults standardUserDefaults] setObject:[[push_Device_Info valueForKey:@"description"] componentsJoinedByString:@"\b"] forKey:PUSH_DEVICE_ID];
                                                                [[NSUserDefaults standardUserDefaults] synchronize];
                                                                successBlock();
                                                            }failure:^(NSError *error){
@@ -193,224 +199,100 @@
             
             NSLog(@"다른 유저가 로그인했는지 검사");
             
-            BaasioQuery *query = [BaasioQuery queryWithCollection:@"devices"];
-            [query setWheres:[NSString stringWithFormat:@"token = '%@'", deviceID]];
-            return [query queryInBackground:^(NSArray *objects) {
-                if(![[[BaasioUser currentUser]objectForKey:@"username"] isEqualToString:objects[0][@"username"]]){
-                    
-                    NSLog(@"다른 유저가 로그인함.");
-                    
-                    // 바뀌었다면 PUT을 해줌
-                    
-                    NSDictionary *params = [[NSDictionary alloc]init];
-                    if([BaasioUser currentUser]){
-                        if(tags){
-                            params = @{
-                                       @"platform" : @"I",
-                                       @"token" : deviceID,
-                                       @"tags" : tags,
-                                       @"username" : [[BaasioUser currentUser]objectForKey:@"username"]
-                                       };
-                        }else{
-                            params = @{
-                                       @"platform" : @"I",
-                                       @"token" : deviceID,
-                                       @"username" : [[BaasioUser currentUser]objectForKey:@"username"]
-                                       };
-                        }
-                    }else{
-                        if(tags){
-                            params = @{
-                                       @"platform" : @"I",
-                                       @"token" : deviceID,
-                                       @"tags" : tags
-                                       };
-                        }else{
-                            params = @{
-                                       @"platform" : @"I",
-                                       @"token" : deviceID
-                                       };
-                        }
-                    }
-                    
-                    NSString *path = [@"devices/" stringByAppendingFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID]];
-                    [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
-                                                                       withMethod:@"PUT"
-                                                                           params:params
-                                                                          success:^(id result) {
-                                                                              NSLog(@"유저정보 업데이트 완료.");
-                                                                              [[NSUserDefaults standardUserDefaults] setObject:deviceID forKey:PUSH_DEVICE_ID];
-                                                                              [[NSUserDefaults standardUserDefaults] synchronize];
-                                                                              successBlock();
-                                                                          }failure:^(NSError *error){
-                                                                              NSLog(@"유저정보 업데이트 실패.");
-                                                                              failureBlock(error);
-                                                                          }];
-                    
-                    
-                }else{
-                    
-                   NSLog(@"같은 유저가 로그인함.");
-                    
-                }
-            }failureBlock:^(NSError *error) {
-                NSLog(@"디바이스 정보 불러오기 실패");
-                failureBlock(error);
-            }];
+            if([[[BaasioUser currentUser]objectForKey:@"uuid"] isEqualToString:[[[[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID] componentsSeparatedByString:@"\b"]objectAtIndex:0]]){
+                
+                NSLog(@"같은 유저가 로그인하여 끝냄");
+                
+                return nil;
+            }else{
+                
+                NSLog(@"다른 유저가 로그인하여 PUT진행");
+                
+                NSDictionary *params = [[NSDictionary alloc]init];
+                params = @{
+                           @"tags" : tags
+                           };
+                
+                NSString *path = [@"devices/" stringByAppendingFormat:@"%@",[[[[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID] componentsSeparatedByString:@"\b"]objectAtIndex:1]];
+                return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
+                                                                   withMethod:@"PUT"
+                                                                       params:params
+                                                                      success:^(id result) {
+                                                                          NSLog(@"유저 변경완료.");
+                                                                          
+                                                                          NSMutableArray *push_Device_Info = [NSMutableArray array];
+                                                                          [push_Device_Info addObject:[[BaasioUser currentUser]objectForKey:@"uuid"]];
+                                                                          [push_Device_Info addObject:deviceID];
+                                                    
+                                                                          [[NSUserDefaults standardUserDefaults] setObject:[[push_Device_Info valueForKey:@"description"] componentsJoinedByString:@"\b"] forKey:PUSH_DEVICE_ID];
+                                                                          [[NSUserDefaults standardUserDefaults] synchronize];
+                                                                          successBlock();
+                                                                      }failure:^(NSError *error){
+                                                                          NSLog(@"유저 변경실패.");
+                                                                          failureBlock(error);
+                                                                      }];
+            }
+            
+            
+            
         }
         
         //기기에 등록한 적이 있지만 토큰이 바뀌지 않았고 로그인 되어있지 않다면 여기서 멈춤.
         
         NSLog(@"로그인 되어있는 상태가 아님");
-
+        
         return nil;
     }
-    
+
     NSLog(@"기기를 등록한 적 없음");
     
     //어서와 Push등록은 처음이지?
-    //먼저 baas.io 서버에 붕 떠있는 device token이 존재한다면 먼저 삭제. (앱을 그냥 삭제하고 다시 푸시등록 할 경우를 대비)
     
-    BaasioQuery *query = [BaasioQuery queryWithCollection:@"devices"];
-    [query setWheres:[NSString stringWithFormat:@"token = '%@'", deviceID]];
-    return [query queryInBackground:^(NSArray *response){
-        if (response.count == 0) {
-            NSDictionary *params = [[NSDictionary alloc]init];
-            if([BaasioUser currentUser]){
-                if(tags){
-                    params = @{
-                               @"platform" : @"I",
-                               @"token" : deviceID,
-                               @"tags" : tags,
-                               @"username" : [[BaasioUser currentUser]objectForKey:@"username"]
-                               };
-                }else{
-                    params = @{
-                               @"platform" : @"I",
-                               @"token" : deviceID,
-                               @"username" : [[BaasioUser currentUser]objectForKey:@"username"]
-                               };
-                }
-            }else{
-                if(tags){
-                    params = @{
-                               @"platform" : @"I",
-                               @"token" : deviceID,
-                               @"tags" : tags
-                               };
-                }else{
-                    params = @{
-                               @"platform" : @"I",
-                               @"token" : deviceID
-                               };
-                }
-            }
-            
-            NSString *path = @"devices";
-            [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
-                                                               withMethod:@"POST"
-                                                                   params:params
-                                                                  success:^(id result){
-                                                                      [[NSUserDefaults standardUserDefaults] setObject:deviceID forKey:PUSH_DEVICE_ID];
-                                                                      [[NSUserDefaults standardUserDefaults] synchronize];
-                                                                      successBlock();
-                                                                  }
-                                                                  failure:^(NSError *error) {
-                                                                      if (error.code == 911) {   ///////////error code = already exists.
-                                                                          [[BaasioNetworkManager sharedInstance] connectWithHTTP:[path stringByAppendingFormat:@"/%@",deviceID]
-                                                                                                                      withMethod:@"PUT"
-                                                                                                                          params:params
-                                                                                                                         success:^(id result) {
-                                                                                                                             
-                                                                                                                             NSLog(@"기기 등록 성공");
-                                                                                                                             
-                                                                                                                             [[NSUserDefaults standardUserDefaults] setObject:deviceID forKey:PUSH_DEVICE_ID];
-                                                                                                                             [[NSUserDefaults standardUserDefaults] synchronize];
-                                                                                                                             successBlock();
-                                                                                                                         }
-                                                                                                                         failure:failureBlock];
-                                                                      }else{
-                                                                          failureBlock(error);
-                                                                      }
-                                                                  }];
-            return;
-        }
-        NSString *path = [@"devices/" stringByAppendingString:response[0][@"uuid"]];
-        NSDictionary *params = @{
-                                 @"state" : [NSNumber numberWithBool:false]
-                                 };
-        
-        [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
-                                                    withMethod:@"DELETE"
-                                                        params:params
-                                                       success:^(id result){
-                                                           NSLog(@"baas.io 서버에 붕떠있는 device가 있어서 삭제를 먼저함");
-                                                           NSDictionary *params = [[NSDictionary alloc]init];
-                                                           if([BaasioUser currentUser]){
-                                                               if(tags){
-                                                                   params = @{
-                                                                              @"platform" : @"I",
-                                                                              @"token" : deviceID,
-                                                                              @"tags" : tags,
-                                                                              @"username" : [[BaasioUser currentUser]objectForKey:@"username"]
-                                                                              };
-                                                               }else{
-                                                                   params = @{
-                                                                              @"platform" : @"I",
-                                                                              @"token" : deviceID,
-                                                                              @"username" : [[BaasioUser currentUser]objectForKey:@"username"]
-                                                                              };
-                                                               }
-                                                           }else{
-                                                               if(tags){
-                                                                   params = @{
-                                                                              @"platform" : @"I",
-                                                                              @"token" : deviceID,
-                                                                              @"tags" : tags
-                                                                              };
-                                                               }else{
-                                                                   params = @{
-                                                                              @"platform" : @"I",
-                                                                              @"token" : deviceID
-                                                                              };
-                                                               }
-                                                           }
+    NSDictionary *params = [[NSDictionary alloc]init];
+    params = @{
+               @"token" : deviceID,
+               @"platform" : @"I",
+               @"tags" : tags
+               };
+    
+    NSString *path = @"devices";
+    return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
+                                                withMethod:@"POST"
+                                                    params:params
+                                                   success:^(id result){
+                                                       NSMutableArray *push_Device_Info = [NSMutableArray array];
+                                                       if([BaasioUser currentUser]) [push_Device_Info addObject:[[BaasioUser currentUser]objectForKey:@"uuid"]];
+                                                       else [push_Device_Info addObject:@" "];
+                                                       [push_Device_Info addObject:deviceID];
+                                                       [[NSUserDefaults standardUserDefaults] setObject:[[push_Device_Info valueForKey:@"description"] componentsJoinedByString:@"\b"] forKey:PUSH_DEVICE_ID];
+                                                       [[NSUserDefaults standardUserDefaults] synchronize];
+                                                       successBlock();
+                                                   }
+                                                   failure:^(NSError *error) {
+                                                       if (error.code == 913) {   //error code = DUPLICATED_UNIQUE_PROPERTY_ERROR.
                                                            
-                                                           NSString *path = @"devices";
-                                                           [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
-                                                                                                              withMethod:@"POST"
-                                                                                                                  params:params
-                                                                                                                 success:^(id result){
-                                                                                                                     [[NSUserDefaults standardUserDefaults] setObject:deviceID forKey:PUSH_DEVICE_ID];
-                                                                                                                     [[NSUserDefaults standardUserDefaults] synchronize];
-                                                                                                                     successBlock();
-                                                                                                                 }
-                                                                                                                 failure:^(NSError *error) {
-                                                                                                                     if (error.code == 911) {   ///////////error code = already exists.
-                                                                                                                         [[BaasioNetworkManager sharedInstance] connectWithHTTP:[path stringByAppendingFormat:@"/%@",deviceID]
-                                                                                                                                                                     withMethod:@"PUT"
-                                                                                                                                                                         params:params
-                                                                                                                                                                        success:^(id result) {
-                                                                                                                                                                            
-                                                                                                                                                                            NSLog(@"기기 등록 성공");
-                                                                                                                                                                            
-                                                                                                                                                                            [[NSUserDefaults standardUserDefaults] setObject:deviceID forKey:PUSH_DEVICE_ID];
-                                                                                                                                                                            [[NSUserDefaults standardUserDefaults] synchronize];
-                                                                                                                                                                            successBlock();
-                                                                                                                                                                        }
-                                                                                                                                                                        failure:failureBlock];
-                                                                                                                     }else{
-                                                                                                                         failureBlock(error);
-                                                                                                                     }
-                                                                                                                 }];
+                                                           NSLog(@"Device가 등록되어 있어서 PUT함");
+                                                           
+                                                           [[BaasioNetworkManager sharedInstance] connectWithHTTP:[path stringByAppendingFormat:@"/%@",deviceID]
+                                                                                                       withMethod:@"PUT"
+                                                                                                           params:params
+                                                                                                          success:^(id result) {
+                                                                                                              
+                                                                                                              NSLog(@"기기 등록 성공");
+                                                                                                              
+                                                                                                              NSMutableArray *push_Device_Info = [NSMutableArray array];
+                                                                                                              if([BaasioUser currentUser]) [push_Device_Info addObject:[[BaasioUser currentUser]objectForKey:@"uuid"]];
+                                                                                                              else [push_Device_Info addObject:@" "];
+                                                                                                              [push_Device_Info addObject:deviceID];
+                                                                                                              [[NSUserDefaults standardUserDefaults] setObject:[[push_Device_Info valueForKey:@"description"] componentsJoinedByString:@"\b"] forKey:PUSH_DEVICE_ID];
+                                                                                                              [[NSUserDefaults standardUserDefaults] synchronize];
+                                                                                                              successBlock();
+                                                                                                          }
+                                                                                                          failure:failureBlock];
+                                                       }else{
+                                                           failureBlock(error);
                                                        }
-                                                       failure:^(NSError *error){
-                                                           
-                                                       }];
-    }
-                       failureBlock:^(NSError *error) {
-                           
-                       }];
+                                                   }];
 }
 
 - (void)tagUpdate:(NSArray *)tags
