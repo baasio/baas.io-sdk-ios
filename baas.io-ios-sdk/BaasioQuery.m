@@ -12,7 +12,7 @@
     NSString *_collectionName;
     NSString *_projectionIn;
     NSString *_wheres;
-    NSString *_filter;
+    NSArray *_filter;
     NSString *_orderKey;
     NSString *_group;
     NSString *_relation;
@@ -77,7 +77,7 @@
 }
 
 
--(void)setFilter:(NSString*)filter{
+-(void)setFilter:(NSArray*)filter{
     _filter = filter;
 }
 
@@ -146,7 +146,9 @@
     }
     
     if (_filter != nil) {
-        _sql = [_sql stringByAppendingFormat:@"&filter=%@", [_filter stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ];
+        for (NSString *filter in _filter){
+            _sql = [_sql stringByAppendingFormat:@"&filter=%@", [filter stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ];
+        }
     }
     
     return _sql;
