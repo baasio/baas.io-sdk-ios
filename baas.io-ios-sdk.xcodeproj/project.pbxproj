@@ -24,12 +24,14 @@
 
 /* Begin PBXBuildFile section */
 		27F2E0637105682525BF88B4 /* BaasioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F2E73FD4A3C015370DF7A3 /* BaasioFile.m */; };
+		27F2E5DFA6AC71639B7F265E /* ShadowUpdateChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F2EEB6EE3DE5F0D5754D11 /* ShadowUpdateChecker.m */; };
 		27F2E88853FB7BECDC14F23C /* Baas.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2E2A118B72209D0AB96AF /* Baas.h */; };
 		27F2E8F0565C911B20E307BE /* BaasioFile.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2EC430E1D01B6CAEE6DF4 /* BaasioFile.h */; };
 		27F2EA29DE6A5AF212902BEE /* SimpleNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F2E700792DF59824DB186D /* SimpleNetworkManager.m */; };
 		27F2EB311D22DD868C284C09 /* SimpleNetworkManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2E7BE848C65E993BF5FE8 /* SimpleNetworkManager.h */; };
 		27F2EB5C3DFC6682A2A363E5 /* SimpleNetworkManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F2EC1A1A0B479154788DE9 /* SimpleNetworkManagerTest.m */; };
 		27F2EBB68B17F0A0788E3393 /* BaasioPush.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2E4EEDBB127A400CFBA8C /* BaasioPush.h */; };
+		27F2ED5A97C14E7515953AC3 /* ShadowUpdateChecker.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2E9D9B0BF60D854AFF058 /* ShadowUpdateChecker.h */; };
 		27F2EF1CA361D24482B8CDE9 /* BaasioPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F2EE6A9471C3869236C589 /* BaasioPush.m */; };
 		AF001E5D170AEB2200F38F90 /* SimpleNetworkManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2E7BE848C65E993BF5FE8 /* SimpleNetworkManager.h */; };
 		AF09CBCB16AF6C930064DB66 /* NSError+baasio.m in Sources */ = {isa = PBXBuildFile; fileRef = AF09CBC916AF6C930064DB66 /* NSError+baasio.m */; };
@@ -78,6 +80,7 @@
 		AFB9E415165A2D7B0021AA4C /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E40B165A2D7B0021AA4C /* AFXMLRequestOperation.m */; };
 		AFB9E416165A2D7B0021AA4C /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E40D165A2D7B0021AA4C /* UIImageView+AFNetworking.m */; };
 		AFB9E419165A2D850021AA4C /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E418165A2D850021AA4C /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AFC815FE175C5DF500BA8699 /* ShadowUpdateCheckerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC815FD175C5DF500BA8699 /* ShadowUpdateCheckerTest.m */; };
 		AFD13113170AFECF005CE9A8 /* FileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD130FF170AFECF005CE9A8 /* FileTest.m */; };
 		AFD13114170AFECF005CE9A8 /* PushTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD13101170AFECF005CE9A8 /* PushTest.m */; };
 		AFD13115170AFECF005CE9A8 /* QueryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD13102170AFECF005CE9A8 /* QueryTest.m */; };
@@ -161,6 +164,7 @@
 				27F2E8F0565C911B20E307BE /* BaasioFile.h in CopyFiles */,
 				27F2E88853FB7BECDC14F23C /* Baas.h in CopyFiles */,
 				27F2EB311D22DD868C284C09 /* SimpleNetworkManager.h in CopyFiles */,
+				27F2ED5A97C14E7515953AC3 /* ShadowUpdateChecker.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,9 +177,11 @@
 		27F2E700792DF59824DB186D /* SimpleNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleNetworkManager.m; sourceTree = "<group>"; };
 		27F2E73FD4A3C015370DF7A3 /* BaasioFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioFile.m; sourceTree = "<group>"; };
 		27F2E7BE848C65E993BF5FE8 /* SimpleNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleNetworkManager.h; sourceTree = "<group>"; };
+		27F2E9D9B0BF60D854AFF058 /* ShadowUpdateChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowUpdateChecker.h; sourceTree = "<group>"; };
 		27F2EC1A1A0B479154788DE9 /* SimpleNetworkManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleNetworkManagerTest.m; sourceTree = "<group>"; };
 		27F2EC430E1D01B6CAEE6DF4 /* BaasioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasioFile.h; sourceTree = "<group>"; };
 		27F2EE6A9471C3869236C589 /* BaasioPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioPush.m; sourceTree = "<group>"; };
+		27F2EEB6EE3DE5F0D5754D11 /* ShadowUpdateChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowUpdateChecker.m; sourceTree = "<group>"; };
 		AF09CBC916AF6C930064DB66 /* NSError+baasio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+baasio.m"; path = "category/NSError+baasio.m"; sourceTree = "<group>"; };
 		AF09CBCA16AF6C930064DB66 /* NSError+baasio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+baasio.h"; path = "category/NSError+baasio.h"; sourceTree = "<group>"; };
 		AF1236B616D318C80070C666 /* UIImageView+Baasio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+Baasio.h"; path = "image/UIImageView+Baasio.h"; sourceTree = "<group>"; };
@@ -225,6 +231,8 @@
 		AFB9E40D165A2D7B0021AA4C /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "submodules/AFNetworking.git/AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		AFB9E417165A2D850021AA4C /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = submodules/JSONKit.git/JSONKit.h; sourceTree = "<group>"; };
 		AFB9E418165A2D850021AA4C /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = submodules/JSONKit.git/JSONKit.m; sourceTree = "<group>"; };
+		AFC815FC175C5DF500BA8699 /* ShadowUpdateCheckerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowUpdateCheckerTest.h; sourceTree = "<group>"; };
+		AFC815FD175C5DF500BA8699 /* ShadowUpdateCheckerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowUpdateCheckerTest.m; sourceTree = "<group>"; };
 		AFD130FF170AFECF005CE9A8 /* FileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTest.m; sourceTree = "<group>"; };
 		AFD13100170AFECF005CE9A8 /* UnitTestConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitTestConstant.h; sourceTree = "<group>"; };
 		AFD13101170AFECF005CE9A8 /* PushTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTest.m; sourceTree = "<group>"; };
@@ -302,6 +310,8 @@
 				AF76585D16789EC70017C217 /* BaasioNetworkManager.m */,
 				27F2E700792DF59824DB186D /* SimpleNetworkManager.m */,
 				27F2E7BE848C65E993BF5FE8 /* SimpleNetworkManager.h */,
+				27F2EEB6EE3DE5F0D5754D11 /* ShadowUpdateChecker.m */,
+				27F2E9D9B0BF60D854AFF058 /* ShadowUpdateChecker.h */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -433,19 +443,6 @@
 		AFD93F21165A2B0E00FC9ED0 /* baas.io-ios-sdkTests */ = {
 			isa = PBXGroup;
 			children = (
-				AF87FF5016B24ABE0095C815 /* UnitTestConstant.h */,
-				AF48E9AB16B2D235005F78A0 /* HelprTest.h */,
-				AF48E9AC16B2D235005F78A0 /* HelprTest.m */,
-				AF48E9B416B2D235005F78A0 /* PushTest.h */,
-				AF48E9AD16B2D235005F78A0 /* PushTest.m */,
-				AF48E9B116B2D235005F78A0 /* RelationTest.h */,
-				AF48E9AF16B2D235005F78A0 /* RelationTest.m */,
-				AF48E9B216B2D235005F78A0 /* EntityTest.h */,
-				AF48E9A916B2D235005F78A0 /* EntityTest.m */,
-				AF48E9B316B2D235005F78A0 /* GroupTest.h */,
-				AF48E9AA16B2D235005F78A0 /* GroupTest.m */,
-				AF48E9B516B2D235005F78A0 /* QueryTest.h */,
-				AF48E9AE16B2D235005F78A0 /* QueryTest.m */,
 				AF48E9B616B2D235005F78A0 /* UserTest.h */,
 				AF48E9B016B2D235005F78A0 /* UserTest.m */,
 				AFD130FF170AFECF005CE9A8 /* FileTest.m */,
@@ -469,6 +466,8 @@
 				27F2E3CD3D5C93BC6B2B8CF5 /* SimpleNetworkManagerTest.h */,
 				27F2EC1A1A0B479154788DE9 /* SimpleNetworkManagerTest.m */,
 				AFD93F22165A2B0E00FC9ED0 /* Supporting Files */,
+				AFC815FC175C5DF500BA8699 /* ShadowUpdateCheckerTest.h */,
+				AFC815FD175C5DF500BA8699 /* ShadowUpdateCheckerTest.m */,
 			);
 			path = "baas.io-ios-sdkTests";
 			sourceTree = "<group>";
@@ -620,6 +619,7 @@
 				AF09CBCB16AF6C930064DB66 /* NSError+baasio.m in Sources */,
 				AF1236B816D318C80070C666 /* UIImageView+Baasio.m in Sources */,
 				27F2EA29DE6A5AF212902BEE /* SimpleNetworkManager.m in Sources */,
+				27F2E5DFA6AC71639B7F265E /* ShadowUpdateChecker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,6 +639,7 @@
 				AFD13118170AFECF005CE9A8 /* UserTest.m in Sources */,
 				AFD13119170AFECF005CE9A8 /* HelprTest.m in Sources */,
 				AFD1311B170AFECF005CE9A8 /* GroupTest.m in Sources */,
+				AFC815FE175C5DF500BA8699 /* ShadowUpdateCheckerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
