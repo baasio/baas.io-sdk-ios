@@ -10,6 +10,8 @@
 
 
 @interface ShadowUpdateChecker : NSObject
-
+- (NSString *)currentSDKVersion;
 - (NSString *)latestVersion;
+
+- (void)check;
 @end

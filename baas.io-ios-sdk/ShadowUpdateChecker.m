@@ -7,34 +7,58 @@
 
 #import "ShadowUpdateChecker.h"
 #import "SimpleNetworkManager.h"
-
+#import "JSONKit.h"
 @implementation ShadowUpdateChecker {
-    BOOL exitRunLoop;
+
+}
+
+- (void)check {
+
+    dispatch_async( dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0 ), ^(void){
+
+        //TODO 주기 설정
+           NSString *currentVersion = [self currentSDKVersion];
+           NSString *latestVersion = [self latestVersion];
+
+           if (true) {
+               for (int i = 0; i < 20; i++) {
+                   NSLog(@"The New Baas.io SDK Release, Please Update. (current : %@, new : %@)", currentVersion, latestVersion);
+               }
+           }
+       });
+}
+
+- (NSString *)currentSDKVersion{
+    return @"1.1.1";
 }
 
 - (NSString *)latestVersion{
-
-    [[SimpleNetworkManager sharedInstance] connectWithHTTP:GITHUB_TAGS_LIST
+    __block  NSString *name = nil;
+    __block BOOL isFinish = false;
+    NSOperation *operation = [[SimpleNetworkManager sharedInstance] connectWithHTTP:GITHUB_TAGS_LIST
                                                 withMethod:@"GET"
                                                     params:nil
                                               headerFields:nil
                                                    success:^(NSString *response) {
-                                                       exitRunLoop = true;
-                                                       NSLog(@"response : %@", response);
-                                                       return response;
+                                                       isFinish = true;
+                                                       
+                                                       NSArray *array = [response objectFromJSONString];
+                                                       NSDictionary *dictionary = [array objectAtIndex:0];
+                                                       name = [dictionary objectForKey:@"name"];
                                                    }
                                                    failure:^(NSError *error){
-                                                       exitRunLoop = true;
+                                                       isFinish = true;
                                                        NSLog(@"error : %@", error.localizedDescription);
-                                                       return nil;
                                                    }];
+    [operation waitUntilFinished];
 
-    [self runTestLoop];
-}
-
-- (void)runTestLoop{
-    while (!exitRunLoop){
+#ifndef UNIT_TEST
+    while(!isFinish){
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
     }
+#endif
+
+    return name;
 }
+
 @end

@@ -7,6 +7,8 @@
 
 #import "Baasio.h"
 #import "Baasio+Private.h"
+#import "ShadowUpdateChecker.h"
+
 @implementation Baasio {
     NSString *_token;
     BaasioUser *_currentUser;
@@ -18,7 +20,10 @@
   static id _instance = nil;
   dispatch_once(&pred, ^{
     _instance = [[self alloc] init]; // or some other init method
-  });
+
+    [[[ShadowUpdateChecker alloc] init] check];
+
+});
   return _instance;
 }
 
