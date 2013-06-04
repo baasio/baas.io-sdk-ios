@@ -13,8 +13,7 @@
 @interface Baasio(Private)
 - (BaasioUser*)currentUser;
 - (void)setCurrentUser:(BaasioUser*)currentUser;
-
 - (void)setToken:(NSString*)token;
-
 - (NSMutableURLRequest *)setAuthorization:(NSMutableURLRequest *)request;
+- (BOOL)isDebugMode;
 @end

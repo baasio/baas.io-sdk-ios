@@ -15,7 +15,6 @@
 @property(nonatomic, strong) NSString *apiURL;
 @property(nonatomic, strong) NSString *applicationName;
 @property(nonatomic, strong) NSString *baasioID;
-
 /**
  sharedInstance
  */
@@ -26,6 +25,7 @@
  @param applicationName Application ID
  */
 + (void)setApplicationInfo:(NSString *)baasioID applicationName:(NSString *)applicationName;
+
 /**
  setApplicationInfo
  @param apiURL API Host
@@ -43,6 +43,12 @@
  로그인 유무 체크
  */
 - (BOOL)hasToken;
+
+/**
+ 디버그 모드 체크 (true 일때, 디버그 모드)
+ @param flag flag
+ */
+- (void)isDebugMode:(BOOL)flag;
 @end
 
 
