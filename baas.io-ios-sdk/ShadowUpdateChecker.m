@@ -7,7 +7,10 @@
 
 #import "ShadowUpdateChecker.h"
 #import "SimpleNetworkManager.h"
+#import "BaasioVersion.h"
 #import "JSONKit.h"
+#import "Baasio.h"
+#import "Baasio+Private.h"
 @implementation ShadowUpdateChecker {
 
 }
@@ -15,50 +18,44 @@
 - (void)check {
 
     dispatch_async( dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0 ), ^(void){
+        if (![[Baasio sharedInstance] isDebugMode]){
+             return;
+        }
 
-        //TODO 주기 설정
-           NSString *currentVersion = [self currentSDKVersion];
-           NSString *latestVersion = [self latestVersion];
+        [NSThread sleepForTimeInterval:1];
 
-           if (true) {
-               for (int i = 0; i < 20; i++) {
-                   NSLog(@"The New Baas.io SDK Release, Please Update. (current : %@, new : %@)", currentVersion, latestVersion);
-               }
+        NSError *error;
+        NSString *latestVersion = [self latestVersion:&error];
+        NSString *currentVersion = [self currentSDKVersion];
+
+        if (error != nil){
+            NSLog(@"Fail to get new version : %@", error.localizedDescription);
+            return;
+        }
+
+        if (![latestVersion isEqualToString:currentVersion]) {
+           for (int i = 0; i < 50; i++) {
+//               NSLog(@"★☆★☆ The new Baas.io SDK Release. see this link https://github.com/baasio/baas.io-sdk-ios (current : %@, new : %@) ★☆★☆", currentVersion, latestVersion);
+               printf("★☆★☆ The new Baas.io SDK Release. see this link https://github.com/baasio/baas.io-sdk-ios (current : %s, new : %s) ★☆★☆\n", [currentVersion UTF8String], [latestVersion UTF8String]);
            }
-       });
+        }
+   });
 }
 
 - (NSString *)currentSDKVersion{
-    return @"1.1.1";
+    return BAASIO_SDK_VERSION_STRING;
 }
 
-- (NSString *)latestVersion{
-    __block  NSString *name = nil;
-    __block BOOL isFinish = false;
-    NSOperation *operation = [[SimpleNetworkManager sharedInstance] connectWithHTTP:GITHUB_TAGS_LIST
-                                                withMethod:@"GET"
-                                                    params:nil
-                                              headerFields:nil
-                                                   success:^(NSString *response) {
-                                                       isFinish = true;
-                                                       
-                                                       NSArray *array = [response objectFromJSONString];
-                                                       NSDictionary *dictionary = [array objectAtIndex:0];
-                                                       name = [dictionary objectForKey:@"name"];
-                                                   }
-                                                   failure:^(NSError *error){
-                                                       isFinish = true;
-                                                       NSLog(@"error : %@", error.localizedDescription);
-                                                   }];
-    [operation waitUntilFinished];
+- (NSString *)latestVersion:(NSError **)error {
+    NSString *response = [[SimpleNetworkManager sharedInstance] connectWithHTTPSync:GITHUB_TAGS_LIST
+                                                                     withMethod:@"GET"
+                                                                         params:nil
+                                                                   headerFields:nil
+                                                                          error:error];
 
-#ifndef UNIT_TEST
-    while(!isFinish){
-        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
-    }
-#endif
-
-    return name;
+    NSArray *array = [response objectFromJSONString];
+    NSDictionary *dictionary = [array objectAtIndex:0];
+    return [dictionary objectForKey:@"name"];
 }
 
 @end

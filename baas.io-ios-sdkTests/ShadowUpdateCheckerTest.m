@@ -23,7 +23,7 @@
 -(void)testGetLatestVersion
 {
     ShadowUpdateChecker *checker = [[ShadowUpdateChecker alloc]init];
-    NSString *version = [checker latestVersion];
+    NSString *version = [checker latestVersion:nil];
     NSLog(@"version : %@", version);
 }
 @end

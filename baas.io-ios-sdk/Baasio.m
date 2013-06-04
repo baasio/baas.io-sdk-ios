@@ -9,9 +9,12 @@
 #import "Baasio+Private.h"
 #import "ShadowUpdateChecker.h"
 
+bool _isDebugMode;
+
 @implementation Baasio {
     NSString *_token;
     BaasioUser *_currentUser;
+
 }
 
 + (id)sharedInstance
@@ -20,6 +23,7 @@
   static id _instance = nil;
   dispatch_once(&pred, ^{
     _instance = [[self alloc] init]; // or some other init method
+    _isDebugMode = false;
 
     [[[ShadowUpdateChecker alloc] init] check];
 
@@ -53,6 +57,10 @@
     
     return true;
 }
+
+- (void)isDebugMode:(BOOL)flag{
+    _isDebugMode = flag;
+}
 @end
 
 @implementation Baasio(Private)
@@ -78,4 +86,7 @@
     _currentUser = currentUser;
 }
 
+- (BOOL)isDebugMode{
+    return _isDebugMode;
+}
 @end

@@ -31,6 +31,7 @@
 		27F2EB311D22DD868C284C09 /* SimpleNetworkManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2E7BE848C65E993BF5FE8 /* SimpleNetworkManager.h */; };
 		27F2EB5C3DFC6682A2A363E5 /* SimpleNetworkManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F2EC1A1A0B479154788DE9 /* SimpleNetworkManagerTest.m */; };
 		27F2EBB68B17F0A0788E3393 /* BaasioPush.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2E4EEDBB127A400CFBA8C /* BaasioPush.h */; };
+		27F2EBC77C60DA2BC0ADA3ED /* BaasioVersion.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2ED06362945A37BF2B748 /* BaasioVersion.h */; };
 		27F2ED5A97C14E7515953AC3 /* ShadowUpdateChecker.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2E9D9B0BF60D854AFF058 /* ShadowUpdateChecker.h */; };
 		27F2EF1CA361D24482B8CDE9 /* BaasioPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F2EE6A9471C3869236C589 /* BaasioPush.m */; };
 		AF001E5D170AEB2200F38F90 /* SimpleNetworkManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27F2E7BE848C65E993BF5FE8 /* SimpleNetworkManager.h */; };
@@ -165,6 +166,7 @@
 				27F2E88853FB7BECDC14F23C /* Baas.h in CopyFiles */,
 				27F2EB311D22DD868C284C09 /* SimpleNetworkManager.h in CopyFiles */,
 				27F2ED5A97C14E7515953AC3 /* ShadowUpdateChecker.h in CopyFiles */,
+				27F2EBC77C60DA2BC0ADA3ED /* BaasioVersion.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +182,7 @@
 		27F2E9D9B0BF60D854AFF058 /* ShadowUpdateChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowUpdateChecker.h; sourceTree = "<group>"; };
 		27F2EC1A1A0B479154788DE9 /* SimpleNetworkManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleNetworkManagerTest.m; sourceTree = "<group>"; };
 		27F2EC430E1D01B6CAEE6DF4 /* BaasioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasioFile.h; sourceTree = "<group>"; };
+		27F2ED06362945A37BF2B748 /* BaasioVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaasioVersion.h; path = ../BaasioVersion.h; sourceTree = "<group>"; };
 		27F2EE6A9471C3869236C589 /* BaasioPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasioPush.m; sourceTree = "<group>"; };
 		27F2EEB6EE3DE5F0D5754D11 /* ShadowUpdateChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowUpdateChecker.m; sourceTree = "<group>"; };
 		AF09CBC916AF6C930064DB66 /* NSError+baasio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+baasio.m"; path = "category/NSError+baasio.m"; sourceTree = "<group>"; };
@@ -427,6 +430,7 @@
 				AF244A8F16772041009524B8 /* BaasioGroup.m */,
 				AFFFBBF61682B0FD006CAEF1 /* BaasioHelp.h */,
 				AFFFBBF71682B0FD006CAEF1 /* BaasioHelp.m */,
+				27F2ED06362945A37BF2B748 /* BaasioVersion.h */,
 				AFD93F0D165A2B0E00FC9ED0 /* Supporting Files */,
 			);
 			path = "baas.io-ios-sdk";
