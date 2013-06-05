@@ -9,7 +9,7 @@
 #import "AFNetworking.h"
 #import "JSONKit.h"
 #import "NetworkActivityIndicatorManager.h"
-
+#import "Baasio+Private.h"
 @implementation SimpleNetworkManager {
 
 }
@@ -68,6 +68,8 @@
                         success:(void (^)(NSString *response))successBlock
                         failure:(void (^)(NSError *error))failureBlock {
 
+    [self commonLogging:path httpMethod:httpMethod params:params headerFields:headerFields];
+
     NSDictionary *parameters;
     if ([httpMethod isEqualToString:@"GET"] ||[httpMethod isEqualToString:@"DELETE"]) {
         parameters = params;
@@ -105,5 +107,22 @@
     return (NSOperation *)operation;
 
 }
+
+- (void)commonLogging:(NSString *)path
+           httpMethod:(NSString *)httpMethod
+               params:(NSDictionary *)params
+         headerFields:(NSDictionary *)headerFields {
+
+    if ([[Baasio sharedInstance] isDebugMode]){
+        //logging
+        printf("- Start ---------------------------------------------------------------------------------------------\n");
+        printf("url : %s\n", [path UTF8String]);
+        printf("method : %s\n", [httpMethod UTF8String]);
+        printf("params : %s\n", [params.description UTF8String]);
+        printf("header : %s\n", [headerFields.description UTF8String]);
+        printf("- End ---------------------------------------------------------------------------------------------\n");
+    }
+}
+
 
 @end

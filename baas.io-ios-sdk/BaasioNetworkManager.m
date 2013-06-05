@@ -65,8 +65,9 @@
                         params:(NSDictionary*)params
                          success:(void (^)(id result))successBlock
                          failure:(void (^)(NSError *error))failureBlock {
-    
-    
+
+    [self logging:path httpMethod:httpMethod params:params];
+
     NSDictionary *parameters;
     if ([httpMethod isEqualToString:@"GET"] ||[httpMethod isEqualToString:@"DELETE"]) {
         parameters = params;
@@ -110,6 +111,9 @@
                            failureBlock:(void (^)(NSError *))failureBlock
                           progressBlock:(void (^)(float progress))progressBlock
 {
+
+    [self fileLogging:path httpMethod:httpMethod bodyData:bodyData params:params filename:filename contentType:contentType];
+
     NSURL *url = [[Baasio sharedInstance] getAPIURL];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:httpMethod
@@ -172,6 +176,7 @@
 }
 
 
+
 #pragma mark - API response method
 - (void (^)(NSURLRequest *, NSHTTPURLResponse *, NSError *, id))failure:(void (^)(NSError *))failureBlock {
     
@@ -229,5 +234,36 @@
     return (NSString *)CFBridgingRelease(mimeType);
 }
 
+- (void)fileLogging:(NSString *)path
+         httpMethod:(NSString *)httpMethod
+           bodyData:(NSData *)bodyData
+             params:(NSDictionary *)params
+           filename:(NSString *)filename
+        contentType:(NSString *)contentType {
+    if ([[Baasio sharedInstance] isDebugMode]){
+        //logging
+        printf("- Start ---------------------------------------------------------------------------------------------\n");
+        printf("url : %s\n", [path UTF8String]);
+        printf("method : %s\n", [httpMethod UTF8String]);
+        printf("params : %s\n", [params.description UTF8String]);
+        printf("filename : %s\n", [filename UTF8String]);
+        printf("contentType : %s\n", [contentType UTF8String]);
+        printf("body : %s\n", [bodyData.description UTF8String]);
+        printf("- End ---------------------------------------------------------------------------------------------\n");
+    }
+}
+
+- (void)logging:(NSString *)path
+     httpMethod:(NSString *)httpMethod
+         params:(NSDictionary *)params {
+    if ([[Baasio sharedInstance] isDebugMode]){
+        //logging
+        printf("- Start ---------------------------------------------------------------------------------------------\n");
+        printf("url : %s\n", [path UTF8String]);
+        printf("method : %s\n", [httpMethod UTF8String]);
+        printf("params : %s\n", [params.description UTF8String]);
+        printf("- End ---------------------------------------------------------------------------------------------\n");
+    }
+}
 
 @end
