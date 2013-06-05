@@ -151,9 +151,7 @@
                             };
 
     [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:@"users" withMethod:@"POST" params:params error:error];
-    return;
 }
-
 
 + (BaasioRequest*)signUpInBackground:(NSString *)username
                             password:(NSString *)password
@@ -176,6 +174,24 @@
                                                            successBlock();
                                                        }
                                                        failure:failureBlock];
+}
+
+-(void)signUp:(NSError **)error{
+    // TODO : validation이 필요함
+    [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:@"users" withMethod:@"POST" params:self.dictionary error:error];
+}
+
+- (BaasioRequest*)signUpInBackground:(void (^)(void))successBlock
+                        failureBlock:(void (^)(NSError *error))failureBlock
+{
+    // TODO : validation이 필요함
+    return [[BaasioNetworkManager sharedInstance] connectWithHTTP:@"users"
+                                                       withMethod:@"POST"
+                                                           params:self.dictionary
+                                                          success:^(id result){
+                                                              successBlock();
+                                                          }
+                                                          failure:failureBlock];
 }
 
 - (void)changePassword:(NSString *)oldPassword
