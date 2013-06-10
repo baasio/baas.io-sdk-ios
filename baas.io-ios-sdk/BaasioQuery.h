@@ -54,12 +54,6 @@ typedef enum {
 -(void)setWheres:(NSString *)wheres;
 
 /**
- filter 조건
- @param filter filter 조건
- */
--(void)setFilter:(NSArray*)filter;
-
-/**
  정렬
  @param key key
  @param order BaasioQuerySortOrderASC or BaasioQuerySortOrderDESC

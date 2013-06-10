@@ -12,7 +12,6 @@
     NSString *_collectionName;
     NSString *_projectionIn;
     NSString *_wheres;
-    NSArray *_filter;
     NSString *_orderKey;
     NSString *_group;
     NSString *_relation;
@@ -76,11 +75,6 @@
     _wheres = wheres;
 }
 
-
--(void)setFilter:(NSArray*)filter{
-    _filter = filter;
-}
-
 -(void)setOrderBy:(NSString *)key order:(BaasioQuerySortOrder)order{
     _orderKey = key;
     _order = order;
@@ -140,17 +134,10 @@
         _sql = [_sql stringByAppendingFormat:@"&limit=%i", _limit];
     }
     
-    //    if (_cursors[_pos] != nil){
     if (_pos != -1){
         _sql = [_sql stringByAppendingFormat:@"&cursor=%@", _cursors[_pos] ];
     }
-    
-    if (_filter != nil) {
-        for (NSString *filter in _filter){
-            _sql = [_sql stringByAppendingFormat:@"&filter=%@", [filter stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ];
-        }
-    }
-    
+
     return _sql;
 }
 

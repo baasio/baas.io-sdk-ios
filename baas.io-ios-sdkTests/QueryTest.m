@@ -137,23 +137,6 @@
 }
 
 
-- (void)test_3_QueryFilterTest{
-    BaasioQuery *query = [BaasioQuery queryWithCollection:@"tests"];
-
-    NSArray *array = @[ @"cetauri='권오상'", @"badge=3" ];
-    [query setFilter:array];
-    [query queryInBackground:^(NSArray *array) {
-                    NSLog(@"count : %i", array.count);
-                    exitRunLoop = YES;
-                }
-                failureBlock:^(NSError *error) {
-                    NSLog(@"fail : %@", error.localizedDescription);
-                    STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
-                    exitRunLoop = YES;
-                }];
-    
-    [self runTestLoop];
-}
 
 - (void)runTestLoop{
     while (!exitRunLoop){
