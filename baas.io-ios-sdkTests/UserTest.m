@@ -159,6 +159,40 @@
 //    [self runTestLoop];
 //}
 //
+//- (void)test_5_signUp{
+//    NSError *e = nil;
+//    BaasioUser *user = [BaasioUser user];
+//    user.username = @"user name";       //[user setObject:@"user name" forKey:@"username"];
+//    [user setObject:@"password" forKey:@"password"];
+//    [user setObject:@"test@email.org" forKey:@"email"];
+//    [user setObject:@"name" forKey:@"name"];
+//    [user setObject:@"kwon, ohsang" forKey:@"realname"]; //extra value
+//    [user signUp:&e];
+//    if(e){
+//        STFail(@"fail : %@", e.localizedDescription);
+//    }
+//}
+//
+//- (void)test_6_signUp{
+//    BaasioUser *user = [BaasioUser user];
+//    user.username = @"user2 name2";       //[user setObject:@"user name" forKey:@"username"];
+////    [user setObject:@"password" forKey:@"password"];
+////    [user setObject:@"test@email.org" forKey:@"email"];
+////    [user setObject:@"name1" forKey:@"name"];
+//    [user setObject:@"kwon, ohsang" forKey:@"realname"]; //extra value
+//    
+//    [user signUpInBackground:^(void) {
+//                    NSLog(@"success");
+//                    exitRunLoop = YES;
+//                }
+//                failureBlock:^(NSError *error){
+//                    STFail(@"fail : %@", error.localizedDescription);
+//                    exitRunLoop = YES;
+//                }];
+//
+//    [self runTestLoop];
+//}
+//
 //- (void)test_9_unsubscribe
 //{
 //    BaasioUser *user = [BaasioUser user];

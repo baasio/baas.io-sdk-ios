@@ -8,6 +8,7 @@
 #import "Baasio.h"
 #import "Baasio+Private.h"
 #import "BaasioNetworkManager.h"
+#import "BaasioValidator.h"
 @implementation BaasioUser 
 -(id) init
 {
@@ -177,14 +178,24 @@
 }
 
 -(void)signUp:(NSError **)error{
-    // TODO : validation이 필요함
+    NSArray *validateKeys = @[@"username", @"password", @"email", @"name"];
+    NSError *e = [BaasioValidator parameterValidation:self.dictionary validateKeys:validateKeys selector:_cmd];
+    if (e != nil){
+        *error = e;
+        return ;
+    }
     [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:@"users" withMethod:@"POST" params:self.dictionary error:error];
 }
 
 - (BaasioRequest*)signUpInBackground:(void (^)(void))successBlock
                         failureBlock:(void (^)(NSError *error))failureBlock
 {
-    // TODO : validation이 필요함
+    NSArray *validateKeys = @[@"username", @"password", @"email", @"name"];
+    NSError *e = [BaasioValidator parameterValidation:self.dictionary validateKeys:validateKeys selector:_cmd];
+    if (e != nil){
+        failureBlock(e);
+        return nil;
+    }
     return [[BaasioNetworkManager sharedInstance] connectWithHTTP:@"users"
                                                        withMethod:@"POST"
                                                            params:self.dictionary

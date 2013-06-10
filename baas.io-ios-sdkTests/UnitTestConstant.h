@@ -7,6 +7,6 @@
 //
 
 
-static NSString *TEST_APPLICATION_ID = @"gyuchan";   // <<<<<=  input your Baas.io Application ID
+static NSString *TEST_APPLICATION_ID = @{Baas.io ID};   // <<<<<=  input your Baas.io Application ID
 static NSString *TEST_BAASIO_ID = @"sandbox";
 
