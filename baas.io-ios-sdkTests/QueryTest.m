@@ -29,7 +29,6 @@
 
 - (void)test_1_QueryBuild{
     BaasioQuery *query = [BaasioQuery queryWithCollection:@"tests"];
-    [query setCursor:@"cursor"];
     [query setLimit:10];
     [query setProjectionIn:@"name, title"];
     [query setOrderBy:@"name" order:BaasioQuerySortOrderASC];
@@ -136,6 +135,7 @@
     NSLog(@"description : %@", query.description);
     
 }
+
 
 
 - (void)runTestLoop{

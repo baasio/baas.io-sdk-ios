@@ -48,7 +48,7 @@ typedef enum {
 -(void)setProjectionIn:(NSString *)projectionIn;
 
 /**
- where 조건 추가
+ where 조건
  @param wheres wheres 조건
  */
 -(void)setWheres:(NSString *)wheres;
@@ -67,21 +67,9 @@ typedef enum {
 -(void)setLimit: (int)limit;
 
 /**
- cursor
+ 페이징 초기화 
  */
--(NSString *)cursor;
-
-/**
- cursor
- @param cursor cursor
- */
--(void)setCursor:(NSString *)cursor;
-
-
-/**
- reset cursor
- */
--(void)setResetCursor;
+-(void)clearCursor;
 
 /**
  hasMoreEntities

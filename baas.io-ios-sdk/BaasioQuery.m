@@ -95,7 +95,7 @@
     _cursors[_pos] = cursor;
 }
 
--(void)setResetCursor{
+-(void)clearCursor{
     _pos = -1;
     _cursors = [NSMutableArray array];
 }
@@ -134,11 +134,10 @@
         _sql = [_sql stringByAppendingFormat:@"&limit=%i", _limit];
     }
     
-    //    if (_cursors[_pos] != nil){
     if (_pos != -1){
         _sql = [_sql stringByAppendingFormat:@"&cursor=%@", _cursors[_pos] ];
     }
-    
+
     return _sql;
 }
 
