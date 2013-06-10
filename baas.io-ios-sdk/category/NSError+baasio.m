@@ -41,7 +41,7 @@ NSInteger const DUPLICATED_UNIQUE_PROPERTY_ERROR = 913;
 
 NSInteger const QUERY_PARSE_ERROR = 915;
 
-
+NSString *_uuid;
 @implementation NSError (Baasio)
 -(void)setUuid:(NSString *)uuid{
     _uuid = uuid;
