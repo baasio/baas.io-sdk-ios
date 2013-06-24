@@ -7,7 +7,7 @@
 #import "BaasioPush.h"
 #import "BaasioNetworkManager.h"
 #import "BaasioQuery.h"
-@interface BaasioPush()
+@interface BaasioPush(hidden)
 /**
  디바이스 삭제
  @param error error
@@ -72,20 +72,13 @@
 - (void)unregister:(NSError**)error
 {
     NSString *deviceID = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
-    if (deviceID == nil)    return;
+    if (deviceID == nil) return;
 
-    BaasioQuery *query = [BaasioQuery queryWithCollection:@"devices"];
-    [query setWheres:[NSString stringWithFormat:@"token = '%@'", deviceID]];
-    NSArray *response = [query query:error];
+    NSString *path = [@"devices/" stringByAppendingString:deviceID];
 
-    NSString *path = [@"devices/" stringByAppendingString:response[0][@"uuid"]];
-    NSDictionary *params = @{
-        @"state" : [NSNumber numberWithBool:false]
-    };
-    
     [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
                                                     withMethod:@"DELETE"
-                                                        params:params
+                                                        params:nil
                                                          error:error];
     return;
 }
@@ -98,34 +91,24 @@
         successBlock();
         return nil;
     }
-    
-    BaasioQuery *query = [BaasioQuery queryWithCollection:@"devices"];
-    [query setWheres:[NSString stringWithFormat:@"token = '%@'", deviceID]];
-    return [query queryInBackground:^(NSArray *response){
-                    if (response.count == 0) {
-                        successBlock();
-                        return;
-                    }
-                    NSString *path = [@"devices/" stringByAppendingString:response[0][@"uuid"]];
-                    NSDictionary *params = @{
-                                             @"state" : [NSNumber numberWithBool:false]
-                                             };
-        
-                    [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
-                                                                withMethod:@"DELETE"
-                                                                    params:params
-                                                                   success:^(id result){
-                                                                       successBlock();
-                                                                   }
-                                                                   failure:^(NSError *error){
-                                                                       if (error.code == 101) {
-                                                                           successBlock();
-                                                                       }else{
-                                                                           failureBlock(error);
-                                                                       }
-                                                                   }];
-                }
-                failureBlock:failureBlock];
+
+    NSString *path = [@"devices/" stringByAppendingString:deviceID];
+
+    [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
+                                                withMethod:@"DELETE"
+                                                    params:nil
+                                                   success:^(id result){
+                                                       successBlock();
+                                                   }
+                                                   failure:^(NSError *error){
+                                                          //TODO XXX MERGE 후 주석 제거
+//                                                       if (error.code == RESOURCE_NOT_FOUND_ERROR) {
+//                                                           successBlock();
+//                                                       }else{
+                                                           failureBlock(error);
+//                                                       }
+                                                   }];
+
 }
 
 - (BaasioRequest*)didRegisterForRemoteNotifications:(NSData *)deviceToken
