@@ -281,10 +281,10 @@
 - (void)tagUpdate:(NSArray *)tags
             error:(NSError**)error
 {
-    NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
-    if (uuid == nil)    return;
+    NSString *deviceID = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
+    if (deviceID == nil)    return;
     
-    NSString *path = [@"devices/" stringByAppendingString:uuid];
+    NSString *path = [@"devices/" stringByAppendingString:deviceID];
     NSDictionary *params = @{
                              @"tags" : tags
                              };
@@ -300,13 +300,13 @@
                            successBlock:(void (^)(void))successBlock
                            failureBlock:(void (^)(NSError *error))failureBlock
 {
-    NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
-    if (uuid == nil)    {
+    NSString *deviceID = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
+    if (deviceID == nil)    {
         successBlock();
         return nil;
     }
     
-    NSString *path = [@"devices/" stringByAppendingString:uuid];
+    NSString *path = [@"devices/" stringByAppendingString:deviceID];
     NSDictionary *params = @{
                              @"tags" : tags
                              };
@@ -322,10 +322,10 @@
 
 - (void)pushOn:(NSError**)error
 {
-    NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
-    if (uuid == nil)    return;
+    NSString *deviceID = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
+    if (deviceID == nil)    return;
     
-    NSString *path = [@"devices/" stringByAppendingString:uuid];
+    NSString *path = [@"devices/" stringByAppendingString:deviceID];
     
     NSDictionary *params = @{
                              @"state" : [NSNumber numberWithBool:true]
@@ -341,13 +341,13 @@
 - (BaasioRequest*)pushOnInBackground:(void (^)(void))successBlock
                         failureBlock:(void (^)(NSError *error))failureBlock
 {
-    NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
-    if (uuid == nil)    {
+    NSString *deviceID = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
+    if (deviceID == nil)    {
         successBlock();
         return nil;
     }
     
-    NSString *path = [@"devices/" stringByAppendingString:uuid];
+    NSString *path = [@"devices/" stringByAppendingString:deviceID];
     
     NSDictionary *params = @{
                              @"state" : [NSNumber numberWithBool:true]
@@ -364,10 +364,10 @@
 
 - (void)pushOff:(NSError**)error
 {
-    NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
-    if (uuid == nil)    return;
+    NSString *deviceID = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
+    if (deviceID == nil)    return;
     
-    NSString *path = [@"devices/" stringByAppendingString:uuid];
+    NSString *path = [@"devices/" stringByAppendingString:deviceID];
     
     NSDictionary *params = @{
                              @"state" : [NSNumber numberWithBool:false]
@@ -383,13 +383,13 @@
 - (BaasioRequest*)pushOffInBackground:(void (^)(void))successBlock
                          failureBlock:(void (^)(NSError *error))failureBlock
 {
-    NSString *uuid = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
-    if (uuid == nil)    {
+    NSString *deviceID = [[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID];
+    if (deviceID == nil)    {
         successBlock();
         return nil;
     }
     
-    NSString *path = [@"devices/" stringByAppendingString:uuid];
+    NSString *path = [@"devices/" stringByAppendingString:deviceID];
     
     NSDictionary *params = @{
                              @"state" : [NSNumber numberWithBool:false]
