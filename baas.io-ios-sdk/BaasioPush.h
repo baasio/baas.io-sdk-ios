@@ -118,3 +118,12 @@
 
 
 @end
+
+@interface BaasioPush(hidden)
+
+-(NSString *)storedPushDeviceID;
+-(NSString *)storedPushUserUUID;
+
+-(NSArray *)storedPushDeviceString;
+-(void)storedPushDeviceInfo:(NSString *)deviceID;
+@end

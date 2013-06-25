@@ -281,6 +281,18 @@
 //    [self runTestLoop];
 //}
 
+- (void)test_etc{
+    NSString *token = @"token";
+
+    BaasioPush *push = [[BaasioPush alloc] init];
+    [push storedPushDeviceInfo:token];
+
+    STAssertTrue([token isEqualToString:[push storedPushDeviceID]], @"deviceID error", nil);
+    STAssertEqualObjects(token, [push storedPushDeviceID], @"deviceID error", nil);
+
+    NSLog(@"token : %@", token);
+    NSLog(@"%@", [push storedPushDeviceString]);
+}
 
 - (void)runTestLoop{
     while (!exitRunLoop){
