@@ -291,6 +291,7 @@
     STAssertEqualObjects(token, [push storedPushDeviceID], @"deviceID error", nil);
 
     NSLog(@"token : %@", token);
+    NSLog(@"user : %@", [push storedPushUserUUID]);
     NSLog(@"%@", [push storedPushDeviceString]);
 }
 

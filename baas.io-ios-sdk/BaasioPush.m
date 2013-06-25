@@ -78,7 +78,6 @@
     if (deviceID == nil) return;
 
     NSString *path = [NSString stringWithFormat:@"%@/%@", PUSH_API_ENDPOINT, deviceID];
-
     [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
                                                     withMethod:@"DELETE"
                                                         params:nil
@@ -96,7 +95,6 @@
     }
 
     NSString *path = [NSString stringWithFormat:@"%@/%@", PUSH_API_ENDPOINT, deviceID];
-
     return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
                                                     withMethod:@"DELETE"
                                                         params:nil
@@ -130,109 +128,60 @@
 
     NSString *oldDeviceID = [self storedPushDeviceID];
 
-    //기존에 등록한 적이 있는가?
+
     if (oldDeviceID){
-        //등록한 적 있음
+        //기존에 등록한 적이 있음
+        NSString *currentUser = [BaasioUser currentUser].uuid;
+        NSString *storedUser = [self storedPushUserUUID];
+        if ([deviceID isEqualToString:oldDeviceID] && [storedUser isEqualToString:currentUser]) {
 
-        //토큰이 바뀌었나
-        //if(![deviceID isEqualToString:[[[[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID] componentsSeparatedByString:@"\b"]objectAtIndex:1]]){
-        if(![deviceID isEqualToString:oldDeviceID]){
-            
-            // 바뀌었다면 PUT을 해줌
-            
-            NSLog(@"토큰이 바뀌었음");
-            
-            NSDictionary *params = [[NSDictionary alloc]init];
-            params = @{
-                           @"token" : deviceID,
-                           @"tags" : tags
-                       };
+            //변경 없음
+            successBlock();
+            return nil;
 
-            NSString *path = [NSString stringWithFormat:@"%@/%@", PUSH_API_ENDPOINT, deviceID];
+        } else {
+
+            //먼가 변경
+            NSDictionary *params = @{
+                                       @"token" : deviceID,
+                                       @"tags" : tags
+                                   };
+
+            NSString *path = [NSString stringWithFormat:@"%@/%@", PUSH_API_ENDPOINT, oldDeviceID];
             return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
                                                         withMethod:@"PUT"
                                                             params:params
                                                            success:^(id result) {
-                                                               NSLog(@"과거 토큰에서 바뀐 토큰으로 변경완료.");
-                                                               
-                                                               NSMutableArray *push_Device_Info = [NSMutableArray array];
-                                                               if([BaasioUser currentUser]) [push_Device_Info addObject:[[BaasioUser currentUser]objectForKey:@"uuid"]];
-                                                               else [push_Device_Info addObject:@" "];
-                                                               [push_Device_Info addObject:deviceID];
-                                                               [[NSUserDefaults standardUserDefaults] setObject:[[push_Device_Info valueForKey:@"description"] componentsJoinedByString:@"\b"] forKey:PUSH_DEVICE_ID];
-                                                               [[NSUserDefaults standardUserDefaults] synchronize];
+
+                                                               [self storedPushDeviceInfo:deviceID];
                                                                successBlock();
+
                                                            }failure:^(NSError *error){
-                                                               NSLog(@"과거 토큰에서 바뀐 토큰으로 변경실패.");
                                                                failureBlock(error);
                                                            }];
         }
-        
-        NSLog(@"토큰이 바뀌지 않음");
-        
-        //혹시 로그인한 유저가 기존 디바이스정보의 유저와 바뀌었나 (또는 기존 디바이스정보에 유저정보가 없나)?
-        
-        NSLog(@"로그인이 된 상태인지 검사");
-        
-        if([BaasioUser currentUser]){
-            
-            NSLog(@"로그인 되어있음");
-            
-            NSLog(@"다른 유저가 로그인했는지 검사");
-            
-            if([[[BaasioUser currentUser]objectForKey:@"uuid"] isEqualToString:[[[[NSUserDefaults standardUserDefaults]objectForKey:PUSH_DEVICE_ID] componentsSeparatedByString:@"\b"]objectAtIndex:0]]){
-                
-                NSLog(@"같은 유저가 로그인하여 끝냄");
-                
-                return nil;
-            }else{
-                
-                NSLog(@"다른 유저가 로그인하여 PUT진행");
-                
-                NSDictionary *params = [[NSDictionary alloc]init];
-                params = @{
-                           @"tags" : tags
-                           };
-                
-                NSString *path = [NSString stringWithFormat:@"%@/%@", PUSH_API_ENDPOINT, deviceID];
-                return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
-                                                                   withMethod:@"PUT"
-                                                                       params:params
-                                                                      success:^(id result) {
-                                                                          NSLog(@"유저 변경완료.");
-                                                                          
-                                                                          NSMutableArray *push_Device_Info = [NSMutableArray array];
-                                                                          [push_Device_Info addObject:[[BaasioUser currentUser]objectForKey:@"uuid"]];
-                                                                          [push_Device_Info addObject:deviceID];
-                                                    
-                                                                          [[NSUserDefaults standardUserDefaults] setObject:[[push_Device_Info valueForKey:@"description"] componentsJoinedByString:@"\b"] forKey:PUSH_DEVICE_ID];
-                                                                          [[NSUserDefaults standardUserDefaults] synchronize];
-                                                                          successBlock();
-                                                                      }failure:^(NSError *error){
-                                                                          NSLog(@"유저 변경실패.");
-                                                                          failureBlock(error);
-                                                                      }];
-            }
-            
-            
-            
-        }
-        
-        //기기에 등록한 적이 있지만 토큰이 바뀌지 않았고 로그인 되어있지 않다면 여기서 멈춤.
-        
-        NSLog(@"로그인 되어있는 상태가 아님");
-        
-        return nil;
+
     }  else {
-
         //기기를 등록한 적 없음
-        NSDictionary *params = @{
-                                    @"token" : deviceID,
-                                    @"platform" : @"I",
-                                    @"tags" : tags
-                                };
+        return [self registerForFirst:tags
+                         successBlock:successBlock
+                         failureBlock:failureBlock
+                             deviceID:deviceID];
+    }
 
-        return [[BaasioNetworkManager sharedInstance] connectWithHTTP:PUSH_API_ENDPOINT
+}
+
+- (BaasioRequest *)registerForFirst:(NSArray *)tags
+                       successBlock:(void (^)())successBlock
+                       failureBlock:(void (^)(NSError *))failureBlock
+                           deviceID:(NSMutableString *)deviceID {
+    NSDictionary *params = @{
+                                @"token" : deviceID,
+                                @"platform" : @"I",
+                                @"tags" : tags
+                            };
+
+    return [[BaasioNetworkManager sharedInstance] connectWithHTTP:PUSH_API_ENDPOINT
                                                            withMethod:@"POST"
                                                                params:params
                                                               success:^(id result){
@@ -258,9 +207,6 @@
                                                                       failureBlock(error);
                                                                   }
                                                               }];
-
-    }
-
 }
 
 - (void)tagUpdate:(NSArray *)tags
@@ -271,7 +217,7 @@
     
     NSString *path = [NSString stringWithFormat:@"%@/%@", PUSH_API_ENDPOINT, deviceID];
     NSDictionary *params = @{
-                             @"tags" : tags
+                                @"tags" : tags
                              };
     
     [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
@@ -291,11 +237,11 @@
         return nil;
     }
 
-    NSString *path = [NSString stringWithFormat:@"%@/%@", PUSH_API_ENDPOINT, deviceID];
     NSDictionary *params = @{
-                             @"tags" : tags
+                                 @"tags" : tags
                              };
-    
+
+    NSString *path = [NSString stringWithFormat:@"%@/%@", PUSH_API_ENDPOINT, deviceID];
     return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
                                                        withMethod:@"PUT"
                                                            params:params
@@ -309,13 +255,12 @@
 {
     NSString *deviceID = [self storedPushDeviceID];
     if (deviceID == nil)    return;
-    
-    NSString *path = [NSString stringWithFormat:@"%@/%@", PUSH_API_ENDPOINT, deviceID];
 
     NSDictionary *params = @{
-                             @"state" : [NSNumber numberWithBool:true]
+                                 @"state" : [NSNumber numberWithBool:true]
                              };
-    
+
+    NSString *path = [NSString stringWithFormat:@"%@/%@", PUSH_API_ENDPOINT, deviceID];
     [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
                                                     withMethod:@"PUT"
                                                         params:params
@@ -333,9 +278,8 @@
     }
 
     NSString *path = [NSString stringWithFormat:@"%@/%@", PUSH_API_ENDPOINT, deviceID];
-    
     NSDictionary *params = @{
-                             @"state" : [NSNumber numberWithBool:true]
+                                @"state" : [NSNumber numberWithBool:true]
                              };
     
     return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
@@ -352,12 +296,11 @@
     NSString *deviceID = [self storedPushDeviceID];
     if (deviceID == nil)    return;
 
-    NSString *path = [NSString stringWithFormat:@"%@/%@", PUSH_API_ENDPOINT, deviceID];
-
     NSDictionary *params = @{
-                             @"state" : [NSNumber numberWithBool:false]
+                                @"state" : [NSNumber numberWithBool:false]
                              };
-    
+
+    NSString *path = [NSString stringWithFormat:@"%@/%@", PUSH_API_ENDPOINT, deviceID];
     [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
                                                     withMethod:@"PUT"
                                                         params:params
@@ -374,12 +317,10 @@
         return nil;
     }
 
-    NSString *path = [NSString stringWithFormat:@"%@/%@", PUSH_API_ENDPOINT, deviceID];
-
     NSDictionary *params = @{
-                             @"state" : [NSNumber numberWithBool:false]
+                                 @"state" : [NSNumber numberWithBool:false]
                              };
-    
+    NSString *path = [NSString stringWithFormat:@"%@/%@", PUSH_API_ENDPOINT, deviceID];
     return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
                                                        withMethod:@"PUT"
                                                            params:params
@@ -397,6 +338,7 @@
 }
 -(NSString *)storedPushUserUUID {
     NSArray *array = [self storedPushDeviceString];
+    if (array.count == 1)  return nil;
     return array[1];
 }
 

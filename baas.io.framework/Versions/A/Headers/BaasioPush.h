@@ -5,6 +5,7 @@
 //
 
 #define PUSH_DEVICE_ID @"PUSH_DEVICE_ID_BAASIO_SDK"
+
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "BaasioMessage.h"
@@ -117,4 +118,15 @@
                          failureBlock:(void (^)(NSError *error))failureBlock;
 
 
+
+@end
+
+@interface BaasioPush(hidden)
+
+-(NSString *)storedDeviceID;
+-(NSString *)storedUserUUID;
+
+-(NSArray *)storedDeviceString;
+-(void)storedDeviceInfo:(NSString *)deviceID
+                   user:(NSString *)userUUID;
 @end
