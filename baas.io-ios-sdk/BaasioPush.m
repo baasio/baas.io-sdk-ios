@@ -130,18 +130,22 @@
 
 
     if (oldDeviceID){
-        //기존에 등록한 적이 있음
+        // [baasPush] Already registration
         NSString *currentUser = [BaasioUser currentUser].uuid;
         NSString *storedUser = [self storedPushUserUUID];
+        
+        if ([storedUser isEqual:[NSNull null]]) storedUser = @"";
+        if (currentUser == nil) currentUser = @"";
+
         if ([deviceID isEqualToString:oldDeviceID] && [storedUser isEqualToString:currentUser]) {
 
-            //변경 없음
+            // [baasPush] No Change
             successBlock();
             return nil;
 
         } else {
 
-            //먼가 변경
+            // [baasPush] Something Change
             NSDictionary *params = @{
                                        @"token" : deviceID,
                                        @"tags" : tags
@@ -162,7 +166,8 @@
         }
 
     }  else {
-        //기기를 등록한 적 없음
+        
+        // [baasPush] First registration
         return [self registerForFirst:tags
                          successBlock:successBlock
                          failureBlock:failureBlock
@@ -339,6 +344,7 @@
 -(NSString *)storedPushUserUUID {
     NSArray *array = [self storedPushDeviceString];
     if (array.count == 1)  return nil;
+    
     return array[1];
 }
 
@@ -348,7 +354,12 @@
 }
 
 -(void)storedPushDeviceInfo:(NSString *)deviceID{
-    NSString *pushDeviceInfo = [NSString stringWithFormat:@"%@%@%@", deviceID, PUSH_DELIMETER, [BaasioUser currentUser].uuid];
+    NSString *user = @"";
+    BaasioUser *currentUser = [BaasioUser currentUser];    
+    if (currentUser != nil)
+        user = currentUser.uuid;
+
+    NSString *pushDeviceInfo = [NSString stringWithFormat:@"%@%@%@", deviceID, PUSH_DELIMETER, user];
 
     [[NSUserDefaults standardUserDefaults] setObject:pushDeviceInfo forKey:PUSH_DEVICE_ID];
     [[NSUserDefaults standardUserDefaults] synchronize];
