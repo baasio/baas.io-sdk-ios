@@ -102,12 +102,11 @@
                                                            successBlock();
                                                        }
                                                        failure:^(NSError *error){
-                                                              //TODO XXX MERGE 후 주석 제거
-    //                                                       if (error.code == RESOURCE_NOT_FOUND_ERROR) {
-    //                                                           successBlock();
-    //                                                       }else{
+                                                           if (error.code == RESOURCE_NOT_FOUND_ERROR) {
+                                                               successBlock();
+                                                           }else{
                                                                failureBlock(error);
-    //                                                       }
+                                                           }
                                                        }];
 
 }
@@ -198,7 +197,7 @@
                                                               }
                                                               failure:^(NSError *error) {
                                                                   // Device가 등록되어 있어서 PUT함
-                                                                  if (error.code == 913) {   //TODO error code = DUPLICATED_UNIQUE_PROPERTY_ERROR.
+                                                                  if (error.code == DUPLICATED_UNIQUE_PROPERTY_ERROR) {
 
                                                                       NSString *path = [NSString stringWithFormat:@"%@/%@", PUSH_API_ENDPOINT, deviceID];
                                                                       [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
