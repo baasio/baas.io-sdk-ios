@@ -128,7 +128,7 @@
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Headers";
 			dstSubfolderSpec = 0;
 			files = (
-				AF001E5D170AEB2200F38F90 /* SimpleNetworkManager.h in CopyFiles */,
+				AF001E5D170AEB2200F38F90,
 				AF1236C216D352B70070C666 /* UIImageView+Baasio.h in CopyFiles */,
 				AF76AE0616B146AF00F82916 /* NSError+baasio.h in CopyFiles */,
 				AF2575CC168A9E530037919C /* BaasioHelp.h in CopyFiles */,
@@ -474,9 +474,9 @@
 			children = (
 				27F2E3CD3D5C93BC6B2B8CF5 /* SimpleNetworkManagerTest.h */,
 				27F2EC1A1A0B479154788DE9 /* SimpleNetworkManagerTest.m */,
-				AF87FF5016B24ABE0095C815 /* UnitTestConstant.h */,
-				AF48E9B416B2D235005F78A0 /* PushTest.h */,
-				AF48E9AD16B2D235005F78A0 /* PushTest.m */,
+				AF87FF5016B24ABE0095C815,
+				AF48E9B416B2D235005F78A0,
+				AF48E9AD16B2D235005F78A0,
 				4192F2061757125400958D03 /* EntityTest.h */,
 				4192F2071757125400958D03 /* EntityTest.m */,
 				4192F2081757125400958D03 /* FileTest.h */,
@@ -656,7 +656,7 @@
 			files = (
 				AF09CBCE16AF6CAE0064DB66 /* NSError+baasio.m in Sources */,
 				AF26A27F166667F5006A7225 /* JSONKit.m in Sources */,
-				AF48E9BD16B2D235005F78A0 /* UserTest.m in Sources */,
+				AF48E9BD16B2D235005F78A0,
 				27F2EB5C3DFC6682A2A363E5 /* SimpleNetworkManagerTest.m in Sources */,
 				AFD13113170AFECF005CE9A8 /* FileTest.m in Sources */,
 				AFD13114170AFECF005CE9A8 /* PushTest.m in Sources */,
