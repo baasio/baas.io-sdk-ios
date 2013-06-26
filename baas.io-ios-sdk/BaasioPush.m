@@ -130,7 +130,9 @@
 
 
     if (oldDeviceID){
-        // [baasPush] Already registration
+
+        NSLog(@"baasPush : Already registration");
+        
         NSString *currentUser = [BaasioUser currentUser].uuid;
         NSString *storedUser = [self storedPushUserUUID];
         
@@ -139,13 +141,13 @@
 
         if ([deviceID isEqualToString:oldDeviceID] && [storedUser isEqualToString:currentUser]) {
 
-            // [baasPush] No Change
+            NSLog(@"baasPush : No Change");
             successBlock();
             return nil;
 
         } else {
-
-            // [baasPush] Something Change
+            
+            NSLog(@"baasPush : Something Change");
             NSDictionary *params = @{
                                        @"token" : deviceID,
                                        @"tags" : tags
@@ -167,7 +169,7 @@
 
     }  else {
         
-        // [baasPush] First registration
+        NSLog(@"baasPush : First registration");
         return [self registerForFirst:tags
                          successBlock:successBlock
                          failureBlock:failureBlock

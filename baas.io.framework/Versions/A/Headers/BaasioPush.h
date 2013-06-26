@@ -5,7 +5,6 @@
 //
 
 #define PUSH_DEVICE_ID @"PUSH_DEVICE_ID_BAASIO_SDK"
-
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "BaasioMessage.h"
@@ -40,7 +39,7 @@
  앱 시작나 로그인 후에 디바이스 등록이 필요한 시점에 호출하 된다.
  @param types types
  */
-- (void)registerForRemoteNotificationTypes:(UIRemoteNotificationType)types;
++ (void)registerForRemoteNotificationTypes:(UIRemoteNotificationType)types;
 
 /**
  APNS에 디바이스 해제
@@ -118,15 +117,13 @@
                          failureBlock:(void (^)(NSError *error))failureBlock;
 
 
-
 @end
 
 @interface BaasioPush(hidden)
 
--(NSString *)storedDeviceID;
--(NSString *)storedUserUUID;
+-(NSString *)storedPushDeviceID;
+-(NSString *)storedPushUserUUID;
 
--(NSArray *)storedDeviceString;
--(void)storedDeviceInfo:(NSString *)deviceID
-                   user:(NSString *)userUUID;
+-(NSArray *)storedPushDeviceString;
+-(void)storedPushDeviceInfo:(NSString *)deviceID;
 @end
