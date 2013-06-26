@@ -39,7 +39,7 @@
  앱 시작나 로그인 후에 디바이스 등록이 필요한 시점에 호출하 된다.
  @param types types
  */
-- (void)registerForRemoteNotificationTypes:(UIRemoteNotificationType)types;
++ (void)registerForRemoteNotificationTypes:(UIRemoteNotificationType)types;
 
 /**
  APNS에 디바이스 해제

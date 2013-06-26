@@ -57,7 +57,7 @@
                                    failure:failureBlock];
 }
 
-- (void)registerForRemoteNotificationTypes:(UIRemoteNotificationType)types{
++ (void)registerForRemoteNotificationTypes:(UIRemoteNotificationType)types{
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:types];
 }
 
