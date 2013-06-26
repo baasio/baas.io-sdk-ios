@@ -4,7 +4,6 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-
 #import "BaasioEntity.h"
 #import "BaasioRequest.h"
 
@@ -102,9 +101,27 @@
                         successBlock:(void (^)(void))successBlock
                         failureBlock:(void (^)(NSError *error))failureBlock;
 
+
+/**
+ 회원가입
+
+ @param error error
+*/
+-(void)signUp:(NSError **)error;
+
+/**
+ 회원가입 asynchronously
+
+ @param successBlock successBlock
+ @param failureBlock failureBlock
+*/
+
+- (BaasioRequest*)signUpInBackground:(void (^)(void))successBlock
+                      failureBlock:(void (^)(NSError *error))failureBlock;
+
 /**
  비밀번호 재설정
- 
+
  @param username username
  @param error error
  */
