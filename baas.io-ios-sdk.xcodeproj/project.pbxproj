@@ -245,10 +245,10 @@
 			children = (
 				AF7D5F731786FB5B00A86ABD /* BaasioRequest.h */,
 				AF7D5F721786FB5B00A86ABD /* BaasioRequest.m */,
-				AF925D591786F5530015595A /* SimpleNetworkManager.m */,
 				AF925D5A1786F5530015595A /* SimpleNetworkManager.h */,
-				AF925D5B1786F5530015595A /* BaasioNetworkManager.m */,
+				AF925D591786F5530015595A /* SimpleNetworkManager.m */,
 				AF925D5C1786F5530015595A /* BaasioNetworkManager.h */,
+				AF925D5B1786F5530015595A /* BaasioNetworkManager.m */,
 				AF925D551786F5160015595A /* NetworkActivityIndicatorManager.h */,
 				AF925D561786F5160015595A /* NetworkActivityIndicatorManager.m */,
 			);

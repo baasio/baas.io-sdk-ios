@@ -40,7 +40,7 @@
 /**
  HTTP connect asynchronously
  @param path path
- @param method http method (ex : GET, POST, PUT, DELETE)
+ @param httpMethod http method (ex : GET, POST, PUT, DELETE)
  @param params http paramters
  @param successBlock successBlock
  @param failureBlock failureBlock
@@ -54,7 +54,7 @@
  multipart/form-data HTTP request asynchronously
 
  @param path path
- @param method http method (ex : GET, POST, PUT, DELETE)
+ @param httpMethod http method (ex : GET, POST, PUT, DELETE)
  @param data binary data
  @param params http paramters
  @param filename File Name

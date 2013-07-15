@@ -7,6 +7,10 @@
 
 #import <Foundation/Foundation.h>
 
+
+/**
+ Simple Network Manager Class
+ */
 @interface SimpleNetworkManager : NSObject
 
 + (SimpleNetworkManager *)sharedInstance;
@@ -16,7 +20,7 @@
  @param path path
  @param httpMethod http method (ex : GET, POST, PUT, DELETE)
  @param params http paramters
- @param params http header fields
+ @param headerFields http header fields
  @param error error
  */
 - (NSString*)connectWithHTTPSync:(NSString *)path
@@ -29,9 +33,9 @@
 /**
  HTTP connect asynchronously
  @param path path
- @param method http method (ex : GET, POST, PUT, DELETE)
+ @param httpMethod http method (ex : GET, POST, PUT, DELETE)
  @param params http paramters
- @param params http header fields
+ @param headerFields http header fields
  @param successBlock successBlock
  @param failureBlock failureBlock
  */

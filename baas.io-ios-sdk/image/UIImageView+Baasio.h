@@ -51,11 +51,14 @@
 
 /**
  Image loading with baas.io File.
+ @param file baas.io file
  */
 - (void)imageWithBaasioFile:(BaasioFile *)file;
 
 /**
  Image loading with baas.io File.
+ @param file baas.io file
+ @param placeholderImage The image to be set initially, until the image request finishes. If `nil`, the image view will not change its image until the image request finishes.
  */
 - (void)imageWithBaasioFile:(BaasioFile *)file
            placeholderImage:(UIImage *)placeholderImage;
