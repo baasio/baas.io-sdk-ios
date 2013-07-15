@@ -69,6 +69,10 @@ bool _isDebugMode;
     _token = token;
 }
 
+- (NSString *)getToken{
+    return _token;
+}
+
 #pragma mark - API Authorization method
 - (NSMutableURLRequest *)setAuthorization:(NSMutableURLRequest *)request{
     if (_token != nil) {

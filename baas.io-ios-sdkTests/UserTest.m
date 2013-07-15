@@ -160,17 +160,17 @@
 //}
 //
 //- (void)test_5_signUp{
-//    NSError *e = nil;
-//    BaasioUser *user = [BaasioUser user];
-//    user.username = @"user name";       //[user setObject:@"user name" forKey:@"username"];
-//    [user setObject:@"password" forKey:@"password"];
-//    [user setObject:@"test@email.org" forKey:@"email"];
-//    [user setObject:@"name" forKey:@"name"];
-//    [user setObject:@"kwon, ohsang" forKey:@"realname"]; //extra value
-//    [user signUp:&e];
-//    if(e){
-//        STFail(@"fail : %@", e.localizedDescription);
-//    }
+    NSError *e = nil;
+    BaasioUser *user = [BaasioUser user];
+    user.username = @"user name";       //[user setObject:@"user name" forKey:@"username"];
+    [user setObject:@"password" forKey:@"password"];
+    [user setObject:@"test@email.org" forKey:@"email"];
+    [user setObject:@"name" forKey:@"name"];
+    [user setObject:@"kwon, ohsang" forKey:@"realname"]; //extra value
+    [user signUp:&e];
+    if(e){
+        STFail(@"fail : %@", e.localizedDescription);
+    }
 //}
 //
 //- (void)test_6_signUp{
