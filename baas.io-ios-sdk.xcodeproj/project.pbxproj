@@ -42,6 +42,36 @@
 		AF925D7F1786F5850015595A /* BaasioHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = AF925D731786F5850015595A /* BaasioHelp.m */; };
 		AF925D861786F60D0015595A /* ShadowUpdateChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = AF925D851786F60D0015595A /* ShadowUpdateChecker.m */; };
 		AF925D921786F65C0015595A /* SimpleNetworkManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF925D891786F65C0015595A /* SimpleNetworkManagerTest.m */; };
+		AFA7D3B617951059008A1ADB /* UIImageView+Baasio.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D4E1786F4FF0015595A /* UIImageView+Baasio.h */; };
+		AFA7D3B717951059008A1ADB /* NSError+baasio.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D521786F5070015595A /* NSError+baasio.h */; };
+		AFA7D3B817951059008A1ADB /* BaasioRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF7D5F731786FB5B00A86ABD /* BaasioRequest.h */; };
+		AFA7D3B917951059008A1ADB /* SimpleNetworkManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D5A1786F5530015595A /* SimpleNetworkManager.h */; };
+		AFA7D3BA17951059008A1ADB /* Baas.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D631786F5850015595A /* Baas.h */; };
+		AFA7D3BB17951059008A1ADB /* BaasioVersion.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFAD8F411793C9CB00126D32 /* BaasioVersion.h */; };
+		AFA7D3BC17951059008A1ADB /* Baasio.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D641786F5850015595A /* Baasio.h */; };
+		AFA7D3BD17951059008A1ADB /* BaasioEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D6C1786F5850015595A /* BaasioEntity.h */; };
+		AFA7D3BE17951059008A1ADB /* BaasioFile.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D651786F5850015595A /* BaasioFile.h */; };
+		AFA7D3BF17951059008A1ADB /* BaasioUser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D621786F5850015595A /* BaasioUser.h */; };
+		AFA7D3C017951059008A1ADB /* BaasioQuery.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D671786F5850015595A /* BaasioQuery.h */; };
+		AFA7D3C117951059008A1ADB /* BaasioHelp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D6E1786F5850015595A /* BaasioHelp.h */; };
+		AFA7D3C217951059008A1ADB /* BaasioMessage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D6F1786F5850015595A /* BaasioMessage.h */; };
+		AFA7D3C317951059008A1ADB /* BaasioGroup.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D6D1786F5850015595A /* BaasioGroup.h */; };
+		AFA7D3C417951059008A1ADB /* BaasioPush.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D611786F5850015595A /* BaasioPush.h */; };
+		AFA7D3C517951177008A1ADB /* UIImageView+Baasio.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D4E1786F4FF0015595A /* UIImageView+Baasio.h */; };
+		AFA7D3C617951177008A1ADB /* NSError+baasio.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D521786F5070015595A /* NSError+baasio.h */; };
+		AFA7D3C717951177008A1ADB /* BaasioRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF7D5F731786FB5B00A86ABD /* BaasioRequest.h */; };
+		AFA7D3C817951177008A1ADB /* SimpleNetworkManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D5A1786F5530015595A /* SimpleNetworkManager.h */; };
+		AFA7D3C917951177008A1ADB /* Baas.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D631786F5850015595A /* Baas.h */; };
+		AFA7D3CA17951177008A1ADB /* BaasioVersion.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFAD8F411793C9CB00126D32 /* BaasioVersion.h */; };
+		AFA7D3CB17951177008A1ADB /* Baasio.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D641786F5850015595A /* Baasio.h */; };
+		AFA7D3CC17951177008A1ADB /* BaasioEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D6C1786F5850015595A /* BaasioEntity.h */; };
+		AFA7D3CD17951177008A1ADB /* BaasioFile.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D651786F5850015595A /* BaasioFile.h */; };
+		AFA7D3CE17951177008A1ADB /* BaasioUser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D621786F5850015595A /* BaasioUser.h */; };
+		AFA7D3CF17951177008A1ADB /* BaasioQuery.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D671786F5850015595A /* BaasioQuery.h */; };
+		AFA7D3D017951177008A1ADB /* BaasioHelp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D6E1786F5850015595A /* BaasioHelp.h */; };
+		AFA7D3D117951177008A1ADB /* BaasioMessage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D6F1786F5850015595A /* BaasioMessage.h */; };
+		AFA7D3D217951177008A1ADB /* BaasioGroup.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D6D1786F5850015595A /* BaasioGroup.h */; };
+		AFA7D3D317951177008A1ADB /* BaasioPush.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D611786F5850015595A /* BaasioPush.h */; };
 		AFAD8F271793C77700126D32 /* ShadowUpdateCheckerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD8F261793C77700126D32 /* ShadowUpdateCheckerTest.m */; };
 		AFAD8F2E1793C78100126D32 /* EntityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD8F291793C78100126D32 /* EntityTest.m */; };
 		AFAD8F2F1793C78100126D32 /* HelprTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD8F2B1793C78100126D32 /* HelprTest.m */; };
@@ -97,6 +127,21 @@
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Headers";
 			dstSubfolderSpec = 0;
 			files = (
+				AFA7D3C517951177008A1ADB /* UIImageView+Baasio.h in CopyFiles */,
+				AFA7D3C617951177008A1ADB /* NSError+baasio.h in CopyFiles */,
+				AFA7D3C717951177008A1ADB /* BaasioRequest.h in CopyFiles */,
+				AFA7D3C817951177008A1ADB /* SimpleNetworkManager.h in CopyFiles */,
+				AFA7D3C917951177008A1ADB /* Baas.h in CopyFiles */,
+				AFA7D3CA17951177008A1ADB /* BaasioVersion.h in CopyFiles */,
+				AFA7D3CB17951177008A1ADB /* Baasio.h in CopyFiles */,
+				AFA7D3CC17951177008A1ADB /* BaasioEntity.h in CopyFiles */,
+				AFA7D3CD17951177008A1ADB /* BaasioFile.h in CopyFiles */,
+				AFA7D3CE17951177008A1ADB /* BaasioUser.h in CopyFiles */,
+				AFA7D3CF17951177008A1ADB /* BaasioQuery.h in CopyFiles */,
+				AFA7D3D017951177008A1ADB /* BaasioHelp.h in CopyFiles */,
+				AFA7D3D117951177008A1ADB /* BaasioMessage.h in CopyFiles */,
+				AFA7D3D217951177008A1ADB /* BaasioGroup.h in CopyFiles */,
+				AFA7D3D317951177008A1ADB /* BaasioPush.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +151,21 @@
 			dstPath = header;
 			dstSubfolderSpec = 16;
 			files = (
+				AFA7D3B617951059008A1ADB /* UIImageView+Baasio.h in CopyFiles */,
+				AFA7D3B717951059008A1ADB /* NSError+baasio.h in CopyFiles */,
+				AFA7D3B817951059008A1ADB /* BaasioRequest.h in CopyFiles */,
+				AFA7D3B917951059008A1ADB /* SimpleNetworkManager.h in CopyFiles */,
+				AFA7D3BA17951059008A1ADB /* Baas.h in CopyFiles */,
+				AFA7D3BB17951059008A1ADB /* BaasioVersion.h in CopyFiles */,
+				AFA7D3BC17951059008A1ADB /* Baasio.h in CopyFiles */,
+				AFA7D3BD17951059008A1ADB /* BaasioEntity.h in CopyFiles */,
+				AFA7D3BE17951059008A1ADB /* BaasioFile.h in CopyFiles */,
+				AFA7D3BF17951059008A1ADB /* BaasioUser.h in CopyFiles */,
+				AFA7D3C017951059008A1ADB /* BaasioQuery.h in CopyFiles */,
+				AFA7D3C117951059008A1ADB /* BaasioHelp.h in CopyFiles */,
+				AFA7D3C217951059008A1ADB /* BaasioMessage.h in CopyFiles */,
+				AFA7D3C317951059008A1ADB /* BaasioGroup.h in CopyFiles */,
+				AFA7D3C417951059008A1ADB /* BaasioPush.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
