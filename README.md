@@ -24,6 +24,23 @@ See [this](https://github.com/baasio/baas.io-sdk-ios/wiki/Getting-Started#Instal
 
 
 ## Release history
+### v0.8.1.3
+* BAAS-43 Push SDK 사용성 개선
+* BAAS-58 회원 가입 시 추가 정보를 넣을 수 있게 함
+* BAAS-59 추가적인 library 없이도 network api를 쓸 수 있는 기능을 제공
+* BAAS-60 UIImageView에 비동기 이미지 로딩 기능 제공
+
+* BAAS-61 에러코드 재 정리
+* BAAS-376 디버그 모드 추가
+* BAAS-64 최신 버젼이 릴리즈 되면 자동으로 알림
+* BAAS-377 Push on/off 기능 구현
+
+* 기타
+ * 커서 관련 함수명 변경
+ * 버그 수정
+ * 암호 변경/리셋 기능 구현
+
+
 ### v0.8.1.1
 * User Token 관련 에러 처리
 
