@@ -4,7 +4,6 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-
 #import "BaasioEntity.h"
 #import "BaasioRequest.h"
 
@@ -101,6 +100,68 @@
                                email:(NSString *)email
                         successBlock:(void (^)(void))successBlock
                         failureBlock:(void (^)(NSError *error))failureBlock;
+
+
+/**
+ 회원가입
+
+ @param error error
+*/
+-(void)signUp:(NSError **)error;
+
+/**
+ 회원가입 asynchronously
+
+ @param successBlock successBlock
+ @param failureBlock failureBlock
+*/
+
+- (BaasioRequest*)signUpInBackground:(void (^)(void))successBlock
+                      failureBlock:(void (^)(NSError *error))failureBlock;
+
+/**
+ 비밀번호 재설정
+
+ @param username username
+ @param error error
+ */
++ (void)resetPassword:(NSString*)username
+                error:(NSError**)error;
+ 
+/**
+ 비밀번호 재설정 asynchronously
+ 
+ @param username username
+ @param successBlock successBlock
+ @param failureBlock failureBlock
+ */
++ (BaasioRequest*)resetPasswordInBackground:(NSString*)username
+                               successBlock:(void (^)(void))successBlock
+                               failureBlock:(void (^)(NSError *error))failureBlock;
+
+/**
+ 비밀번호 변경
+ 
+ @param oldPassword oldPassword
+ @param newPassword newPassword
+ @param error error
+ */
+- (void)changePassword:(NSString *)oldPassword
+           newPassword:(NSString *)newPassword
+                 error:(NSError**)error;
+
+/**
+ 비밀번호 변경 asynchronously
+ 
+ @param oldPassword oldPassword
+ @param newPassword newPassword
+ @param successBlock successBlock
+ @param failureBlock failureBlock
+ */
+- (BaasioRequest*)changePasswordInBackground:(NSString *)oldPassword
+                                 newPassword:(NSString *)newPassword
+                                successBlock:(void (^)(void))successBlock
+                                failureBlock:(void (^)(NSError *error))failureBlock;
 
 /**
  탈퇴

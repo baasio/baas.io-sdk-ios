@@ -95,7 +95,7 @@
     _cursors[_pos] = cursor;
 }
 
--(void)setResetCursor{
+-(void)clearCursor{
     _pos = -1;
     _cursors = [NSMutableArray array];
 }
@@ -134,11 +134,10 @@
         _sql = [_sql stringByAppendingFormat:@"&limit=%i", _limit];
     }
     
-    //    if (_cursors[_pos] != nil){
     if (_pos != -1){
         _sql = [_sql stringByAppendingFormat:@"&cursor=%@", _cursors[_pos] ];
     }
-    
+
     return _sql;
 }
 
@@ -201,9 +200,8 @@
     if(![self hasMoreEntities]){
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"Next entities isn't exist." forKey:NSLocalizedDescriptionKey];
-        
-        NSString *domain = @"NSObjectNotAvailableException";
-        NSError *e = [NSError errorWithDomain:domain code:-1 userInfo:details];
+
+        NSError *e = [NSError errorWithDomain:@"BassioError" code:UNKNOWN_ERROR userInfo:details];
         
         e = *error;
         return nil;
@@ -219,8 +217,7 @@
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"Next entities isn't exist." forKey:NSLocalizedDescriptionKey];
         
-        NSString *domain = @"NSObjectNotAvailableException";
-        NSError *e = [NSError errorWithDomain:domain code:-1 userInfo:details];
+        NSError *e = [NSError errorWithDomain:@"BassioError" code:UNKNOWN_ERROR userInfo:details];
         
         failureBlock(e);
         return nil;
@@ -234,9 +231,8 @@
     if(_pos < 0 ){
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"Prev entities isn't exist." forKey:NSLocalizedDescriptionKey];
-        
-        NSString *domain = @"NSObjectNotAvailableException";
-        NSError *e = [NSError errorWithDomain:domain code:-1 userInfo:details];
+
+        NSError *e = [NSError errorWithDomain:@"BassioError" code:UNKNOWN_ERROR userInfo:details];
         
         e = *error;
         return nil;
@@ -251,9 +247,8 @@
     if(_pos < 0 ){
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"Prev entities isn't exist." forKey:NSLocalizedDescriptionKey];
-        
-        NSString *domain = @"NSObjectNotAvailableException";
-        NSError *e = [NSError errorWithDomain:domain code:-1 userInfo:details];
+
+        NSError *e = [NSError errorWithDomain:@"BassioError" code:UNKNOWN_ERROR userInfo:details];
         
         failureBlock(e);
         return nil;
