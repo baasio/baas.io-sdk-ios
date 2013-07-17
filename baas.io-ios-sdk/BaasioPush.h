@@ -45,6 +45,8 @@
  APNS에 디바이스 해제
 
  앱 로그아웃 시에 호출해주면 된다.
+ @param successBlock successBlock
+ @param failureBlock failureBlock
  */
 - (void)unregisterForRemoteNotifications:(void (^)(void))successBlock
                             failureBlock:(void (^)(NSError *error))failureBlock;
