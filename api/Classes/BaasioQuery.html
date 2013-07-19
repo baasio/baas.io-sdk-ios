@@ -53,7 +53,7 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/cursor">&nbsp;&nbsp;&nbsp;&nbsp;- cursor</option>
+	<option value="//api/name/clearCursor">&nbsp;&nbsp;&nbsp;&nbsp;- clearCursor</option>
 	
 	<option value="//api/name/description">&nbsp;&nbsp;&nbsp;&nbsp;- description</option>
 	
@@ -71,15 +71,11 @@
 	
 	<option value="//api/name/queryInBackground:failureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- queryInBackground:failureBlock:</option>
 	
-	<option value="//api/name/setCursor:">&nbsp;&nbsp;&nbsp;&nbsp;- setCursor:</option>
-	
 	<option value="//api/name/setLimit:">&nbsp;&nbsp;&nbsp;&nbsp;- setLimit:</option>
 	
 	<option value="//api/name/setOrderBy:order:">&nbsp;&nbsp;&nbsp;&nbsp;- setOrderBy:order:</option>
 	
 	<option value="//api/name/setProjectionIn:">&nbsp;&nbsp;&nbsp;&nbsp;- setProjectionIn:</option>
-	
-	<option value="//api/name/setResetCursor">&nbsp;&nbsp;&nbsp;&nbsp;- setResetCursor</option>
 	
 	<option value="//api/name/setWheres:">&nbsp;&nbsp;&nbsp;&nbsp;- setWheres:</option>
 	
@@ -121,7 +117,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cursor">cursor</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clearCursor">clearCursor</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/description">description</a></span></li>
 	
@@ -139,15 +135,11 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/queryInBackground:failureBlock:">queryInBackground:failureBlock:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCursor:">setCursor:</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setLimit:">setLimit:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setOrderBy:order:">setOrderBy:order:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setProjectionIn:">setProjectionIn:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setResetCursor">setResetCursor</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setWheres:">setWheres:</a></span></li>
 	
@@ -235,7 +227,7 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setWheres:">&ndash;&nbsp;setWheres:</a></code>
-		<span class="tooltip"><p>where 조건 추가</p></span>
+		<span class="tooltip"><p>where 조건</p></span>
 	</span>
 	
 	
@@ -255,22 +247,8 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/cursor">&ndash;&nbsp;cursor</a></code>
-		<span class="tooltip"><p>cursor</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/setCursor:">&ndash;&nbsp;setCursor:</a></code>
-		<span class="tooltip"><p><a href="#//api/name/cursor">cursor</a></p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/setResetCursor">&ndash;&nbsp;setResetCursor</a></code>
-		<span class="tooltip"><p>reset <a href="#//api/name/cursor">cursor</a></p></span>
+		<code><a href="#//api/name/clearCursor">&ndash;&nbsp;clearCursor</a></code>
+		<span class="tooltip"><p>페이징 초기화</p></span>
 	</span>
 	
 	
@@ -518,18 +496,18 @@
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/cursor" title="cursor"></a>
-	<h3 class="subsubtitle method-title">cursor</h3>
+	<a name="//api/name/clearCursor" title="clearCursor"></a>
+	<h3 class="subsubtitle method-title">clearCursor</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>cursor</p>
+		<p>페이징 초기화</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (NSString *)cursor</code></div>
+	<div class="method-subsection method-declaration"><code>- (void)clearCursor</code></div>
 
     
 	
@@ -541,7 +519,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>cursor</p>
+		<p>페이징 초기화</p>
 	</div>
 	
 	
@@ -964,57 +942,6 @@
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/setCursor:" title="setCursor:"></a>
-	<h3 class="subsubtitle method-title">setCursor:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p><a href="#//api/name/cursor">cursor</a></p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)setCursor:(NSString *)<em>cursor</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>cursor</em></dt>
-			<dd><p><a href="#//api/name/cursor">cursor</a></p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p><a href="#//api/name/cursor">cursor</a></p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BaasioQuery.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/setLimit:" title="setLimit:"></a>
 	<h3 class="subsubtitle method-title">setLimit:</h3>
 	
@@ -1175,54 +1102,13 @@
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/setResetCursor" title="setResetCursor"></a>
-	<h3 class="subsubtitle method-title">setResetCursor</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>reset <a href="#//api/name/cursor">cursor</a></p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)setResetCursor</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>reset <a href="#//api/name/cursor">cursor</a></p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BaasioQuery.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/setWheres:" title="setWheres:"></a>
 	<h3 class="subsubtitle method-title">setWheres:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>where 조건 추가</p>
+		<p>where 조건</p>
 	</div>		
 	
     
@@ -1249,7 +1135,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>where 조건 추가</p>
+		<p>where 조건</p>
 	</div>
 	
 	
@@ -1279,7 +1165,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 KTH. All rights reserved. (Last updated: 2013-05-28)</span><br />
+						<p><span class="copyright">&copy; 2013 KTH. All rights reserved. (Last updated: 2013-07-19)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
