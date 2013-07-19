@@ -1,0 +1,1028 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>BaasioPush Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Baas.io iOS SDK </a></h1>
+				<a id="developerHome" href="../index.html">KTH</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">BaasioPush Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/registerForRemoteNotificationTypes:">&nbsp;&nbsp;&nbsp;&nbsp;+ registerForRemoteNotificationTypes:</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/didRegisterForRemoteNotifications:tags:successBlock:failureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- didRegisterForRemoteNotifications:tags:successBlock:failureBlock:</option>
+	
+	<option value="//api/name/pushOff:">&nbsp;&nbsp;&nbsp;&nbsp;- pushOff:</option>
+	
+	<option value="//api/name/pushOffInBackground:failureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- pushOffInBackground:failureBlock:</option>
+	
+	<option value="//api/name/pushOn:">&nbsp;&nbsp;&nbsp;&nbsp;- pushOn:</option>
+	
+	<option value="//api/name/pushOnInBackground:failureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- pushOnInBackground:failureBlock:</option>
+	
+	<option value="//api/name/sendPush:error:">&nbsp;&nbsp;&nbsp;&nbsp;- sendPush:error:</option>
+	
+	<option value="//api/name/sendPushInBackground:successBlock:failureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- sendPushInBackground:successBlock:failureBlock:</option>
+	
+	<option value="//api/name/tagUpdate:error:">&nbsp;&nbsp;&nbsp;&nbsp;- tagUpdate:error:</option>
+	
+	<option value="//api/name/tagUpdateInBackground:successBlock:failureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- tagUpdateInBackground:successBlock:failureBlock:</option>
+	
+	<option value="//api/name/unregisterForRemoteNotifications:failureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- unregisterForRemoteNotifications:failureBlock:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/registerForRemoteNotificationTypes:">registerForRemoteNotificationTypes:</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/didRegisterForRemoteNotifications:tags:successBlock:failureBlock:">didRegisterForRemoteNotifications:tags:successBlock:failureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pushOff:">pushOff:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pushOffInBackground:failureBlock:">pushOffInBackground:failureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pushOn:">pushOn:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pushOnInBackground:failureBlock:">pushOnInBackground:failureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sendPush:error:">sendPush:error:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sendPushInBackground:successBlock:failureBlock:">sendPushInBackground:successBlock:failureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tagUpdate:error:">tagUpdate:error:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tagUpdateInBackground:successBlock:failureBlock:">tagUpdateInBackground:successBlock:failureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/unregisterForRemoteNotifications:failureBlock:">unregisterForRemoteNotifications:failureBlock:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="BaasioPush Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">BaasioPush Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">BaasioPush.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>A baas.io Framework Push Object.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sendPush:error:">&ndash;&nbsp;sendPush:error:</a></code>
+		<span class="tooltip"><p>Push 발송</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sendPushInBackground:successBlock:failureBlock:">&ndash;&nbsp;sendPushInBackground:successBlock:failureBlock:</a></code>
+		<span class="tooltip"><p>Push 발송 asynchronously</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/registerForRemoteNotificationTypes:">+&nbsp;registerForRemoteNotificationTypes:</a></code>
+		<span class="tooltip"><p>APNS에 디바이스 등록</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/unregisterForRemoteNotifications:failureBlock:">&ndash;&nbsp;unregisterForRemoteNotifications:failureBlock:</a></code>
+		<span class="tooltip"><p>APNS에 디바이스 해제</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/didRegisterForRemoteNotifications:tags:successBlock:failureBlock:">&ndash;&nbsp;didRegisterForRemoteNotifications:tags:successBlock:failureBlock:</a></code>
+		<span class="tooltip"><p>디바이스 등록</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/tagUpdate:error:">&ndash;&nbsp;tagUpdate:error:</a></code>
+		<span class="tooltip"><p>Push tag 수정하기</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/tagUpdateInBackground:successBlock:failureBlock:">&ndash;&nbsp;tagUpdateInBackground:successBlock:failureBlock:</a></code>
+		<span class="tooltip"><p>Push tag 수정하기 asynchronously</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pushOn:">&ndash;&nbsp;pushOn:</a></code>
+		<span class="tooltip"><p>Push 켜기
+서버에서 push 발송을 하지 않도록 설정되어 있다면 push를 발송하도록 상태를 변경합니다.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pushOnInBackground:failureBlock:">&ndash;&nbsp;pushOnInBackground:failureBlock:</a></code>
+		<span class="tooltip"><p>Push 켜기 asynchronously</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pushOff:">&ndash;&nbsp;pushOff:</a></code>
+		<span class="tooltip"><p>Push 끄기</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pushOffInBackground:failureBlock:">&ndash;&nbsp;pushOffInBackground:failureBlock:</a></code>
+		<span class="tooltip"><p>Push 끄기 asynchronously</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/registerForRemoteNotificationTypes:" title="registerForRemoteNotificationTypes:"></a>
+	<h3 class="subsubtitle method-title">registerForRemoteNotificationTypes:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>APNS에 디바이스 등록</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)registerForRemoteNotificationTypes:(UIRemoteNotificationType)<em>types</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>types</em></dt>
+			<dd><p>types</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>APNS에 디바이스 등록</p>
+
+<p>앱 시작나 로그인 후에 디바이스 등록이 필요한 시점에 호출하 된다.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioPush.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/didRegisterForRemoteNotifications:tags:successBlock:failureBlock:" title="didRegisterForRemoteNotifications:tags:successBlock:failureBlock:"></a>
+	<h3 class="subsubtitle method-title">didRegisterForRemoteNotifications:tags:successBlock:failureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>디바이스 등록</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BaasioRequest *)didRegisterForRemoteNotifications:(NSData *)<em>deviceToken</em> tags:(NSArray *)<em>tags</em> successBlock:(void ( ^ ) ( void ))<em>successBlock</em> failureBlock:(void ( ^ ) ( NSError *error ))<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>deviceToken</em></dt>
+			<dd><p>deviceToken</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tags</em></dt>
+			<dd><p>tags</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>successBlock</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>failureBlock</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>디바이스 등록</p>
+
+<p>baas.io에 디바이스 Token 전달 asynchronously</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioPush.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pushOff:" title="pushOff:"></a>
+	<h3 class="subsubtitle method-title">pushOff:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Push 끄기</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)pushOff:(NSError **)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>error</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Push 끄기</p>
+
+<p>서버에서 push 발송을 하지 않도록 합니다. 설정에서 push on/off 기능이 있다면 이것을 사용하세요.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioPush.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pushOffInBackground:failureBlock:" title="pushOffInBackground:failureBlock:"></a>
+	<h3 class="subsubtitle method-title">pushOffInBackground:failureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Push 끄기 asynchronously</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BaasioRequest *)pushOffInBackground:(void ( ^ ) ( void ))<em>successBlock</em> failureBlock:(void ( ^ ) ( NSError *error ))<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>successBlock</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>failureBlock</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Push 끄기 asynchronously</p>
+
+<p>서버에서 push 발송을 하지 않도록 합니다. 설정에서 push on/off 기능이 있다면 이것을 사용하세요.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioPush.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pushOn:" title="pushOn:"></a>
+	<h3 class="subsubtitle method-title">pushOn:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Push 켜기
+서버에서 push 발송을 하지 않도록 설정되어 있다면 push를 발송하도록 상태를 변경합니다.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)pushOn:(NSError **)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>error</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Push 켜기
+서버에서 push 발송을 하지 않도록 설정되어 있다면 push를 발송하도록 상태를 변경합니다.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioPush.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pushOnInBackground:failureBlock:" title="pushOnInBackground:failureBlock:"></a>
+	<h3 class="subsubtitle method-title">pushOnInBackground:failureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Push 켜기 asynchronously</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BaasioRequest *)pushOnInBackground:(void ( ^ ) ( void ))<em>successBlock</em> failureBlock:(void ( ^ ) ( NSError *error ))<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>successBlock</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>failureBlock</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Push 켜기 asynchronously</p>
+
+<p>서버에서 push 발송을 하지 않도록 설정되어 있다면 push를 발송하도록 상태를 변경합니다.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioPush.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sendPush:error:" title="sendPush:error:"></a>
+	<h3 class="subsubtitle method-title">sendPush:error:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Push 발송</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)sendPush:(BaasioMessage *)<em>message</em> error:(NSError **)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>message</em></dt>
+			<dd><p>Push 환경 설정 객체</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>error</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Push 발송</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioPush.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sendPushInBackground:successBlock:failureBlock:" title="sendPushInBackground:successBlock:failureBlock:"></a>
+	<h3 class="subsubtitle method-title">sendPushInBackground:successBlock:failureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Push 발송 asynchronously</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BaasioRequest *)sendPushInBackground:(BaasioMessage *)<em>message</em> successBlock:(void ( ^ ) ( void ))<em>successBlock</em> failureBlock:(void ( ^ ) ( NSError *error ))<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>message</em></dt>
+			<dd><p>Push 환경 설정 객체</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>successBlock</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>failureBlock</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Push 발송 asynchronously</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioPush.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/tagUpdate:error:" title="tagUpdate:error:"></a>
+	<h3 class="subsubtitle method-title">tagUpdate:error:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Push tag 수정하기</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)tagUpdate:(NSArray *)<em>tags</em> error:(NSError **)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tags</em></dt>
+			<dd><p>tags</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>error</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Push tag 수정하기</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioPush.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/tagUpdateInBackground:successBlock:failureBlock:" title="tagUpdateInBackground:successBlock:failureBlock:"></a>
+	<h3 class="subsubtitle method-title">tagUpdateInBackground:successBlock:failureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Push tag 수정하기 asynchronously</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BaasioRequest *)tagUpdateInBackground:(NSArray *)<em>tags</em> successBlock:(void ( ^ ) ( void ))<em>successBlock</em> failureBlock:(void ( ^ ) ( NSError *error ))<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tags</em></dt>
+			<dd><p>tags</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>successBlock</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>failureBlock</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Push tag 수정하기 asynchronously</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioPush.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/unregisterForRemoteNotifications:failureBlock:" title="unregisterForRemoteNotifications:failureBlock:"></a>
+	<h3 class="subsubtitle method-title">unregisterForRemoteNotifications:failureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>APNS에 디바이스 해제</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)unregisterForRemoteNotifications:(void ( ^ ) ( void ))<em>successBlock</em> failureBlock:(void ( ^ ) ( NSError *error ))<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>successBlock</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>failureBlock</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>APNS에 디바이스 해제</p>
+
+<p>앱 로그아웃 시에 호출해주면 된다.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioPush.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 KTH. All rights reserved. (Last updated: 2013-07-19)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>
