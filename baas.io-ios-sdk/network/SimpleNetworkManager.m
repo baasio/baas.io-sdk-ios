@@ -115,7 +115,10 @@
 
     if ([[Baasio sharedInstance] isDebugMode]){
         NSString *urlPrefix = [[Baasio sharedInstance] getAPIURL].absoluteString;
-
+        
+        if ([path hasPrefix:@"http://"] || [path hasPrefix:@"https://"]){
+            urlPrefix = @"";
+        }
         //logging
         printf("- Start ---------------------------------------------------------------------------------------------\n");
         printf("url : %s/%s\n", [urlPrefix UTF8String], [path UTF8String]);
