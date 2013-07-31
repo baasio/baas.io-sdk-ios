@@ -250,23 +250,29 @@
                                                           failure:failureBlock];
 }
 
-+ (void)resetPassword:(NSString*)username
-                error:(NSError**)error
++ (void)resetPassword:(NSError**)error
 {
-    [NSException raise:@"BaasioNotImplementedException" format:@"Not implemented."];
-    NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",username];
+    BaasioUser *baasioUser = [BaasioUser currentUser];
+    if(baasioUser==nil){
+        *error = [NSError errorWithDomain:@"BaasioNotUserInformationException" code:800 userInfo:nil];
+        return;
+    }
+    NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",baasioUser.username];
     [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
                                                     withMethod:@"POST"
                                                         params:nil
                                                          error:error];
 }
 
-+ (BaasioRequest*)resetPasswordInBackground:(NSString*)username
-                               successBlock:(void (^)(void))successBlock
++ (BaasioRequest*)resetPasswordInBackground:(void (^)(void))successBlock
                                failureBlock:(void (^)(NSError *error))failureBlock
 {
-    [NSException raise:@"BaasioNotImplementedException" format:@"Not implemented."];
-    NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",username];
+    BaasioUser *baasioUser = [BaasioUser currentUser];
+    if(baasioUser==nil){
+        failureBlock([NSError errorWithDomain:@"BaasioNotUserInformationException" code:800 userInfo:nil]);
+        return nil;
+    }
+    NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",baasioUser.username];
     return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
                                                        withMethod:@"POST"
                                                            params:nil

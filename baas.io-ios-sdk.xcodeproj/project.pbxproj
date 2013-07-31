@@ -23,6 +23,15 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		41A1402417A8F075009D9061 /* EntityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A1401317A8F075009D9061 /* EntityTest.m */; };
+		41A1402517A8F075009D9061 /* FileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A1401517A8F075009D9061 /* FileTest.m */; };
+		41A1402617A8F075009D9061 /* GroupTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A1401717A8F075009D9061 /* GroupTest.m */; };
+		41A1402717A8F075009D9061 /* HelprTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A1401917A8F075009D9061 /* HelprTest.m */; };
+		41A1402817A8F075009D9061 /* PushTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A1401B17A8F075009D9061 /* PushTest.m */; };
+		41A1402917A8F075009D9061 /* QueryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A1401D17A8F075009D9061 /* QueryTest.m */; };
+		41A1402A17A8F075009D9061 /* RelationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A1401F17A8F075009D9061 /* RelationTest.m */; };
+		41A1402B17A8F075009D9061 /* ShadowUpdateCheckerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A1402117A8F075009D9061 /* ShadowUpdateCheckerTest.m */; };
+		41A1402C17A8F075009D9061 /* SimpleNetworkManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A1402317A8F075009D9061 /* SimpleNetworkManagerTest.m */; };
 		AF26A27F166667F5006A7225 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E418165A2D850021AA4C /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AF7D5F741786FB5B00A86ABD /* BaasioRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7D5F721786FB5B00A86ABD /* BaasioRequest.m */; };
 		AF925D4D1786F4F10015595A /* BaasioValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF925D4C1786F4F10015595A /* BaasioValidator.m */; };
@@ -41,7 +50,6 @@
 		AF925D7E1786F5850015595A /* BaasioGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AF925D721786F5850015595A /* BaasioGroup.m */; };
 		AF925D7F1786F5850015595A /* BaasioHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = AF925D731786F5850015595A /* BaasioHelp.m */; };
 		AF925D861786F60D0015595A /* ShadowUpdateChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = AF925D851786F60D0015595A /* ShadowUpdateChecker.m */; };
-		AF925D921786F65C0015595A /* SimpleNetworkManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF925D891786F65C0015595A /* SimpleNetworkManagerTest.m */; };
 		AFA7D3B617951059008A1ADB /* UIImageView+Baasio.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D4E1786F4FF0015595A /* UIImageView+Baasio.h */; };
 		AFA7D3B717951059008A1ADB /* NSError+baasio.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D521786F5070015595A /* NSError+baasio.h */; };
 		AFA7D3B817951059008A1ADB /* BaasioRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF7D5F731786FB5B00A86ABD /* BaasioRequest.h */; };
@@ -72,15 +80,7 @@
 		AFA7D3D117951177008A1ADB /* BaasioMessage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D6F1786F5850015595A /* BaasioMessage.h */; };
 		AFA7D3D217951177008A1ADB /* BaasioGroup.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D6D1786F5850015595A /* BaasioGroup.h */; };
 		AFA7D3D317951177008A1ADB /* BaasioPush.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF925D611786F5850015595A /* BaasioPush.h */; };
-		AFAD8F271793C77700126D32 /* ShadowUpdateCheckerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD8F261793C77700126D32 /* ShadowUpdateCheckerTest.m */; };
-		AFAD8F2E1793C78100126D32 /* EntityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD8F291793C78100126D32 /* EntityTest.m */; };
-		AFAD8F2F1793C78100126D32 /* HelprTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD8F2B1793C78100126D32 /* HelprTest.m */; };
-		AFAD8F301793C78100126D32 /* RelationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD8F2D1793C78100126D32 /* RelationTest.m */; };
 		AFAD8F3C1793C7A000126D32 /* UserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD8F311793C7A000126D32 /* UserTest.m */; };
-		AFAD8F3D1793C7A000126D32 /* PushTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD8F321793C7A000126D32 /* PushTest.m */; };
-		AFAD8F3E1793C7A000126D32 /* QueryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD8F341793C7A000126D32 /* QueryTest.m */; };
-		AFAD8F3F1793C7A000126D32 /* GroupTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD8F351793C7A000126D32 /* GroupTest.m */; };
-		AFAD8F401793C7A000126D32 /* FileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD8F371793C7A000126D32 /* FileTest.m */; };
 		AFB9E40E165A2D7B0021AA4C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E3FC165A2D7B0021AA4C /* AFHTTPClient.m */; };
 		AFB9E40F165A2D7B0021AA4C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E3FE165A2D7B0021AA4C /* AFHTTPRequestOperation.m */; };
 		AFB9E410165A2D7B0021AA4C /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E400165A2D7B0021AA4C /* AFImageRequestOperation.m */; };
@@ -172,6 +172,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		41A1401217A8F075009D9061 /* EntityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityTest.h; sourceTree = "<group>"; };
+		41A1401317A8F075009D9061 /* EntityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityTest.m; sourceTree = "<group>"; };
+		41A1401417A8F075009D9061 /* FileTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTest.h; sourceTree = "<group>"; };
+		41A1401517A8F075009D9061 /* FileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTest.m; sourceTree = "<group>"; };
+		41A1401617A8F075009D9061 /* GroupTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTest.h; sourceTree = "<group>"; };
+		41A1401717A8F075009D9061 /* GroupTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTest.m; sourceTree = "<group>"; };
+		41A1401817A8F075009D9061 /* HelprTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelprTest.h; sourceTree = "<group>"; };
+		41A1401917A8F075009D9061 /* HelprTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelprTest.m; sourceTree = "<group>"; };
+		41A1401A17A8F075009D9061 /* PushTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTest.h; sourceTree = "<group>"; };
+		41A1401B17A8F075009D9061 /* PushTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTest.m; sourceTree = "<group>"; };
+		41A1401C17A8F075009D9061 /* QueryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryTest.h; sourceTree = "<group>"; };
+		41A1401D17A8F075009D9061 /* QueryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryTest.m; sourceTree = "<group>"; };
+		41A1401E17A8F075009D9061 /* RelationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelationTest.h; sourceTree = "<group>"; };
+		41A1401F17A8F075009D9061 /* RelationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelationTest.m; sourceTree = "<group>"; };
+		41A1402017A8F075009D9061 /* ShadowUpdateCheckerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowUpdateCheckerTest.h; sourceTree = "<group>"; };
+		41A1402117A8F075009D9061 /* ShadowUpdateCheckerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowUpdateCheckerTest.m; sourceTree = "<group>"; };
+		41A1402217A8F075009D9061 /* SimpleNetworkManagerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleNetworkManagerTest.h; sourceTree = "<group>"; };
+		41A1402317A8F075009D9061 /* SimpleNetworkManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleNetworkManagerTest.m; sourceTree = "<group>"; };
 		AF429CCA165B4B0E001C78B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AF4FDDA3166E28CF0048310C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AF4FDDA5166E28E80048310C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -212,26 +230,8 @@
 		AF925D841786F60D0015595A /* ShadowUpdateChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShadowUpdateChecker.h; path = utils/ShadowUpdateChecker.h; sourceTree = "<group>"; };
 		AF925D851786F60D0015595A /* ShadowUpdateChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShadowUpdateChecker.m; path = utils/ShadowUpdateChecker.m; sourceTree = "<group>"; };
 		AF925D881786F6460015595A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		AF925D891786F65C0015595A /* SimpleNetworkManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleNetworkManagerTest.m; sourceTree = "<group>"; };
-		AF925D8F1786F65C0015595A /* SimpleNetworkManagerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleNetworkManagerTest.h; sourceTree = "<group>"; };
-		AFAD8F251793C77700126D32 /* ShadowUpdateCheckerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowUpdateCheckerTest.h; sourceTree = "<group>"; };
-		AFAD8F261793C77700126D32 /* ShadowUpdateCheckerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowUpdateCheckerTest.m; sourceTree = "<group>"; };
-		AFAD8F281793C78100126D32 /* EntityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityTest.h; sourceTree = "<group>"; };
-		AFAD8F291793C78100126D32 /* EntityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityTest.m; sourceTree = "<group>"; };
-		AFAD8F2A1793C78100126D32 /* HelprTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelprTest.h; sourceTree = "<group>"; };
-		AFAD8F2B1793C78100126D32 /* HelprTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelprTest.m; sourceTree = "<group>"; };
-		AFAD8F2C1793C78100126D32 /* RelationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelationTest.h; sourceTree = "<group>"; };
-		AFAD8F2D1793C78100126D32 /* RelationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelationTest.m; sourceTree = "<group>"; };
 		AFAD8F311793C7A000126D32 /* UserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTest.m; sourceTree = "<group>"; };
-		AFAD8F321793C7A000126D32 /* PushTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTest.m; sourceTree = "<group>"; };
 		AFAD8F331793C7A000126D32 /* UnitTestConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitTestConstant.h; sourceTree = "<group>"; };
-		AFAD8F341793C7A000126D32 /* QueryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryTest.m; sourceTree = "<group>"; };
-		AFAD8F351793C7A000126D32 /* GroupTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTest.m; sourceTree = "<group>"; };
-		AFAD8F361793C7A000126D32 /* FileTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTest.h; sourceTree = "<group>"; };
-		AFAD8F371793C7A000126D32 /* FileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTest.m; sourceTree = "<group>"; };
-		AFAD8F381793C7A000126D32 /* GroupTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTest.h; sourceTree = "<group>"; };
-		AFAD8F391793C7A000126D32 /* PushTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTest.h; sourceTree = "<group>"; };
-		AFAD8F3A1793C7A000126D32 /* QueryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryTest.h; sourceTree = "<group>"; };
 		AFAD8F3B1793C7A000126D32 /* UserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTest.h; sourceTree = "<group>"; };
 		AFAD8F411793C9CB00126D32 /* BaasioVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasioVersion.h; sourceTree = "<group>"; };
 		AFB9E3FB165A2D7B0021AA4C /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPClient.h; path = submodules/AFNetworking.git/AFNetworking/AFHTTPClient.h; sourceTree = "<group>"; };
@@ -448,26 +448,26 @@
 			isa = PBXGroup;
 			children = (
 				AFAD8F331793C7A000126D32 /* UnitTestConstant.h */,
-				AFAD8F281793C78100126D32 /* EntityTest.h */,
-				AFAD8F291793C78100126D32 /* EntityTest.m */,
 				AFAD8F3B1793C7A000126D32 /* UserTest.h */,
 				AFAD8F311793C7A000126D32 /* UserTest.m */,
-				AFAD8F3A1793C7A000126D32 /* QueryTest.h */,
-				AFAD8F341793C7A000126D32 /* QueryTest.m */,
-				AFAD8F361793C7A000126D32 /* FileTest.h */,
-				AFAD8F371793C7A000126D32 /* FileTest.m */,
-				AFAD8F381793C7A000126D32 /* GroupTest.h */,
-				AFAD8F351793C7A000126D32 /* GroupTest.m */,
-				AFAD8F391793C7A000126D32 /* PushTest.h */,
-				AFAD8F321793C7A000126D32 /* PushTest.m */,
-				AFAD8F2A1793C78100126D32 /* HelprTest.h */,
-				AFAD8F2B1793C78100126D32 /* HelprTest.m */,
-				AFAD8F2C1793C78100126D32 /* RelationTest.h */,
-				AFAD8F2D1793C78100126D32 /* RelationTest.m */,
-				AFAD8F251793C77700126D32 /* ShadowUpdateCheckerTest.h */,
-				AFAD8F261793C77700126D32 /* ShadowUpdateCheckerTest.m */,
-				AF925D8F1786F65C0015595A /* SimpleNetworkManagerTest.h */,
-				AF925D891786F65C0015595A /* SimpleNetworkManagerTest.m */,
+				41A1401217A8F075009D9061 /* EntityTest.h */,
+				41A1401317A8F075009D9061 /* EntityTest.m */,
+				41A1401417A8F075009D9061 /* FileTest.h */,
+				41A1401517A8F075009D9061 /* FileTest.m */,
+				41A1401617A8F075009D9061 /* GroupTest.h */,
+				41A1401717A8F075009D9061 /* GroupTest.m */,
+				41A1401817A8F075009D9061 /* HelprTest.h */,
+				41A1401917A8F075009D9061 /* HelprTest.m */,
+				41A1401A17A8F075009D9061 /* PushTest.h */,
+				41A1401B17A8F075009D9061 /* PushTest.m */,
+				41A1401C17A8F075009D9061 /* QueryTest.h */,
+				41A1401D17A8F075009D9061 /* QueryTest.m */,
+				41A1401E17A8F075009D9061 /* RelationTest.h */,
+				41A1401F17A8F075009D9061 /* RelationTest.m */,
+				41A1402017A8F075009D9061 /* ShadowUpdateCheckerTest.h */,
+				41A1402117A8F075009D9061 /* ShadowUpdateCheckerTest.m */,
+				41A1402217A8F075009D9061 /* SimpleNetworkManagerTest.h */,
+				41A1402317A8F075009D9061 /* SimpleNetworkManagerTest.m */,
 				AFD93F22165A2B0E00FC9ED0 /* Supporting Files */,
 			);
 			path = "baas.io-ios-sdkTests";
@@ -617,16 +617,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF26A27F166667F5006A7225 /* JSONKit.m in Sources */,
-				AF925D921786F65C0015595A /* SimpleNetworkManagerTest.m in Sources */,
-				AFAD8F271793C77700126D32 /* ShadowUpdateCheckerTest.m in Sources */,
-				AFAD8F2E1793C78100126D32 /* EntityTest.m in Sources */,
-				AFAD8F2F1793C78100126D32 /* HelprTest.m in Sources */,
-				AFAD8F301793C78100126D32 /* RelationTest.m in Sources */,
 				AFAD8F3C1793C7A000126D32 /* UserTest.m in Sources */,
-				AFAD8F3D1793C7A000126D32 /* PushTest.m in Sources */,
-				AFAD8F3E1793C7A000126D32 /* QueryTest.m in Sources */,
-				AFAD8F3F1793C7A000126D32 /* GroupTest.m in Sources */,
-				AFAD8F401793C7A000126D32 /* FileTest.m in Sources */,
+				41A1402417A8F075009D9061 /* EntityTest.m in Sources */,
+				41A1402517A8F075009D9061 /* FileTest.m in Sources */,
+				41A1402617A8F075009D9061 /* GroupTest.m in Sources */,
+				41A1402717A8F075009D9061 /* HelprTest.m in Sources */,
+				41A1402817A8F075009D9061 /* PushTest.m in Sources */,
+				41A1402917A8F075009D9061 /* QueryTest.m in Sources */,
+				41A1402A17A8F075009D9061 /* RelationTest.m in Sources */,
+				41A1402B17A8F075009D9061 /* ShadowUpdateCheckerTest.m in Sources */,
+				41A1402C17A8F075009D9061 /* SimpleNetworkManagerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -93,4 +93,5 @@ bool _isDebugMode;
 - (BOOL)isDebugMode{
     return _isDebugMode;
 }
+
 @end
