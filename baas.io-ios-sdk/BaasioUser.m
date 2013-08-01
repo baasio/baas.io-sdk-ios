@@ -215,7 +215,11 @@
                              };
     BaasioUser *baasioUser = [BaasioUser currentUser];
     if(baasioUser==nil){
-        *error = [NSError errorWithDomain:@"BaasioNotUserInformationException" code:800 userInfo:nil];
+        NSString *message = @"The baasioUser was empty. Please login in first.";
+        NSMutableDictionary* details = [NSMutableDictionary dictionary];
+        [details setValue:message forKey:NSLocalizedDescriptionKey];
+        
+        *error = [NSError errorWithDomain:@"BassioError" code:BAD_TOKEN_ERROR userInfo:details];
         return;
     }
     NSString *path = [NSString stringWithFormat:@"users/%@/password",baasioUser.uuid];
@@ -237,7 +241,11 @@
                              };
     BaasioUser *baasioUser = [BaasioUser currentUser];
     if(baasioUser==nil){
-        failureBlock([NSError errorWithDomain:@"BaasioNotUserInformationException" code:800 userInfo:nil]);
+        NSString *message = @"The baasioUser was empty. Please login in first.";
+        NSMutableDictionary* details = [NSMutableDictionary dictionary];
+        [details setValue:message forKey:NSLocalizedDescriptionKey];
+        
+        failureBlock([NSError errorWithDomain:@"BassioError" code:BAD_TOKEN_ERROR userInfo:details]);
         return nil;
     }
     NSString *path = [NSString stringWithFormat:@"users/%@/password",baasioUser.uuid];
@@ -254,7 +262,11 @@
 {
     BaasioUser *baasioUser = [BaasioUser currentUser];
     if(baasioUser==nil){
-        *error = [NSError errorWithDomain:@"BaasioNotUserInformationException" code:800 userInfo:nil];
+        NSString *message = @"The baasioUser was empty. Please login in first.";
+        NSMutableDictionary* details = [NSMutableDictionary dictionary];
+        [details setValue:message forKey:NSLocalizedDescriptionKey];
+        
+        *error = [NSError errorWithDomain:@"BassioError" code:BAD_TOKEN_ERROR userInfo:details];
         return;
     }
     NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",baasioUser.username];
@@ -269,7 +281,11 @@
 {
     BaasioUser *baasioUser = [BaasioUser currentUser];
     if(baasioUser==nil){
-        failureBlock([NSError errorWithDomain:@"BaasioNotUserInformationException" code:800 userInfo:nil]);
+        NSString *message = @"The baasioUser was empty. Please login in first.";
+        NSMutableDictionary* details = [NSMutableDictionary dictionary];
+        [details setValue:message forKey:NSLocalizedDescriptionKey];
+        
+        failureBlock([NSError errorWithDomain:@"BassioError" code:BAD_TOKEN_ERROR userInfo:details]);
         return nil;
     }
     NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",baasioUser.username];
