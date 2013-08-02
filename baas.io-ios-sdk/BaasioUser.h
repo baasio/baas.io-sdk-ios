@@ -124,7 +124,7 @@
 
  @param error error
  */
-- (void)resetPassword:(NSError**)error;
++ (void)resetPassword:(NSError**)error;
  
 /**
  비밀번호 재설정 asynchronously
@@ -132,7 +132,7 @@
  @param successBlock successBlock
  @param failureBlock failureBlock
  */
-- (BaasioRequest*)resetPasswordInBackground:(void (^)(void))successBlock
++ (BaasioRequest*)resetPasswordInBackground:(void (^)(void))successBlock
                                failureBlock:(void (^)(NSError *error))failureBlock;
 
 /**
@@ -142,7 +142,7 @@
  @param newPassword newPassword
  @param error error
  */
-- (void)changePassword:(NSString *)oldPassword
++ (void)changePassword:(NSString *)oldPassword
            newPassword:(NSString *)newPassword
                  error:(NSError**)error;
 
@@ -154,7 +154,7 @@
  @param successBlock successBlock
  @param failureBlock failureBlock
  */
-- (BaasioRequest*)changePasswordInBackground:(NSString *)oldPassword
++ (BaasioRequest*)changePasswordInBackground:(NSString *)oldPassword
                                  newPassword:(NSString *)newPassword
                                 successBlock:(void (^)(void))successBlock
                                 failureBlock:(void (^)(NSError *error))failureBlock;

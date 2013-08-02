@@ -205,7 +205,7 @@
                                                           failure:failureBlock];
 }
 
-- (void)changePassword:(NSString *)oldPassword
++ (void)changePassword:(NSString *)oldPassword
            newPassword:(NSString *)newPassword
                  error:(NSError**)error
 {
@@ -213,13 +213,21 @@
                              @"oldpassword" : oldPassword,
                              @"newpassword" : newPassword
                              };
-    NSString *path = @"password";
-    [self syncChangeOrResetPassword:error
-                        endPointURL:path
-                             params:params];
+    
+    BaasioUser *baasioUser = [BaasioUser currentUser];
+    if(baasioUser==nil){
+        *error = [self emptyUserError];
+        return;
+    }
+    
+    NSString *path = [NSString stringWithFormat:@"users/%@/password",baasioUser.uuid];
+    [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
+                                                    withMethod:@"POST"
+                                                        params:params
+                                                         error:error];
 }
 
-- (BaasioRequest*)changePasswordInBackground:(NSString *)oldPassword
++ (BaasioRequest*)changePasswordInBackground:(NSString *)oldPassword
                                  newPassword:(NSString *)newPassword
                                 successBlock:(void (^)(void))successBlock
                                 failureBlock:(void (^)(NSError *error))failureBlock
@@ -228,61 +236,14 @@
                              @"oldpassword":oldPassword,
                              @"newpassword":newPassword,
                              };
-    NSString *path = @"password";
-    return [self asyncChangeOrResetPassword:path
-                                     params:params
-                               successBlock:^{
-                                   successBlock();
-                               }
-                               failureBlock:failureBlock];
-}
-
-- (void)resetPassword:(NSError**)error
-{
-    NSString *path = @"resetpw";
-    [self syncChangeOrResetPassword:error
-                        endPointURL:path
-                             params:nil];
-}
-
-- (BaasioRequest*)resetPasswordInBackground:(void (^)(void))successBlock
-                               failureBlock:(void (^)(NSError *error))failureBlock
-{
-    NSString *path = @"resetpw";
-    return [self asyncChangeOrResetPassword:path
-                                     params:nil
-                               successBlock:^{
-                                   successBlock();
-                               }
-                               failureBlock:failureBlock];
-}
-
-- (void)syncChangeOrResetPassword:(NSError**)error
-                      endPointURL:(NSString*)endPointURL
-                           params:(NSDictionary*)params{
-    BaasioUser *baasioUser = [BaasioUser currentUser];
-    if(baasioUser==nil){
-        *error = [self emptyUserError];
-        return;
-    }
-    NSString *path = [NSString stringWithFormat:@"users/%@/%@",baasioUser.username,endPointURL];
-    [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
-                                                    withMethod:@"POST"
-                                                        params:params
-                                                         error:error];
-}
-
-- (BaasioRequest*)asyncChangeOrResetPassword:(NSString*)endPointURL
-                            params:(NSDictionary*)params
-                      successBlock:(void (^)(void))successBlock
-                      failureBlock:(void (^)(NSError *error))failureBlock{
     
     BaasioUser *baasioUser = [BaasioUser currentUser];
     if(baasioUser==nil){
         failureBlock([self emptyUserError]);
         return nil;
     }
-    NSString *path = [NSString stringWithFormat:@"users/%@/%@",baasioUser.uuid,endPointURL];
+    
+    NSString *path = [NSString stringWithFormat:@"users/%@/password",baasioUser.uuid];
     return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
                                                        withMethod:@"POST"
                                                            params:params
@@ -292,7 +253,42 @@
                                                           failure:failureBlock];
 }
 
-- (NSError*)emptyUserError{
++ (void)resetPassword:(NSError**)error
+{
+    BaasioUser *baasioUser = [BaasioUser currentUser];
+    if(baasioUser==nil){
+        *error = [self emptyUserError];
+        return;
+    }
+    NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",baasioUser.uuid];
+    [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
+                                                    withMethod:@"POST"
+                                                        params:nil
+                                                         error:error];
+    
+}
+
++ (BaasioRequest*)resetPasswordInBackground:(void (^)(void))successBlock
+                               failureBlock:(void (^)(NSError *error))failureBlock
+{
+    BaasioUser *baasioUser = [BaasioUser currentUser];
+    if(baasioUser==nil){
+        failureBlock([self emptyUserError]);
+        return nil;
+    }
+    
+    NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",baasioUser.uuid];
+    return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
+                                                       withMethod:@"POST"
+                                                           params:nil
+                                                          success:^(id result){
+                                                              successBlock();
+                                                          }
+                                                          failure:failureBlock];
+    
+}
+
++ (NSError*)emptyUserError{
     NSString *message = @"The baasioUser was empty. Please login in first.";
     NSMutableDictionary* details = [NSMutableDictionary dictionary];
     [details setValue:message forKey:NSLocalizedDescriptionKey];

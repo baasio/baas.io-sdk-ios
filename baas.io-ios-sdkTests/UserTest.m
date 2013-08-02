@@ -40,18 +40,18 @@
 //    NSLog(@"response : ---------------------- %@", error.localizedDescription );
 //}
 //
-- (void)test_sync_2_SignIn
-{
-    NSError *error = nil;
-    [BaasioUser signIn:@"testuser1" password:@"test1" error:&error];
-    if (!error) {
-        //성공
-        NSLog(@"Success");
-    } else {
-        //실패
-        NSLog(@"Error: %@", error.localizedDescription);
-    }
-}
+//- (void)test_sync_2_SignIn
+//{
+//    NSError *error = nil;
+//    [BaasioUser signIn:@"testuser1" password:@"test1" error:&error];
+//    if (!error) {
+//        //성공
+//        NSLog(@"Success");
+//    } else {
+//        //실패
+//        NSLog(@"Error: %@", error.localizedDescription);
+//    }
+//}
 //
 //- (void)test_sync_3_unsubscribe
 //{
@@ -71,8 +71,7 @@
 //- (void)test_sync_4_changePassword
 //{
 //    NSError *error = nil;
-//    BaasioUser *user = [[BaasioUser alloc]init];
-//    [user changePassword:@"user10"
+//    [BaasioUser changePassword:@"test1"
 //             newPassword:@"test11"
 //                   error:&error];
 //    if (!error) {
@@ -84,19 +83,18 @@
 //    }
 //}
 
-- (void)test_sync_5_ResetPassword
-{
-    NSError *error = nil;
-    BaasioUser *user = [[BaasioUser alloc]init];
-    [user resetPassword:&error];
-    if (!error) {
-        //성공
-        NSLog(@"Success");
-    } else {
-        //실패
-        NSLog(@"Error : ---------------------- %@", error.localizedDescription);
-    }
-}
+//- (void)test_sync_5_ResetPassword
+//{
+//    NSError *error = nil;
+//    [BaasioUser resetPassword:&error];
+//    if (!error) {
+//        //성공
+//        NSLog(@"Success");
+//    } else {
+//        //실패
+//        NSLog(@"Error : ---------------------- %@", error.localizedDescription);
+//    }
+//}
 
 //- (void)test_1_SignUp
 //{
@@ -148,8 +146,7 @@
 
 //- (void)test_4_ResetPassword
 //{
-//    BaasioUser *user = [[BaasioUser alloc]init];
-//    [user resetPasswordInBackground:^{
+//    [BaasioUser resetPasswordInBackground:^{
 //        NSLog(@"success");
 //        exitRunLoop = YES;
 //    } failureBlock:^(NSError *error) {
