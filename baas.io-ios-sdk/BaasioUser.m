@@ -213,21 +213,10 @@
                              @"oldpassword" : oldPassword,
                              @"newpassword" : newPassword
                              };
-    BaasioUser *baasioUser = [BaasioUser currentUser];
-    if(baasioUser==nil){
-        NSString *message = @"The baasioUser was empty. Please login in first.";
-        NSMutableDictionary* details = [NSMutableDictionary dictionary];
-        [details setValue:message forKey:NSLocalizedDescriptionKey];
-        
-        *error = [NSError errorWithDomain:@"BassioError" code:BAD_TOKEN_ERROR userInfo:details];
-        return;
-    }
-    NSString *path = [NSString stringWithFormat:@"users/%@/password",baasioUser.uuid];
-    [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
-                                                    withMethod:@"POST"
-                                                        params:params
-                                                         error:error];
-    return;
+    NSString *path = @"password";
+    [self syncChangeOrResetPassword:error
+                        endPointURL:path
+                             params:params];
 }
 
 - (BaasioRequest*)changePasswordInBackground:(NSString *)oldPassword
@@ -239,16 +228,61 @@
                              @"oldpassword":oldPassword,
                              @"newpassword":newPassword,
                              };
+    NSString *path = @"password";
+    return [self asyncChangeOrResetPassword:path
+                                     params:params
+                               successBlock:^{
+                                   successBlock();
+                               }
+                               failureBlock:failureBlock];
+}
+
+- (void)resetPassword:(NSError**)error
+{
+    NSString *path = @"resetpw";
+    [self syncChangeOrResetPassword:error
+                        endPointURL:path
+                             params:nil];
+}
+
+- (BaasioRequest*)resetPasswordInBackground:(void (^)(void))successBlock
+                               failureBlock:(void (^)(NSError *error))failureBlock
+{
+    NSString *path = @"resetpw";
+    return [self asyncChangeOrResetPassword:path
+                                     params:nil
+                               successBlock:^{
+                                   successBlock();
+                               }
+                               failureBlock:failureBlock];
+}
+
+- (void)syncChangeOrResetPassword:(NSError**)error
+                      endPointURL:(NSString*)endPointURL
+                           params:(NSDictionary*)params{
     BaasioUser *baasioUser = [BaasioUser currentUser];
     if(baasioUser==nil){
-        NSString *message = @"The baasioUser was empty. Please login in first.";
-        NSMutableDictionary* details = [NSMutableDictionary dictionary];
-        [details setValue:message forKey:NSLocalizedDescriptionKey];
-        
-        failureBlock([NSError errorWithDomain:@"BassioError" code:BAD_TOKEN_ERROR userInfo:details]);
+        *error = [self emptyUserError];
+        return;
+    }
+    NSString *path = [NSString stringWithFormat:@"users/%@/%@",baasioUser.username,endPointURL];
+    [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
+                                                    withMethod:@"POST"
+                                                        params:params
+                                                         error:error];
+}
+
+- (BaasioRequest*)asyncChangeOrResetPassword:(NSString*)endPointURL
+                            params:(NSDictionary*)params
+                      successBlock:(void (^)(void))successBlock
+                      failureBlock:(void (^)(NSError *error))failureBlock{
+    
+    BaasioUser *baasioUser = [BaasioUser currentUser];
+    if(baasioUser==nil){
+        failureBlock([self emptyUserError]);
         return nil;
     }
-    NSString *path = [NSString stringWithFormat:@"users/%@/password",baasioUser.uuid];
+    NSString *path = [NSString stringWithFormat:@"users/%@/%@",baasioUser.uuid,endPointURL];
     return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
                                                        withMethod:@"POST"
                                                            params:params
@@ -258,46 +292,13 @@
                                                           failure:failureBlock];
 }
 
-+ (void)resetPassword:(NSError**)error
-{
-    BaasioUser *baasioUser = [BaasioUser currentUser];
-    if(baasioUser==nil){
-        NSString *message = @"The baasioUser was empty. Please login in first.";
-        NSMutableDictionary* details = [NSMutableDictionary dictionary];
-        [details setValue:message forKey:NSLocalizedDescriptionKey];
-        
-        *error = [NSError errorWithDomain:@"BassioError" code:BAD_TOKEN_ERROR userInfo:details];
-        return;
-    }
-    NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",baasioUser.username];
-    [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
-                                                    withMethod:@"POST"
-                                                        params:nil
-                                                         error:error];
+- (NSError*)emptyUserError{
+    NSString *message = @"The baasioUser was empty. Please login in first.";
+    NSMutableDictionary* details = [NSMutableDictionary dictionary];
+    [details setValue:message forKey:NSLocalizedDescriptionKey];
+    
+    return[NSError errorWithDomain:@"BassioError" code:BAD_TOKEN_ERROR userInfo:details];
 }
-
-+ (BaasioRequest*)resetPasswordInBackground:(void (^)(void))successBlock
-                               failureBlock:(void (^)(NSError *error))failureBlock
-{
-    BaasioUser *baasioUser = [BaasioUser currentUser];
-    if(baasioUser==nil){
-        NSString *message = @"The baasioUser was empty. Please login in first.";
-        NSMutableDictionary* details = [NSMutableDictionary dictionary];
-        [details setValue:message forKey:NSLocalizedDescriptionKey];
-        
-        failureBlock([NSError errorWithDomain:@"BassioError" code:BAD_TOKEN_ERROR userInfo:details]);
-        return nil;
-    }
-    NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",baasioUser.username];
-    return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
-                                                       withMethod:@"POST"
-                                                           params:nil
-                                                          success:^(id result){
-                                                              successBlock();
-                                                          }
-                                                          failure:failureBlock];
-}
-
 
 + (void)signUpViaFacebook:(NSString *)accessToken
                     error:(NSError**)error
