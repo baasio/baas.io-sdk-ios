@@ -180,7 +180,6 @@
 #pragma mark - API response method
 - (void (^)(NSURLRequest *, NSHTTPURLResponse *, NSError *, id))failure:(void (^)(NSError *))failureBlock {
     
-    
     void (^failure)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) = ^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON){
         
         [[NetworkActivityIndicatorManager sharedInstance] hide];
