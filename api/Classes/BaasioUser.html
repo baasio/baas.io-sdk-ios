@@ -42,11 +42,15 @@
 	
 	<option value="class_methods">Class Methods</option>
 	
+	<option value="//api/name/changePassword:newPassword:error:">&nbsp;&nbsp;&nbsp;&nbsp;+ changePassword:newPassword:error:</option>
+	
+	<option value="//api/name/changePasswordInBackground:newPassword:successBlock:failureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;+ changePasswordInBackground:newPassword:successBlock:failureBlock:</option>
+	
 	<option value="//api/name/currentUser">&nbsp;&nbsp;&nbsp;&nbsp;+ currentUser</option>
 	
-	<option value="//api/name/resetPassword:error:">&nbsp;&nbsp;&nbsp;&nbsp;+ resetPassword:error:</option>
+	<option value="//api/name/resetPassword:">&nbsp;&nbsp;&nbsp;&nbsp;+ resetPassword:</option>
 	
-	<option value="//api/name/resetPasswordInBackground:successBlock:failureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;+ resetPasswordInBackground:successBlock:failureBlock:</option>
+	<option value="//api/name/resetPasswordInBackground:failureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;+ resetPasswordInBackground:failureBlock:</option>
 	
 	<option value="//api/name/signIn:password:error:">&nbsp;&nbsp;&nbsp;&nbsp;+ signIn:password:error:</option>
 	
@@ -72,10 +76,6 @@
 	
 	
 	<option value="instance_methods">Instance Methods</option>
-	
-	<option value="//api/name/changePassword:newPassword:error:">&nbsp;&nbsp;&nbsp;&nbsp;- changePassword:newPassword:error:</option>
-	
-	<option value="//api/name/changePasswordInBackground:newPassword:successBlock:failureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- changePasswordInBackground:newPassword:successBlock:failureBlock:</option>
 	
 	<option value="//api/name/connect:relationship:error:">&nbsp;&nbsp;&nbsp;&nbsp;- connect:relationship:error:</option>
 	
@@ -133,11 +133,15 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/changePassword:newPassword:error:">changePassword:newPassword:error:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/changePasswordInBackground:newPassword:successBlock:failureBlock:">changePasswordInBackground:newPassword:successBlock:failureBlock:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentUser">currentUser</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resetPassword:error:">resetPassword:error:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resetPassword:">resetPassword:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resetPasswordInBackground:successBlock:failureBlock:">resetPasswordInBackground:successBlock:failureBlock:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resetPasswordInBackground:failureBlock:">resetPasswordInBackground:failureBlock:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/signIn:password:error:">signIn:password:error:</a></span></li>
 	
@@ -164,10 +168,6 @@
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/changePassword:newPassword:error:">changePassword:newPassword:error:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/changePasswordInBackground:newPassword:successBlock:failureBlock:">changePasswordInBackground:newPassword:successBlock:failureBlock:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/connect:relationship:error:">connect:relationship:error:</a></span></li>
 	
@@ -236,7 +236,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>A baas.io Framework User Object.</p>
+						<p>A baas.io Framework <a href="../Classes/User.html">User</a> Object.</p>
 					</div>
 					
 					
@@ -262,7 +262,7 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/currentUser">+&nbsp;currentUser</a></code>
-		<span class="tooltip"><p>currentUser</p></span>
+		<span class="tooltip"><p>current<a href="../Classes/User.html">User</a></p></span>
 	</span>
 	
 	
@@ -331,28 +331,28 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/resetPassword:error:">+&nbsp;resetPassword:error:</a></code>
+		<code><a href="#//api/name/resetPassword:">+&nbsp;resetPassword:</a></code>
 		<span class="tooltip"><p>비밀번호 재설정</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/resetPasswordInBackground:successBlock:failureBlock:">+&nbsp;resetPasswordInBackground:successBlock:failureBlock:</a></code>
+		<code><a href="#//api/name/resetPasswordInBackground:failureBlock:">+&nbsp;resetPasswordInBackground:failureBlock:</a></code>
 		<span class="tooltip"><p>비밀번호 재설정 asynchronously</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/changePassword:newPassword:error:">&ndash;&nbsp;changePassword:newPassword:error:</a></code>
+		<code><a href="#//api/name/changePassword:newPassword:error:">+&nbsp;changePassword:newPassword:error:</a></code>
 		<span class="tooltip"><p>비밀번호 변경</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/changePasswordInBackground:newPassword:successBlock:failureBlock:">&ndash;&nbsp;changePasswordInBackground:newPassword:successBlock:failureBlock:</a></code>
+		<code><a href="#//api/name/changePasswordInBackground:newPassword:successBlock:failureBlock:">+&nbsp;changePasswordInBackground:newPassword:successBlock:failureBlock:</a></code>
 		<span class="tooltip"><p>비밀번호 변경 asynchronously</p></span>
 	</span>
 	
@@ -478,20 +478,40 @@
 						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/currentUser" title="currentUser"></a>
-	<h3 class="subsubtitle method-title">currentUser</h3>
+	<a name="//api/name/changePassword:newPassword:error:" title="changePassword:newPassword:error:"></a>
+	<h3 class="subsubtitle method-title">changePassword:newPassword:error:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>currentUser</p>
+		<p>비밀번호 변경</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (BaasioUser *)currentUser</code></div>
+	<div class="method-subsection method-declaration"><code>+ (void)changePassword:(NSString *)<em>oldPassword</em> newPassword:(NSString *)<em>newPassword</em> error:(NSError **)<em>error</em></code></div>
 
     
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>oldPassword</em></dt>
+			<dd><p>oldPassword</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>newPassword</em></dt>
+			<dd><p>newPassword</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>error</p></dd>
+		</dl>
+		
+	</div>
 	
 	
 	
@@ -501,7 +521,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>currentUser</p>
+		<p>비밀번호 변경</p>
 	</div>
 	
 	
@@ -519,8 +539,115 @@
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/resetPassword:error:" title="resetPassword:error:"></a>
-	<h3 class="subsubtitle method-title">resetPassword:error:</h3>
+	<a name="//api/name/changePasswordInBackground:newPassword:successBlock:failureBlock:" title="changePasswordInBackground:newPassword:successBlock:failureBlock:"></a>
+	<h3 class="subsubtitle method-title">changePasswordInBackground:newPassword:successBlock:failureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>비밀번호 변경 asynchronously</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (BaasioRequest *)changePasswordInBackground:(NSString *)<em>oldPassword</em> newPassword:(NSString *)<em>newPassword</em> successBlock:(void ( ^ ) ( void ))<em>successBlock</em> failureBlock:(void ( ^ ) ( NSError *error ))<em>failureBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>oldPassword</em></dt>
+			<dd><p>oldPassword</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>newPassword</em></dt>
+			<dd><p>newPassword</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>successBlock</em></dt>
+			<dd><p>successBlock</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>failureBlock</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>비밀번호 변경 asynchronously</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioUser.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentUser" title="currentUser"></a>
+	<h3 class="subsubtitle method-title">currentUser</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>current<a href="../Classes/User.html">User</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (BaasioUser *)currentUser</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>current<a href="../Classes/User.html">User</a></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BaasioUser.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/resetPassword:" title="resetPassword:"></a>
+	<h3 class="subsubtitle method-title">resetPassword:</h3>
 	
 	
 	
@@ -530,17 +657,12 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (void)resetPassword:(NSString *)<em>username</em> error:(NSError **)<em>error</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (void)resetPassword:(NSError **)<em>error</em></code></div>
 
     
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>username</em></dt>
-			<dd><p>username</p></dd>
-		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>error</em></dt>
@@ -575,8 +697,8 @@
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/resetPasswordInBackground:successBlock:failureBlock:" title="resetPasswordInBackground:successBlock:failureBlock:"></a>
-	<h3 class="subsubtitle method-title">resetPasswordInBackground:successBlock:failureBlock:</h3>
+	<a name="//api/name/resetPasswordInBackground:failureBlock:" title="resetPasswordInBackground:failureBlock:"></a>
+	<h3 class="subsubtitle method-title">resetPasswordInBackground:failureBlock:</h3>
 	
 	
 	
@@ -586,17 +708,12 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (BaasioRequest *)resetPasswordInBackground:(NSString *)<em>username</em> successBlock:(void ( ^ ) ( void ))<em>successBlock</em> failureBlock:(void ( ^ ) ( NSError *error ))<em>failureBlock</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (BaasioRequest *)resetPasswordInBackground:(void ( ^ ) ( void ))<em>successBlock</em> failureBlock:(void ( ^ ) ( NSError *error ))<em>failureBlock</em></code></div>
 
     
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>username</em></dt>
-			<dd><p>username</p></dd>
-		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>successBlock</em></dt>
@@ -1232,133 +1349,6 @@
 					<div class="section section-methods">
 						<a title="Instance Methods" name="instance_methods"></a>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/changePassword:newPassword:error:" title="changePassword:newPassword:error:"></a>
-	<h3 class="subsubtitle method-title">changePassword:newPassword:error:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>비밀번호 변경</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)changePassword:(NSString *)<em>oldPassword</em> newPassword:(NSString *)<em>newPassword</em> error:(NSError **)<em>error</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>oldPassword</em></dt>
-			<dd><p>oldPassword</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>newPassword</em></dt>
-			<dd><p>newPassword</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>error</em></dt>
-			<dd><p>error</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>비밀번호 변경</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BaasioUser.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/changePasswordInBackground:newPassword:successBlock:failureBlock:" title="changePasswordInBackground:newPassword:successBlock:failureBlock:"></a>
-	<h3 class="subsubtitle method-title">changePasswordInBackground:newPassword:successBlock:failureBlock:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>비밀번호 변경 asynchronously</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (BaasioRequest *)changePasswordInBackground:(NSString *)<em>oldPassword</em> newPassword:(NSString *)<em>newPassword</em> successBlock:(void ( ^ ) ( void ))<em>successBlock</em> failureBlock:(void ( ^ ) ( NSError *error ))<em>failureBlock</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>oldPassword</em></dt>
-			<dd><p>oldPassword</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>newPassword</em></dt>
-			<dd><p>newPassword</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>successBlock</em></dt>
-			<dd><p>successBlock</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>failureBlock</em></dt>
-			<dd><p>failureBlock</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>비밀번호 변경 asynchronously</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">BaasioUser.h</code><br />
-	</div>				
-	
-	
-</div>
 						
 						<div class="section-method">
 	<a name="//api/name/connect:relationship:error:" title="connect:relationship:error:"></a>
@@ -2188,7 +2178,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 KTH. All rights reserved. (Last updated: 2013-07-19)</span><br />
+						<p><span class="copyright">&copy; 2013 KTH. All rights reserved. (Last updated: 2013-08-07)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
