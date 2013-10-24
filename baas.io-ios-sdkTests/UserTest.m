@@ -130,17 +130,16 @@
 //
 //- (void)test_3_ChangePassword
 //{
-//    BaasioUser *user = [[BaasioUser alloc]init];
-//    [user changePasswordInBackground:@"user10"
-//                         newPassword:@"user10"
-//                        successBlock:^{
+//    [BaasioUser changePasswordInBackground:@"test1"
+//                               newPassword:@"test11"
+//                              successBlock:^(void){
 //                                  NSLog(@"success");
 //                                  exitRunLoop = YES;
-//                        }
-//                        failureBlock:^(NSError *error) {
+//                              }
+//                              failureBlock:^(NSError *error){
 //                                  NSLog(@"fail : %@", error.localizedDescription);
 //                                  exitRunLoop = YES;
-//                        }];
+//                              }];
 //    [self runTestLoop];
 //}
 
