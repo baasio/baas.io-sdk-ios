@@ -86,7 +86,8 @@
 //- (void)test_sync_5_ResetPassword
 //{
 //    NSError *error = nil;
-//    [BaasioUser resetPassword:&error];
+//    [BaasioUser resetPassword:@"jeonguechan@gmail.com"
+//                        error:&error];
 //    if (!error) {
 //        //성공
 //        NSLog(@"Success");
@@ -145,13 +146,15 @@
 
 //- (void)test_4_ResetPassword
 //{
-//    [BaasioUser resetPasswordInBackground:^{
-//        NSLog(@"success");
-//        exitRunLoop = YES;
-//    } failureBlock:^(NSError *error) {
-//        NSLog(@"fail : %@", error.localizedDescription);
-//        exitRunLoop = YES;
-//    }];
+//    [BaasioUser resetPasswordInBackground:@"jeonguechan@gmail.com"
+//                             successBlock:^{
+//                                 NSLog(@"success");
+//                                 exitRunLoop = YES;
+//                             }
+//                             failureBlock:^(NSError *error) {
+//                                 NSLog(@"fail : %@", error.localizedDescription);
+//                                 exitRunLoop = YES;
+//                             }];
 //    [self runTestLoop];
 //}
 //

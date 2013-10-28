@@ -253,14 +253,10 @@
                                                           failure:failureBlock];
 }
 
-+ (void)resetPassword:(NSError**)error
++ (void)resetPassword:(NSString *)username
+                error:(NSError**)error
 {
-    BaasioUser *baasioUser = [BaasioUser currentUser];
-    if(baasioUser==nil){
-        *error = [self emptyUserError];
-        return;
-    }
-    NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",baasioUser.uuid];
+    NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",username];
     [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
                                                     withMethod:@"POST"
                                                         params:nil
@@ -268,16 +264,11 @@
     
 }
 
-+ (BaasioRequest*)resetPasswordInBackground:(void (^)(void))successBlock
++ (BaasioRequest*)resetPasswordInBackground:(NSString *)username
+                               successBlock:(void (^)(void))successBlock
                                failureBlock:(void (^)(NSError *error))failureBlock
 {
-    BaasioUser *baasioUser = [BaasioUser currentUser];
-    if(baasioUser==nil){
-        failureBlock([self emptyUserError]);
-        return nil;
-    }
-    
-    NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",baasioUser.uuid];
+    NSString *path = [NSString stringWithFormat:@"users/%@/resetpw",username];
     return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
                                                        withMethod:@"POST"
                                                            params:nil
@@ -285,7 +276,6 @@
                                                               successBlock();
                                                           }
                                                           failure:failureBlock];
-    
 }
 
 + (NSError*)emptyUserError{
