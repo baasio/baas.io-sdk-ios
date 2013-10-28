@@ -122,17 +122,21 @@
 /**
  비밀번호 재설정
 
+ @param username username
  @param error error
  */
-+ (void)resetPassword:(NSError**)error;
- 
++ (void)resetPassword:(NSString *)username
+                error:(NSError**)error;
+
 /**
  비밀번호 재설정 asynchronously
  
+ @param username username
  @param successBlock successBlock
  @param failureBlock failureBlock
  */
-+ (BaasioRequest*)resetPasswordInBackground:(void (^)(void))successBlock
++ (BaasioRequest*)resetPasswordInBackground:(NSString *)username
+                               successBlock:(void (^)(void))successBlock
                                failureBlock:(void (^)(NSError *error))failureBlock;
 
 /**
