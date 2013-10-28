@@ -86,7 +86,8 @@
 //- (void)test_sync_5_ResetPassword
 //{
 //    NSError *error = nil;
-//    [BaasioUser resetPassword:&error];
+//    [BaasioUser resetPassword:@"jeonguechan@gmail.com"
+//                        error:&error];
 //    if (!error) {
 //        //성공
 //        NSLog(@"Success");
@@ -130,29 +131,30 @@
 //
 //- (void)test_3_ChangePassword
 //{
-//    BaasioUser *user = [[BaasioUser alloc]init];
-//    [user changePasswordInBackground:@"user10"
-//                         newPassword:@"user10"
-//                        successBlock:^{
+//    [BaasioUser changePasswordInBackground:@"test1"
+//                               newPassword:@"test11"
+//                              successBlock:^(void){
 //                                  NSLog(@"success");
 //                                  exitRunLoop = YES;
-//                        }
-//                        failureBlock:^(NSError *error) {
+//                              }
+//                              failureBlock:^(NSError *error){
 //                                  NSLog(@"fail : %@", error.localizedDescription);
 //                                  exitRunLoop = YES;
-//                        }];
+//                              }];
 //    [self runTestLoop];
 //}
 
 //- (void)test_4_ResetPassword
 //{
-//    [BaasioUser resetPasswordInBackground:^{
-//        NSLog(@"success");
-//        exitRunLoop = YES;
-//    } failureBlock:^(NSError *error) {
-//        NSLog(@"fail : %@", error.localizedDescription);
-//        exitRunLoop = YES;
-//    }];
+//    [BaasioUser resetPasswordInBackground:@"jeonguechan@gmail.com"
+//                             successBlock:^{
+//                                 NSLog(@"success");
+//                                 exitRunLoop = YES;
+//                             }
+//                             failureBlock:^(NSError *error) {
+//                                 NSLog(@"fail : %@", error.localizedDescription);
+//                                 exitRunLoop = YES;
+//                             }];
 //    [self runTestLoop];
 //}
 //
