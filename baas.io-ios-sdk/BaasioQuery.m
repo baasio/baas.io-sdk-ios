@@ -106,7 +106,7 @@
         return false;
     } else if (_cursors[_pos] == nil){
         return false;
-    } else if ([_cursors[_pos] isEqualToString:@"AND"]){
+    } else if ([_cursors[_pos] isEqualToString:@"END"]){
         return false;
     }
     return true;
@@ -136,7 +136,7 @@
         _sql = [_sql stringByAppendingFormat:@"&limit=%i", _limit];
     }
     
-    if (_pos != -1 && ![_cursors[_pos] isEqualToString:@"AND"]){
+    if (_pos != -1 && ![_cursors[_pos] isEqualToString:@"END"]){
         _sql = [_sql stringByAppendingFormat:@"&cursor=%@", _cursors[_pos] ];
     }
 
@@ -189,8 +189,8 @@
         _cursors[++_pos] = response[@"cursor"];
 //        NSLog(@"%i == %@", _pos, _cursors[_pos]);
     }else{
-        if(![_cursors[_pos] isEqualToString:@"AND"]){
-           _cursors[++_pos] = @"AND";
+        if(![_cursors[_pos] isEqualToString:@"END"]){
+           _cursors[++_pos] = @"END";
         }
 //        NSLog(@"---");
     }
