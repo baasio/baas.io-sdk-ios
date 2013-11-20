@@ -106,6 +106,8 @@
         return false;
     } else if (_cursors[_pos] == nil){
         return false;
+    } else if ([_cursors[_pos] isEqualToString:@"AND"]){
+        return false;
     }
     return true;
 }
@@ -134,7 +136,7 @@
         _sql = [_sql stringByAppendingFormat:@"&limit=%i", _limit];
     }
     
-    if (_pos != -1){
+    if (_pos != -1 && ![_cursors[_pos] isEqualToString:@"AND"]){
         _sql = [_sql stringByAppendingFormat:@"&cursor=%@", _cursors[_pos] ];
     }
 
@@ -187,6 +189,9 @@
         _cursors[++_pos] = response[@"cursor"];
 //        NSLog(@"%i == %@", _pos, _cursors[_pos]);
     }else{
+        if(![_cursors[_pos] isEqualToString:@"AND"]){
+           _cursors[++_pos] = @"AND";
+        }
 //        NSLog(@"---");
     }
 
@@ -228,7 +233,7 @@
 -(NSArray *)prev:(NSError**)error
 {
     _pos -= 2;
-    if(_pos < 0 ){
+    if(_pos < -1 ){
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"Prev entities isn't exist." forKey:NSLocalizedDescriptionKey];
 
@@ -244,7 +249,7 @@
                       failureBlock:(void (^)(NSError *error))failureBlock
 {
     _pos -= 2;
-    if(_pos < 0 ){
+    if(_pos < -1 ){
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"Prev entities isn't exist." forKey:NSLocalizedDescriptionKey];
 
