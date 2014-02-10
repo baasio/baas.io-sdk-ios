@@ -189,7 +189,7 @@
         _cursors[++_pos] = response[@"cursor"];
 //        NSLog(@"%i == %@", _pos, _cursors[_pos]);
     }else{
-        if(![_cursors[_pos] isEqualToString:@"END"]){
+        if(_pos == -1 || ![_cursors[_pos] isEqualToString:@"END"]){
            _cursors[++_pos] = @"END";
         }
 //        NSLog(@"---");
