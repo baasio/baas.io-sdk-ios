@@ -3,6 +3,7 @@
 //
 // To change the template use AppCode | Preferences | File Templates.
 //
+#define PAGE_EOF_STRING @"END"
 
 #import "BaasioQuery.h"
 #import "BaasioNetworkManager.h"
@@ -106,7 +107,7 @@
         return false;
     } else if (_cursors[_pos] == nil){
         return false;
-    } else if ([_cursors[_pos] isEqualToString:@"END"]){
+    } else if ([_cursors[_pos] isEqualToString:PAGE_EOF_STRING]){
         return false;
     }
     return true;
@@ -136,7 +137,7 @@
         _sql = [_sql stringByAppendingFormat:@"&limit=%i", _limit];
     }
     
-    if (_pos != -1 && ![_cursors[_pos] isEqualToString:@"END"]){
+    if (_pos != -1 && ![_cursors[_pos] isEqualToString:PAGE_EOF_STRING]){
         _sql = [_sql stringByAppendingFormat:@"&cursor=%@", _cursors[_pos] ];
     }
 
@@ -189,8 +190,8 @@
         _cursors[++_pos] = response[@"cursor"];
 //        NSLog(@"%i == %@", _pos, _cursors[_pos]);
     }else{
-        if(![_cursors[_pos] isEqualToString:@"END"]){
-           _cursors[++_pos] = @"END";
+        if(_pos == -1 || ![_cursors[_pos] isEqualToString:PAGE_EOF_STRING]){
+           _cursors[++_pos] = PAGE_EOF_STRING;
         }
 //        NSLog(@"---");
     }
@@ -208,7 +209,7 @@
 
         NSError *e = [NSError errorWithDomain:@"BassioError" code:UNKNOWN_ERROR userInfo:details];
         
-        e = *error;
+        *error = e;
         return nil;
     }
     return [self query:error];
@@ -233,13 +234,17 @@
 -(NSArray *)prev:(NSError**)error
 {
     _pos -= 2;
-    if(_pos < -1 ){
+    if (_pos == -1) {
+        [self clearCursor];
+        
+    } else if(_pos < -1 ){
+        
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"Prev entities isn't exist." forKey:NSLocalizedDescriptionKey];
 
         NSError *e = [NSError errorWithDomain:@"BassioError" code:UNKNOWN_ERROR userInfo:details];
         
-        e = *error;
+        *error = e;
         return nil;
     }
     return [self query:error];
@@ -249,7 +254,11 @@
                       failureBlock:(void (^)(NSError *error))failureBlock
 {
     _pos -= 2;
-    if(_pos < -1 ){
+    if (_pos == -1) {
+        [self clearCursor];
+        
+    } else if(_pos < -1 ){
+        
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"Prev entities isn't exist." forKey:NSLocalizedDescriptionKey];
 
