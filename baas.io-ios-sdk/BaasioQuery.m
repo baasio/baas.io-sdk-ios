@@ -209,7 +209,7 @@
 
         NSError *e = [NSError errorWithDomain:@"BassioError" code:UNKNOWN_ERROR userInfo:details];
         
-        e = *error;
+        *error = e;
         return nil;
     }
     return [self query:error];
@@ -244,7 +244,7 @@
 
         NSError *e = [NSError errorWithDomain:@"BassioError" code:UNKNOWN_ERROR userInfo:details];
         
-        e = *error;
+        *error = e;
         return nil;
     }
     return [self query:error];
