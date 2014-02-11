@@ -234,7 +234,11 @@
 -(NSArray *)prev:(NSError**)error
 {
     _pos -= 2;
-    if(_pos < -1 ){
+    if (_pos == -1) {
+        [self clearCursor];
+        
+    } else if(_pos < -1 ){
+        
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"Prev entities isn't exist." forKey:NSLocalizedDescriptionKey];
 
@@ -250,7 +254,11 @@
                       failureBlock:(void (^)(NSError *error))failureBlock
 {
     _pos -= 2;
-    if(_pos < -1 ){
+    if (_pos == -1) {
+        [self clearCursor];
+        
+    } else if(_pos < -1 ){
+        
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"Prev entities isn't exist." forKey:NSLocalizedDescriptionKey];
 
