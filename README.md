@@ -24,6 +24,20 @@ See [this](https://github.com/baasio/baas.io-sdk-ios/wiki/Getting-Started#Instal
 
 
 ## Release history
+
+### v0.8.1.6
+* Query prev, next 호출 시 NSError 처리가 안되는 문제
+* 첫 페이지 호출 시 cursor 가 clean 되지 않았던 현상
+* 10개 이하 Entitis에서 앱 죽는 문제
+
+### v0.8.1.5
+* Query prev, next 호출 시 NSError 처리가 안되는 문제
+* Push User 발송 시 앱 죽는 문제
+
+### v0.8.1.4
+* SimpleNetworkManager 버그 수정
+
+
 ### v0.8.1.3
 * BAAS-43 Push SDK 사용성 개선
 * BAAS-58 회원 가입 시 추가 정보를 넣을 수 있게 함
