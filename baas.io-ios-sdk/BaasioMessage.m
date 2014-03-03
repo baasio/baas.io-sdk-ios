@@ -39,6 +39,14 @@
     return payload;
 }
 
+- (NSString *)reserveDate
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyyMMddHHmm"];
+    
+    return [dateFormatter stringFromDate:[[NSCalendar currentCalendar] dateFromComponents:_reserve]];
+}
+
 - (NSDictionary *)dictionary
 {
     
@@ -56,6 +64,10 @@
         toList = [toList stringByReplacingOccurrencesOfString:@"\"" withString:@""];
         toList = [toList substringWithRange:NSMakeRange(1, [toList length]-2)];
         [_mictionary setObject:toList forKey:@"to"];
+    }
+    
+    if (_reserve != nil) {
+        [_mictionary setObject:[self reserveDate] forKey:@"reserve"];
     }
     
     return _mictionary;
