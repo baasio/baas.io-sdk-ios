@@ -7,7 +7,6 @@
 
 #import "SimpleNetworkManager.h"
 #import "AFNetworking.h"
-#import "JSONKit.h"
 #import "NetworkActivityIndicatorManager.h"
 #import "Baasio+Private.h"
 @implementation SimpleNetworkManager {
@@ -83,7 +82,7 @@
 
     if ([httpMethod isEqualToString:@"POST"] || [httpMethod isEqualToString:@"PUT"]) {
         NSError *error;
-        NSData *data = [params JSONDataWithOptions:JKSerializeOptionNone error:&error];
+        NSData *data = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:&error];
         if (error != nil) {
             failureBlock(error);
             return nil;

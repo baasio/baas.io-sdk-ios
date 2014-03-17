@@ -10,7 +10,6 @@
 #import "BaasioNetworkManager.h"
 #import "Baasio+Private.h"
 #import "NetworkActivityIndicatorManager.h"
-#import "JSONKit.h"
 
 @implementation BaasioFile {
 

@@ -8,7 +8,6 @@
 #import "ShadowUpdateChecker.h"
 #import "SimpleNetworkManager.h"
 #import "BaasioVersion.h"
-#import "JSONKit.h"
 #import "Baasio.h"
 #import "Baasio+Private.h"
 @implementation ShadowUpdateChecker {
@@ -52,8 +51,9 @@
                                                                          params:nil
                                                                    headerFields:nil
                                                                           error:error];
-
-    NSArray *array = [response objectFromJSONString];
+    
+    NSData *data = [response dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:error];
     NSDictionary *dictionary = [array objectAtIndex:0];
     return [dictionary objectForKey:@"name"];
 }

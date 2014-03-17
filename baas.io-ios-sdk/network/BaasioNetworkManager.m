@@ -8,7 +8,6 @@
 
 #import "BaasioNetworkManager.h"
 #import "AFNetworking.h"
-#import "JSONKit.h"
 #import "Baasio+Private.h"
 #import "NetworkActivityIndicatorManager.h"
 
@@ -78,7 +77,7 @@
 
     if ([httpMethod isEqualToString:@"POST"] || [httpMethod isEqualToString:@"PUT"]) {
         NSError *error;
-        NSData *data = [params JSONDataWithOptions:JKSerializeOptionNone error:&error];
+        NSData *data = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:&error];
         if (error != nil) {
             failureBlock(error);
             return nil;
@@ -137,7 +136,7 @@
                                                         if (bodyData != nil){
                                                             
                                                             NSError *error;
-                                                            NSData *data = [mutableParams JSONDataWithOptions:JKSerializeOptionNone error:&error];
+                                                            NSData *data = [NSJSONSerialization dataWithJSONObject:mutableParams options:NSJSONWritingPrettyPrinted error:&error];
                                                             
                                                             [formData appendPartWithFileData:data
                                                                                         name:@"entity"
