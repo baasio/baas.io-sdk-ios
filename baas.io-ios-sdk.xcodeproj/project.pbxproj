@@ -32,7 +32,6 @@
 		4191231B17AB982200EFAF47 /* RelationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4191231017AB982200EFAF47 /* RelationTest.m */; };
 		4191231C17AB982200EFAF47 /* ShadowUpdateCheckerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4191231217AB982200EFAF47 /* ShadowUpdateCheckerTest.m */; };
 		4191231D17AB982200EFAF47 /* SimpleNetworkManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4191231417AB982200EFAF47 /* SimpleNetworkManagerTest.m */; };
-		AF26A27F166667F5006A7225 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E418165A2D850021AA4C /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AF7D5F741786FB5B00A86ABD /* BaasioRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7D5F721786FB5B00A86ABD /* BaasioRequest.m */; };
 		AF925D4D1786F4F10015595A /* BaasioValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = AF925D4C1786F4F10015595A /* BaasioValidator.m */; };
 		AF925D501786F4FF0015595A /* UIImageView+Baasio.m in Sources */ = {isa = PBXBuildFile; fileRef = AF925D4F1786F4FF0015595A /* UIImageView+Baasio.m */; };
@@ -90,7 +89,6 @@
 		AFB9E414165A2D7B0021AA4C /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E409165A2D7B0021AA4C /* AFURLConnectionOperation.m */; };
 		AFB9E415165A2D7B0021AA4C /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E40B165A2D7B0021AA4C /* AFXMLRequestOperation.m */; };
 		AFB9E416165A2D7B0021AA4C /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E40D165A2D7B0021AA4C /* UIImageView+AFNetworking.m */; };
-		AFB9E419165A2D850021AA4C /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E418165A2D850021AA4C /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AFD93F0B165A2B0E00FC9ED0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD93F0A165A2B0E00FC9ED0 /* Foundation.framework */; };
 		AFD93F1A165A2B0E00FC9ED0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD93F19165A2B0E00FC9ED0 /* SenTestingKit.framework */; };
 		AFD93F1D165A2B0E00FC9ED0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD93F0A165A2B0E00FC9ED0 /* Foundation.framework */; };
@@ -253,8 +251,6 @@
 		AFB9E40B165A2D7B0021AA4C /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFXMLRequestOperation.m; path = submodules/AFNetworking.git/AFNetworking/AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		AFB9E40C165A2D7B0021AA4C /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "submodules/AFNetworking.git/AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		AFB9E40D165A2D7B0021AA4C /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "submodules/AFNetworking.git/AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		AFB9E417165A2D850021AA4C /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = submodules/JSONKit.git/JSONKit.h; sourceTree = "<group>"; };
-		AFB9E418165A2D850021AA4C /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = submodules/JSONKit.git/JSONKit.m; sourceTree = "<group>"; };
 		AFD93F07165A2B0E00FC9ED0 /* libbaas.io-ios-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libbaas.io-ios-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFD93F0A165A2B0E00FC9ED0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AFD93F0E165A2B0E00FC9ED0 /* baas.io-ios-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "baas.io-ios-sdk-Prefix.pch"; sourceTree = "<group>"; };
@@ -336,15 +332,6 @@
 			name = category;
 			sourceTree = "<group>";
 		};
-		AFB9E3F7165A2D550021AA4C /* JSONKit */ = {
-			isa = PBXGroup;
-			children = (
-				AFB9E417165A2D850021AA4C /* JSONKit.h */,
-				AFB9E418165A2D850021AA4C /* JSONKit.m */,
-			);
-			name = JSONKit;
-			sourceTree = "<group>";
-		};
 		AFB9E3F9165A2D610021AA4C /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,7 +381,6 @@
 			isa = PBXGroup;
 			children = (
 				AFB9E3F9165A2D610021AA4C /* AFNetworking */,
-				AFB9E3F7165A2D550021AA4C /* JSONKit */,
 				AF4FDDA5166E28E80048310C /* MobileCoreServices.framework */,
 				AF4FDDA3166E28CF0048310C /* SystemConfiguration.framework */,
 				AF429CCA165B4B0E001C78B5 /* UIKit.framework */,
@@ -591,7 +577,6 @@
 				AFB9E414165A2D7B0021AA4C /* AFURLConnectionOperation.m in Sources */,
 				AFB9E415165A2D7B0021AA4C /* AFXMLRequestOperation.m in Sources */,
 				AFB9E416165A2D7B0021AA4C /* UIImageView+AFNetworking.m in Sources */,
-				AFB9E419165A2D850021AA4C /* JSONKit.m in Sources */,
 				AF925D4D1786F4F10015595A /* BaasioValidator.m in Sources */,
 				AF925D501786F4FF0015595A /* UIImageView+Baasio.m in Sources */,
 				AF925D541786F5070015595A /* NSError+baasio.m in Sources */,
@@ -616,7 +601,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF26A27F166667F5006A7225 /* JSONKit.m in Sources */,
 				AFAD8F3C1793C7A000126D32 /* UserTest.m in Sources */,
 				4191231517AB982200EFAF47 /* EntityTest.m in Sources */,
 				4191231617AB982200EFAF47 /* FileTest.m in Sources */,
@@ -737,12 +721,12 @@
 		AFD93F2D165A2B0E00FC9ED0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/baas_io_ios_sdk.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "baas.io-ios-sdk/baas.io-ios-sdk-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -753,12 +737,12 @@
 		AFD93F2E165A2B0E00FC9ED0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/baas_io_ios_sdk.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "baas.io-ios-sdk/baas.io-ios-sdk-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
