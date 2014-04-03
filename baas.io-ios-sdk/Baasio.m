@@ -12,7 +12,7 @@
 bool _isDebugMode;
 
 @implementation Baasio {
-    NSString *_token;
+//    NSString *_token;
     BaasioUser *_currentUser;
 
 }
@@ -43,6 +43,17 @@ bool _isDebugMode;
     baasio.apiURL = apiURL;
     baasio.baasioID = baasioID;
     baasio.applicationName = applicationName;
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *savedToken = [userDefaults objectForKey:@"access_token"];
+    NSDictionary *savedUser = [userDefaults objectForKey:@"login_user"];
+    if (savedToken != nil && savedUser != nil) {
+        baasio.token = savedToken;
+        
+        BaasioUser *loginUser = [BaasioUser user];
+        [loginUser set:savedUser];
+        [baasio setCurrentUser:loginUser];
+    }
 }
 
 - (NSURL *)getAPIURL{
