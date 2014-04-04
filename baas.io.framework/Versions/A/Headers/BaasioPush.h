@@ -20,8 +20,17 @@
  @param message Push 환경 설정 객체
  @param error error
  */
-- (void)sendPush:(BaasioMessage *)message
-           error:(NSError**)error;
+- (id)sendPush:(BaasioMessage *)message error:(NSError**)error;
+
+/**
+ Push 발송 asynchronously (deprecated)
+ @param message Push 환경 설정 객체
+ @param successBlock successBlock
+ @param failureBlock failureBlock
+ */
+- (BaasioRequest*)sendPushInBackground:(BaasioMessage *)message
+                          successBlock:(void (^)(void))successBlock
+                          failureBlock:(void (^)(NSError *error))failureBlock  __attribute__((deprecated));
 
 /**
  Push 발송 asynchronously
@@ -29,9 +38,25 @@
  @param successBlock successBlock
  @param failureBlock failureBlock
  */
-- (BaasioRequest*)sendPushInBackground:(BaasioMessage *)message
+- (BaasioRequest *)sendPushInBackground:(BaasioMessage *)message success:(void (^)(id result))success failure:(void (^)(NSError *))failure;
+
+/**
+ 예약된 Push 취소
+ @param uuid uuid
+ @param error error
+ */
+- (void)cancelReservedPush:(NSString *)uuid error:(NSError **)error;
+
+/**
+ Push 취소 asynchronously
+ @param uuid Push message uuid
+ @param successBlock successBlock
+ @param failureBlock failureBlock
+ */
+- (BaasioRequest *)cancelReservedPushInBackground:(NSString *)uuid
                           successBlock:(void (^)(void))successBlock
                           failureBlock:(void (^)(NSError *error))failureBlock;
+
 
 /**
  APNS에 디바이스 등록
