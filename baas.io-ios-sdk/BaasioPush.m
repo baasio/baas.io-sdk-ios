@@ -31,15 +31,14 @@
 
 }
 
-- (void)sendPush:(BaasioMessage *)message
+- (id)sendPush:(BaasioMessage *)message
            error:(NSError**)error
 {
     NSDictionary *params = [message dictionary];
-    [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:@"pushes"
-                                                    withMethod:@"POST"
-                                                        params:params
-                                                         error:error];
-    return;
+    return [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:@"pushes"
+                                                           withMethod:@"POST"
+                                                               params:params
+                                                                error:error];
 }
 
 - (BaasioRequest*)sendPushInBackground:(BaasioMessage *)message
@@ -55,6 +54,47 @@
                                        successBlock();
                                    }
                                    failure:failureBlock];
+}
+
+- (BaasioRequest *)sendPushInBackground:(BaasioMessage *)message success:(void (^)(id result))success failure:(void (^)(NSError *error))failure {
+    NSDictionary *params = [message dictionary];
+    
+    return [[BaasioNetworkManager sharedInstance] connectWithHTTP:@"pushes"
+                                                       withMethod:@"POST"
+                                                           params:params
+                                                          success:^(id result){
+                                                              NSDictionary *response = (NSDictionary *)result;
+                                                              
+                                                              NSDictionary *dictionary = [NSDictionary dictionaryWithDictionary:response[@"entities"][0]];
+                                                              success(dictionary);
+                                                          }
+                                                          failure:failure];
+}
+
+- (void)cancelReservedPush:(NSString *)uuid error:(NSError **)error
+{
+    NSString *path = [NSString stringWithFormat:@"pushes/%@", uuid];
+    [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
+                                                    withMethod:@"DELETE"
+                                                        params:nil
+                                                         error:error];
+}
+
+- (BaasioRequest *)cancelReservedPushInBackground:(NSString *)uuid
+                                     successBlock:(void (^)(void))successBlock
+                                     failureBlock:(void (^)(NSError *))failureBlock
+{
+    NSString *path = [NSString stringWithFormat:@"pushes/%@", uuid];
+    
+    return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path
+                                                withMethod:@"DELETE"
+                                                    params:nil
+                                                   success:^(id result){
+                                                       successBlock();
+                                                   }
+                                                   failure:^(NSError *error) {
+                                                       failureBlock(error);
+                                                   }];
 }
 
 + (void)registerForRemoteNotificationTypes:(UIRemoteNotificationType)types{

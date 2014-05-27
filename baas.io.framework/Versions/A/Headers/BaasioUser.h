@@ -222,7 +222,7 @@
 
 
 /**
- Facebook 통한 회원가입
+ Kakaotalk 통한 회원가입
  
  @param accessToken accessToken
  @param error error
@@ -231,7 +231,7 @@
                      error:(NSError**)error;
 
 /**
- Facebook 통한 회원가입 asynchronously
+ Kakaotalk 통한 회원가입 asynchronously
  
  @param accessToken accessToken
  @param successBlock successBlock
@@ -242,7 +242,7 @@
                                     failureBlock:(void (^)(NSError *error))failureBlock;
 
 /**
- Facebook 통한 로그인
+ Kakaotalk 통한 로그인
  
  @param accessToken accessToken
  @param error error
@@ -251,7 +251,7 @@
                      error:(NSError**)error;
 
 /**
- Facebook 통한 로그인 asynchronously
+ Kakaotalk 통한 로그인 asynchronously
  
  @param accessToken accessToken
  @param successBlock successBlock

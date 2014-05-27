@@ -83,6 +83,11 @@
 + (void)signOut {
     [[Baasio sharedInstance] setCurrentUser:nil];
     [[Baasio sharedInstance] setToken:nil];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:nil forKey:@"access_token"];
+    [userDefaults setObject:nil forKey:@"login_user"];
+    [userDefaults synchronize];
 }
 
 - (void)unsubscribe:(NSError**)error
@@ -122,16 +127,8 @@
                                                                 withMethod:@"POST"
                                                                     params:params
                                                                      error:error];
-    
-    NSDictionary *response = (NSDictionary *)result;
-    Baasio *baasio = [Baasio sharedInstance];
-    NSString *access_token = response[@"access_token"];
-    [baasio setToken:access_token];
-    
-    NSDictionary *userReponse = response[@"user"];
-    BaasioUser *loginUser = [BaasioUser user];
-    [loginUser set:userReponse];
-    [baasio setCurrentUser:loginUser];
+
+    [self saveLoginInfomation:result];
     
     
     return;
@@ -168,6 +165,11 @@
     BaasioUser *loginUser = [BaasioUser user];
     [loginUser set:userReponse];
     [baasio setCurrentUser:loginUser];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:access_token forKey:@"access_token"];
+    [userDefaults setObject:userReponse forKey:@"login_user"];
+    [userDefaults synchronize];
 }
 
 + (void)signUp:(NSString *)username

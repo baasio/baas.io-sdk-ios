@@ -15,6 +15,7 @@
 @property(nonatomic, strong) NSString *apiURL;
 @property(nonatomic, strong) NSString *applicationName;
 @property(nonatomic, strong) NSString *baasioID;
+@property (nonatomic, strong) NSString *token;
 /**
  sharedInstance
  */
