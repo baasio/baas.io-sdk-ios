@@ -9,7 +9,38 @@
 #import "Baasio+Private.h"
 #import "BaasioNetworkManager.h"
 #import "BaasioValidator.h"
-@implementation BaasioUser 
+@implementation BaasioUser
+
+#pragma mark - super
+- (NSDictionary *)dictionary {
+    return [super dictionary];
+}
+- (void)disconnect:(BaasioEntity *)entity relationship:(NSString *)relationship error:(NSError *__autoreleasing *)error {
+    [super disconnect:entity relationship:relationship error:error];
+}
+- (BaasioRequest *)disconnectInBackground:(BaasioEntity *)entity relationship:(NSString *)relationship successBlock:(void (^)(void))successBlock failureBlock:(void (^)(NSError *))failureBlock {
+    return [super disconnectInBackground:entity relationship:relationship successBlock:successBlock failureBlock:failureBlock];
+}
+- (void)set:(NSDictionary *)entity {
+    [super set:entity];
+}
+- (void)setObject:(id)value forKey:(NSString *)key {
+    [super setObject:value forKey:key];
+}
+- (BaasioRequest *)connectInBackground:(BaasioEntity *)entity relationship:(NSString *)relationship successBlock:(void (^)(void))successBlock failureBlock:(void (^)(NSError *))failureBlock {
+    return [super connectInBackground:entity relationship:relationship successBlock:successBlock failureBlock:failureBlock];
+}
+- (void)connect:(BaasioEntity *)entity relationship:(NSString *)relationship error:(NSError *__autoreleasing *)error {
+    [super connect:entity relationship:relationship error:error];
+}
+- (NSString *)description {
+    return [super description];
+}
+- (NSString *)objectForKey:(NSString *)key {
+    return [super objectForKey:key];
+}
+
+
 -(id) init
 {
     self = [super init];
@@ -18,6 +49,7 @@
     }
     return self;
 }
+
 + (BaasioUser *)user
 {
     return [[BaasioUser alloc] init];
@@ -334,6 +366,41 @@
     return [self signUpViaFacebookInBackground:accessToken
                                   successBlock:successBlock
                                   failureBlock:failureBlock];
+}
+
+
+#pragma mark - Auth by KaKao Talk
++ (void)signUpViaKakaotalk:(NSString *)accessToken error:(NSError *__autoreleasing *)error {
+    NSDictionary *params = @{
+                             @"kkt_access_token" : accessToken
+                             };
+    
+    NSString *path = @"auth/kakaotalk";
+    id result = [[BaasioNetworkManager sharedInstance] connectWithHTTPSync:path
+                                                                withMethod:@"GET"
+                                                                    params:params
+                                                                     error:error];
+    [self saveLoginInfomation:result];
+}
+
++ (BaasioRequest *)signUpViaKakaotalkInBackground:(NSString *)accessToken successBlock:(void (^)(void))successBlock failureBlock:(void (^)(NSError *))failureBlock {
+    NSDictionary *params = @{
+                             @"kkt_access_token" : accessToken
+                             };
+    
+    NSString *path = @"auth/kakaotalk";
+    return [[BaasioNetworkManager sharedInstance] connectWithHTTP:path withMethod:@"GET" params:params success:^(id result){
+        [self saveLoginInfomation:result];
+        successBlock();
+    } failure:failureBlock];
+}
+
++ (void)signInViaKakaotalk:(NSString *)accessToken error:(NSError *__autoreleasing *)error {
+    [self signInViaKakaotalk:accessToken error:error];
+}
+
++ (BaasioRequest *)signInViaKakaotalkInBackground:(NSString *)accessToken successBlock:(void (^)(void))successBlock failureBlock:(void (^)(NSError *))failureBlock {
+    return [self signInViaKakaotalkInBackground:accessToken successBlock:successBlock failureBlock:failureBlock];
 }
 
 

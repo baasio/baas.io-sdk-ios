@@ -14,6 +14,37 @@
 @implementation BaasioFile {
 
 }
+
+#pragma mark - super
+- (NSDictionary *)dictionary {
+    return [super dictionary];
+}
+- (void)disconnect:(BaasioEntity *)entity relationship:(NSString *)relationship error:(NSError *__autoreleasing *)error {
+    [super disconnect:entity relationship:relationship error:error];
+}
+- (BaasioRequest *)disconnectInBackground:(BaasioEntity *)entity relationship:(NSString *)relationship successBlock:(void (^)(void))successBlock failureBlock:(void (^)(NSError *))failureBlock {
+    return [super disconnectInBackground:entity relationship:relationship successBlock:successBlock failureBlock:failureBlock];
+}
+- (void)set:(NSDictionary *)entity {
+    [super set:entity];
+}
+- (void)setObject:(id)value forKey:(NSString *)key {
+    [super setObject:value forKey:key];
+}
+- (NSString *)description {
+    return [super description];
+}
+- (NSString *)objectForKey:(NSString *)key {
+    return [super objectForKey:key];
+}
+- (void)delete:(NSError *__autoreleasing *)error {
+    [super delete:error];
+}
+- (BaasioRequest *)deleteInBackground:(void (^)(void))successBlock failureBlock:(void (^)(NSError *))failureBlock {
+    return [super deleteInBackground:successBlock failureBlock:failureBlock];
+}
+
+
 -(id) init
 {
     self = [super init];
