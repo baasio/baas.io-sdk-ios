@@ -25,11 +25,11 @@ See [this](https://github.com/baasio/baas.io-sdk-ios/wiki/Getting-Started#Instal
 
 ## Release history
 
-### v0.8.1.9
+### v0.8.2.0
 * access token & login user 유지
 * 예약 푸시 취소 Method 추가
 * sendPushInBackground Deprecated -> 같은 이름의 다른 메소드 추가
-* 카카오톡 로그인 추가
+* 카카오톡 회원가입, 로그인 추가
 
 ### v0.8.1.8
 * iOS 64bit 지원
