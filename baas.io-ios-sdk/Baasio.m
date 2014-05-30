@@ -76,10 +76,6 @@ bool _isDebugMode;
 
 @implementation Baasio(Private)
 
-- (void)setToken:(NSString*)token{
-    _token = token;
-}
-
 - (NSString *)getToken{
     return _token;
 }

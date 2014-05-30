@@ -6,8 +6,8 @@
 //  Copyright (c) 2012년 kth. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface RelationTest : SenTestCase
+@interface RelationTest : XCTestCase
 
 @end

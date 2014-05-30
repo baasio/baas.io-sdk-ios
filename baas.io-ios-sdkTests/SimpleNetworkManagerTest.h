@@ -6,8 +6,8 @@
 
 
 #import <Foundation/Foundation.h>
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface SimpleNetworkManagerTest : SenTestCase
+@interface SimpleNetworkManagerTest : XCTestCase
 
 @end

@@ -51,61 +51,61 @@
     [query setLimit:3];
     
     [query queryInBackground:^(NSArray *array) {
-                STAssertTrue(array.count == 3, @"count is not equals.", nil);
+                XCTAssertTrue(array.count == 3, @"count is not equals.", nil);
         
-                STAssertTrue([[array objectAtIndex:0][@"count"] intValue] == 0, @"wrong.", nil);
+                XCTAssertTrue([[array objectAtIndex:0][@"count"] intValue] == 0, @"wrong.", nil);
                 NSLog(@"array : %@", array.description);
 
                 [query nextInBackground:^(NSArray *array) {
-                    STAssertTrue(array.count == 3, @"count is not equals.", nil);
+                    XCTAssertTrue(array.count == 3, @"count is not equals.", nil);
                     
-                    STAssertTrue([[array objectAtIndex:0][@"count"] intValue] == 3, @"wrong.", nil);
+                    XCTAssertTrue([[array objectAtIndex:0][@"count"] intValue] == 3, @"wrong.", nil);
                     NSLog(@"array : %@", array.description);
 
                     [query nextInBackground:^(NSArray *array) {
-                        STAssertTrue(array.count == 3, @"count is not equals.", nil);
-                        STAssertTrue([[array objectAtIndex:0][@"count"] intValue] == 6, @"wrong.", nil);
+                        XCTAssertTrue(array.count == 3, @"count is not equals.", nil);
+                        XCTAssertTrue([[array objectAtIndex:0][@"count"] intValue] == 6, @"wrong.", nil);
                         NSLog(@"array : %@", array.description);
                         [query nextInBackground:^(NSArray *array) {
-                                STAssertTrue(array.count == 3, @"count is not equals.", nil);
+                                XCTAssertTrue(array.count == 3, @"count is not equals.", nil);
                             
-                            STAssertTrue([[array objectAtIndex:0][@"count"] intValue] == 9, @"wrong.", nil);
+                            XCTAssertTrue([[array objectAtIndex:0][@"count"] intValue] == 9, @"wrong.", nil);
                                 NSLog(@"array : %@", array.description);
                                 [query prevInBackground:^(NSArray *array) {
-                                    STAssertTrue(array.count == 3, @"count is not equals.", nil);
-                                    STAssertTrue([[array objectAtIndex:0][@"count"] intValue] == 6, @"wrong.", nil);
+                                    XCTAssertTrue(array.count == 3, @"count is not equals.", nil);
+                                    XCTAssertTrue([[array objectAtIndex:0][@"count"] intValue] == 6, @"wrong.", nil);
                                     NSLog(@"array : %@", array.description);
                                     [query prevInBackground:^(NSArray *array) {
-                                        STAssertTrue(array.count == 3, @"count is not equals.", nil);
-                                        STAssertTrue([[array objectAtIndex:0][@"count"] intValue] == 3, @"wrong.", nil);
+                                        XCTAssertTrue(array.count == 3, @"count is not equals.", nil);
+                                        XCTAssertTrue([[array objectAtIndex:0][@"count"] intValue] == 3, @"wrong.", nil);
                                         NSLog(@"array : %@", array.description);
                                         exitRunLoop = YES;
                                         
                                     }
                                    failureBlock:^(NSError *error) {
                                        NSLog(@"fail : %@", error.localizedDescription);
-                                       STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                                       XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                                        exitRunLoop = YES;
                                    }];
                                     
                                 }
                                    failureBlock:^(NSError *error) {
                                        NSLog(@"fail : %@", error.localizedDescription);
-                                       STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                                       XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                                        exitRunLoop = YES;
                                    }];
 
                             }
                            failureBlock:^(NSError *error) {
                                NSLog(@"fail : %@", error.localizedDescription);
-                               STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                               XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                                exitRunLoop = YES;
                            }];
 
                     }
                    failureBlock:^(NSError *error) {
                        NSLog(@"fail : %@", error.localizedDescription);
-                       STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                       XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                        exitRunLoop = YES;
                    }];
 
@@ -113,13 +113,13 @@
                 }
                    failureBlock:^(NSError *error) {
                        NSLog(@"fail : %@", error.localizedDescription);
-                       STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                       XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                        exitRunLoop = YES;
                    }];
                  }
                failureBlock:^(NSError *error) {
                    NSLog(@"fail : %@", error.localizedDescription);
-                   STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                   XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                    exitRunLoop = YES;
                }];
     

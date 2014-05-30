@@ -6,7 +6,7 @@
 
 
 #import <Foundation/Foundation.h>
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface PushTest : SenTestCase
+@interface PushTest : XCTestCase
 @end

@@ -6,8 +6,8 @@
 //  Copyright (c) 2013년 kth. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface ShadowUpdateCheckerTest : SenTestCase
+@interface ShadowUpdateCheckerTest : XCTestCase
 
 @end

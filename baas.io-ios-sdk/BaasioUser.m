@@ -157,18 +157,15 @@
 
 + (void)saveLoginInfomation:(id)result {
     NSDictionary *response = (NSDictionary *)result;
-    Baasio *baasio = [Baasio sharedInstance];
-    NSString *access_token = response[@"access_token"];
-    [baasio setToken:access_token];
+    [[Baasio sharedInstance] setToken:response[@"access_token"]];
 
-    NSDictionary *userReponse = response[@"user"];
     BaasioUser *loginUser = [BaasioUser user];
-    [loginUser set:userReponse];
-    [baasio setCurrentUser:loginUser];
+    [loginUser set:response[@"user"]];
+    [[Baasio sharedInstance] setCurrentUser:loginUser];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:access_token forKey:@"access_token"];
-    [userDefaults setObject:userReponse forKey:@"login_user"];
+    [userDefaults setObject:response[@"access_token"] forKey:@"access_token"];
+    [userDefaults setObject:response[@"user"] forKey:@"login_user"];
     [userDefaults synchronize];
 }
 

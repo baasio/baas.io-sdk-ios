@@ -43,7 +43,7 @@
                                              }
                                              failureBlock:^(NSError *error){
                                                 NSLog(@"fail : %@", error.localizedDescription);
-                                                STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                                                XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                                                 exitRunLoop = YES;
                                              }];
 
@@ -64,14 +64,14 @@
                                                                             }
                                                                             failureBlock:^(NSError *error){
                                                                                 NSLog(@"fail : %@", error.localizedDescription);
-                                                                                STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                                                                                XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                                                                                 exitRunLoop = YES;
                                                                             }];
 //                                    entity 
                                 }
                                 failureBlock:^(NSError *error){
                                     NSLog(@"fail : %@", error.localizedDescription);
-                                    STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                                    XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                                     exitRunLoop = YES;
                                 }];
     [self runTestLoop];
@@ -84,7 +84,7 @@
                                             }
                                             failureBlock:^(NSError *error){
                                                 NSLog(@"fail : %@", error.localizedDescription);
-                                                STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                                                XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
 
                                                 exitRunLoop = YES;
                                             }];
@@ -287,8 +287,8 @@
     BaasioPush *push = [[BaasioPush alloc] init];
     [push storedPushDeviceInfo:token];
 
-    STAssertTrue([token isEqualToString:[push storedPushDeviceID]], @"deviceID error", nil);
-    STAssertEqualObjects(token, [push storedPushDeviceID], @"deviceID error", nil);
+    XCTAssertTrue([token isEqualToString:[push storedPushDeviceID]], @"deviceID error", nil);
+    XCTAssertEqualObjects(token, [push storedPushDeviceID], @"deviceID error", nil);
 
     NSLog(@"token : %@", token);
     NSLog(@"user : %@", [push storedPushUserUUID]);

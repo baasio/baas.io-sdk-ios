@@ -38,7 +38,7 @@
           }
           failureBlock:^(NSError *error) {
               NSLog(@"fail : %@", error.localizedDescription);
-              STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+              XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
               exitRunLoop = YES;
           }];
     
@@ -55,7 +55,7 @@
              }
              failureBlock:^(NSError *error) {
                  NSLog(@"fail : %@", error.localizedDescription);
-                 STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                 XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                  exitRunLoop = YES;
              }];
     

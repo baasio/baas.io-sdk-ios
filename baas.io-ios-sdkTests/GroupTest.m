@@ -52,7 +52,7 @@ NSString *uuid;
                  failureBlock:^(NSError *error){
                      exitRunLoop = true;
                      NSLog(@"fail : %@", error.localizedDescription);
-                     STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                     XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                  }];
     [self runTestLoop];
 }
@@ -71,7 +71,7 @@ NSString *uuid;
                  failureBlock:^(NSError *error){
                      exitRunLoop = true;
                      NSLog(@"fail : %@", error.localizedDescription);
-                     STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                     XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                  }];
     
     [self runTestLoop];
@@ -91,7 +91,7 @@ NSString *uuid;
                  failureBlock:^(NSError *error){
                      exitRunLoop = true;
                      NSLog(@"fail : %@", error.localizedDescription);
-                     STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                     XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                  }];
     
     [self runTestLoop];
@@ -110,7 +110,7 @@ NSString *uuid;
               failureBlock:^(NSError *error){
                   exitRunLoop = true;
                   NSLog(@"fail : %@", error.localizedDescription);
-                  STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                  XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
               }];
     
     [self runTestLoop];
@@ -127,7 +127,7 @@ NSString *uuid;
               failureBlock:^(NSError *error){
                   exitRunLoop = true;
                   NSLog(@"fail : %@", error.localizedDescription);
-                  STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                  XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
               }];
     
     [self runTestLoop];
@@ -137,12 +137,12 @@ NSString *uuid;
     BaasioQuery *query = [BaasioQuery queryWithGroup:groupName];
     [query queryInBackground:^(NSArray *array) {
                     NSLog(@"array : %@", array.description);
-                    STAssertTrue(array.count == 1, @"count is mismatch.");
+                    XCTAssertTrue(array.count == 1, @"count is mismatch.");
                     exitRunLoop = true;
                 }
                 failureBlock:^(NSError *error){
                     NSLog(@"fail : %@", error.localizedDescription);
-                    STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                    XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                     exitRunLoop = true;
                 }];
     
@@ -159,7 +159,7 @@ NSString *uuid;
                  failureBlock:^(NSError *error){
                      exitRunLoop = true;
                      NSLog(@"fail : %@", error.localizedDescription);
-                     STFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                     XCTFail(@"Test Fail in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                  }];
     
     [self runTestLoop];

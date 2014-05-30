@@ -90,7 +90,6 @@
 		AFB9E415165A2D7B0021AA4C /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E40B165A2D7B0021AA4C /* AFXMLRequestOperation.m */; };
 		AFB9E416165A2D7B0021AA4C /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB9E40D165A2D7B0021AA4C /* UIImageView+AFNetworking.m */; };
 		AFD93F0B165A2B0E00FC9ED0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD93F0A165A2B0E00FC9ED0 /* Foundation.framework */; };
-		AFD93F1A165A2B0E00FC9ED0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD93F19165A2B0E00FC9ED0 /* SenTestingKit.framework */; };
 		AFD93F1D165A2B0E00FC9ED0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD93F0A165A2B0E00FC9ED0 /* Foundation.framework */; };
 		AFD93F20165A2B0E00FC9ED0 /* libbaas.io-ios-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD93F07165A2B0E00FC9ED0 /* libbaas.io-ios-sdk.a */; };
 		AFF46360166E2C4800866306 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF429CCA165B4B0E001C78B5 /* UIKit.framework */; };
@@ -254,8 +253,7 @@
 		AFD93F07165A2B0E00FC9ED0 /* libbaas.io-ios-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libbaas.io-ios-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFD93F0A165A2B0E00FC9ED0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AFD93F0E165A2B0E00FC9ED0 /* baas.io-ios-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "baas.io-ios-sdk-Prefix.pch"; sourceTree = "<group>"; };
-		AFD93F18165A2B0E00FC9ED0 /* baas.io-ios-sdkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "baas.io-ios-sdkTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFD93F19165A2B0E00FC9ED0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		AFD93F18165A2B0E00FC9ED0 /* baas.io-ios-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "baas.io-ios-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFD93F23165A2B0E00FC9ED0 /* baas.io-ios-sdkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "baas.io-ios-sdkTests-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -278,7 +276,6 @@
 				AFF46365166E2C8C00866306 /* MobileCoreServices.framework in Frameworks */,
 				AFF46364166E2C8700866306 /* SystemConfiguration.framework in Frameworks */,
 				AFF46361166E2C5100866306 /* UIKit.framework in Frameworks */,
-				AFD93F1A165A2B0E00FC9ED0 /* SenTestingKit.framework in Frameworks */,
 				AFD93F1D165A2B0E00FC9ED0 /* Foundation.framework in Frameworks */,
 				AFD93F20165A2B0E00FC9ED0 /* libbaas.io-ios-sdk.a in Frameworks */,
 			);
@@ -372,7 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				AFD93F07165A2B0E00FC9ED0 /* libbaas.io-ios-sdk.a */,
-				AFD93F18165A2B0E00FC9ED0 /* baas.io-ios-sdkTests.octest */,
+				AFD93F18165A2B0E00FC9ED0 /* baas.io-ios-sdkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -385,7 +382,6 @@
 				AF4FDDA3166E28CF0048310C /* SystemConfiguration.framework */,
 				AF429CCA165B4B0E001C78B5 /* UIKit.framework */,
 				AFD93F0A165A2B0E00FC9ED0 /* Foundation.framework */,
-				AFD93F19165A2B0E00FC9ED0 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -503,8 +499,8 @@
 			);
 			name = "baas.io-ios-sdkTests";
 			productName = "baas.io-ios-sdkTests";
-			productReference = AFD93F18165A2B0E00FC9ED0 /* baas.io-ios-sdkTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = AFD93F18165A2B0E00FC9ED0 /* baas.io-ios-sdkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -512,6 +508,7 @@
 		AFD93EFE165A2B0E00FC9ED0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = kth;
 			};
@@ -760,6 +757,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "baas.io-ios-sdk/baas.io-ios-sdk-Prefix.pch";
@@ -774,7 +772,6 @@
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "armv7 armv7s";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -788,6 +785,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "baas.io-ios-sdk/baas.io-ios-sdk-Prefix.pch";
@@ -797,7 +795,6 @@
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "armv7 armv7s";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

@@ -49,7 +49,7 @@ static NSString *uuid;
             NSLog(@"error : %@", error.localizedDescription);
             NSLog(@"uuid : %@", error.uuid);
 
-            STFail(@"Test Faiil in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+            XCTFail(@"Test Faiil in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
             exitRunLoop = YES;
         }
         progressBlock:^(float progress) {
@@ -71,7 +71,7 @@ static NSString *uuid;
                      }
                      failureBlock:^(NSError *error) {
                          NSLog(@"error : %@", error.localizedDescription);
-                         STFail(@"Test Faiil in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                         XCTFail(@"Test Faiil in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                          exitRunLoop = YES;
                      }];
 
@@ -103,7 +103,7 @@ static NSString *uuid;
          failureBlock:^(NSError *error) {
              NSLog(@"error : %@", error.localizedDescription);
 
-             STFail(@"Test Faiil in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+             XCTFail(@"Test Faiil in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
              exitRunLoop = YES;
          }
          progressBlock:^(float progress){
@@ -128,7 +128,7 @@ static NSString *uuid;
         failureBlock:^(NSError *error) {
             NSLog(@"error : %@", error.localizedDescription);
 
-            STFail(@"Test Faiil in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+            XCTFail(@"Test Faiil in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
             exitRunLoop = YES;
         }];
     
@@ -153,7 +153,7 @@ static NSString *uuid;
             failureBlock:^(NSError *error) {
                 NSLog(@"error : %@", error.localizedDescription);
 
-                STFail(@"Test Faiil in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                XCTFail(@"Test Faiil in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                 exitRunLoop = YES;
             }
 
@@ -179,7 +179,7 @@ static NSString *uuid;
                 }
                 failureBlock:^(NSError *error) {
                     NSLog(@"error : %@", error.localizedDescription);
-                    STFail(@"Test Faiil in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
+                    XCTFail(@"Test Faiil in %@ : %@", NSStringFromSelector(_cmd), error.localizedDescription);
                     exitRunLoop = YES;
                 }];
 
