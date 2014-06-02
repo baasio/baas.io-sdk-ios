@@ -368,8 +368,8 @@
 }
 
 
-#pragma mark - Auth by KaKao Talk
-+ (void)signUpViaKakaotalk:(NSString *)accessToken error:(NSError *__autoreleasing *)error {
+#pragma mark - Auth by KaKao
++ (void)signUpViaKakao:(NSString *)accessToken error:(NSError *__autoreleasing *)error {
     NSDictionary *params = @{
                              @"kkt_access_token" : accessToken
                              };
@@ -382,7 +382,7 @@
     [self saveLoginInfomation:result];
 }
 
-+ (BaasioRequest *)signUpViaKakaotalkInBackground:(NSString *)accessToken successBlock:(void (^)(void))successBlock failureBlock:(void (^)(NSError *))failureBlock {
++ (BaasioRequest *)signUpViaKakaoInBackground:(NSString *)accessToken successBlock:(void (^)(void))successBlock failureBlock:(void (^)(NSError *))failureBlock {
     NSDictionary *params = @{
                              @"kkt_access_token" : accessToken
                              };
@@ -394,12 +394,12 @@
     } failure:failureBlock];
 }
 
-+ (void)signInViaKakaotalk:(NSString *)accessToken error:(NSError *__autoreleasing *)error {
-    [self signInViaKakaotalk:accessToken error:error];
++ (void)signInViaKakao:(NSString *)accessToken error:(NSError *__autoreleasing *)error {
+    [self signUpViaKakao:accessToken error:error];
 }
 
-+ (BaasioRequest *)signInViaKakaotalkInBackground:(NSString *)accessToken successBlock:(void (^)(void))successBlock failureBlock:(void (^)(NSError *))failureBlock {
-    return [self signInViaKakaotalkInBackground:accessToken successBlock:successBlock failureBlock:failureBlock];
++ (BaasioRequest *)signInViaKakaoInBackground:(NSString *)accessToken successBlock:(void (^)(void))successBlock failureBlock:(void (^)(NSError *))failureBlock {
+    return [self signUpViaKakaoInBackground:accessToken successBlock:successBlock failureBlock:failureBlock];
 }
 
 

@@ -222,44 +222,44 @@
 
 
 /**
- Kakaotalk 통한 회원가입
+ Kakao 통한 회원가입
  
  @param accessToken accessToken
  @param error error
  */
-+ (void)signUpViaKakaotalk:(NSString *)accessToken
-                     error:(NSError**)error;
++ (void)signUpViaKakao:(NSString *)accessToken
+                 error:(NSError**)error;
 
 /**
- Kakaotalk 통한 회원가입 asynchronously
+ Kakao 통한 회원가입 asynchronously
  
  @param accessToken accessToken
  @param successBlock successBlock
  @param failureBlock failureBlock
  */
-+ (BaasioRequest*)signUpViaKakaotalkInBackground:(NSString *)accessToken
-                                    successBlock:(void (^)(void))successBlock
-                                    failureBlock:(void (^)(NSError *error))failureBlock;
++ (BaasioRequest*)signUpViaKakaoInBackground:(NSString *)accessToken
+                                successBlock:(void (^)(void))successBlock
+                                failureBlock:(void (^)(NSError *error))failureBlock;
 
 /**
- Kakaotalk 통한 로그인
+ Kakao 통한 로그인
  
  @param accessToken accessToken
  @param error error
  */
-+ (void)signInViaKakaotalk:(NSString *)accessToken
-                     error:(NSError**)error;
++ (void)signInViaKakao:(NSString *)accessToken
+                 error:(NSError**)error;
 
 /**
- Kakaotalk 통한 로그인 asynchronously
+ Kakao 통한 로그인 asynchronously
  
  @param accessToken accessToken
  @param successBlock successBlock
  @param failureBlock failureBlock
  */
-+ (BaasioRequest*)signInViaKakaotalkInBackground:(NSString *)accessToken
-                                    successBlock:(void (^)(void))successBlock
-                                    failureBlock:(void (^)(NSError *error))failureBlock;
++ (BaasioRequest*)signInViaKakaoInBackground:(NSString *)accessToken
+                                successBlock:(void (^)(void))successBlock
+                                failureBlock:(void (^)(NSError *error))failureBlock;
 
 
 
