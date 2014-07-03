@@ -71,18 +71,21 @@
     if ([httpMethod isEqualToString:@"GET"] ||[httpMethod isEqualToString:@"DELETE"]) {
         parameters = params;
     }
+    
     AFHTTPClient *httpClient = [AFHTTPClient clientWithBaseURL:[[Baasio sharedInstance] getAPIURL]];
     NSMutableURLRequest *request = [httpClient requestWithMethod:httpMethod path:path parameters:parameters];
     request = [[Baasio sharedInstance] setAuthorization:request];
 
     if ([httpMethod isEqualToString:@"POST"] || [httpMethod isEqualToString:@"PUT"]) {
-        NSError *error;
-        NSData *data = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:&error];
-        if (error != nil) {
-            failureBlock(error);
-            return nil;
+        if (params != nil) {
+            NSError *error;
+            NSData *data = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:&error];
+            if (error != nil) {
+                failureBlock(error);
+                return nil;
+            }
+            request.HTTPBody = data;
         }
-        request.HTTPBody = data;
     }
     
     void (^failure)(NSURLRequest *, NSHTTPURLResponse *, NSError *, id) = [self failure:failureBlock];

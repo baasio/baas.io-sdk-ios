@@ -81,13 +81,15 @@
     }
 
     if ([httpMethod isEqualToString:@"POST"] || [httpMethod isEqualToString:@"PUT"]) {
-        NSError *error;
-        NSData *data = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:&error];
-        if (error != nil) {
-            failureBlock(error);
-            return nil;
+        if (params != nil) {
+            NSError *error;
+            NSData *data = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:&error];
+            if (error != nil) {
+                failureBlock(error);
+                return nil;
+            }
+            request.HTTPBody = data;
         }
-        request.HTTPBody = data;
     }
 
     AFHTTPRequestOperation *operation =[httpClient HTTPRequestOperationWithRequest:request
